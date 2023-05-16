@@ -56,12 +56,18 @@ public class PantallaUsuario extends JFrame{
 		getContentPane().add(Mujer, gbc_Mujer);
 		
 		JSplitPane splitPane = new JSplitPane();
+		splitPane.setBackground(new Color(128, 0, 128));
 		GridBagConstraints gbc_splitPane = new GridBagConstraints();
 		gbc_splitPane.insets = new Insets(0, 0, 5, 5);
-		gbc_splitPane.fill = GridBagConstraints.BOTH;
 		gbc_splitPane.gridx = 2;
 		gbc_splitPane.gridy = 3;
 		getContentPane().add(splitPane, gbc_splitPane);
+		
+		JButton btnNewButton = new JButton("Aether");
+		splitPane.setLeftComponent(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Lumine");
+		splitPane.setRightComponent(btnNewButton_1);
 		
 		JButton next = new JButton("Siguiente");
 		next.setFont(new Font("DejaVu Serif", Font.BOLD, 14));
