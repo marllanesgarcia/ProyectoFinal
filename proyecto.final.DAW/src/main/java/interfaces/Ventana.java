@@ -6,7 +6,7 @@ public class Ventana extends JFrame{
 
 	public Ventana() {
 		this.setSize(600, 500);
-		this.setTitle("¿Como estan los maquinas? lo primero de todo");
+		this.setTitle("¡Bienvenido a Stixer Naver!");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setContentPane(new PantallaLogin(this));

@@ -14,25 +14,24 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map.Entry;
-// Singleton: de una sola instancia.
+
 public abstract class DAO {
 
-	// Conexion RUDE
 	private static Connection conexion;
 	
-	private static Statement conectar() {  // se conecta a la base de datos para hacer consultas
+	private static Statement conectar() { 
 		
 		try {
 		BufferedReader lector=new BufferedReader(new FileReader("./bdconfig.ini"));
 		String ip=lector.readLine();
-		int puerto=Integer.parseInt(lector.readLine());  // segunda linea del fichero siempre hay que poner un puerto
+		int puerto=Integer.parseInt(lector.readLine());
 		String nombreBD=lector.readLine();
 		String user=lector.readLine();
 		String password=lector.readLine();
 		lector.close();
 		conexion=DriverManager.getConnection(
 				"jdbc:mysql://"+ip+":"+puerto+"/"+nombreBD, user, password);
-			return conexion.createStatement();  // paso 3: nos devuelve un dato tipo statement
+			return conexion.createStatement();
 		
 		}catch (SQLException e) {
 		e.printStackTrace();
@@ -60,8 +59,6 @@ public abstract class DAO {
 	
 	public static int insertar(String tabla, HashMap<String,Object> columnas) throws SQLException {
 		Statement smt=conectar();
-		// insert into cliente (email, nombre, contraseña) values ('a@a','paco','mer');
-		// insert into cliente (email, telefono,contraseña,nombre) values
 		String consulta="insert into "+ tabla + " (";
 		Iterator it=columnas.keySet().iterator();
 		while (it.hasNext()) {
@@ -73,7 +70,7 @@ public abstract class DAO {
 		it=columnas.values().iterator();
 		while (it.hasNext()) {
 			Object elemento=it.next();
-			if(elemento.getClass()!=String.class&&elemento.getClass()!=Character.class) { // si no es String o char, hago una consulta pero no pongo ni la conversion ni comillas
+			if(elemento.getClass()!=String.class&&elemento.getClass()!=Character.class) { 
 				consulta+=elemento+",";
 			}else {
 			consulta+= "'"+(String)elemento+"',";
@@ -123,12 +120,10 @@ public abstract class DAO {
 				String emailQ=cursor.getString(cursor.findColumn("email"));
 				String contraseñaQ=cursor.getString(cursor.findColumn("password"));
 				String nombreQ=cursor.getString(cursor.findColumn("nombre"));
-				int telefonoQ=cursor.getInt(cursor.findColumn("telefono"));
 				
 				fila.add(emailQ);
 				fila.add(contraseñaQ);
 				fila.add(nombreQ);
-				fila.add(telefonoQ);
 				
 			}
 			desconectar(smt);			
@@ -143,9 +138,7 @@ public abstract class DAO {
 		while(ith.hasNext()) {
 			query+=(String)ith.next()+",";
 		}
-		query=query.substring(0,query.length()-1)+" from "+tabla+(restricciones.size()>0?" where ":"");    
-		// si es mayor que 0, se le pone el where, o sino nada
-		// select email, nombre, password, telefono from cliente where email= 'asdad' and ...;
+		query=query.substring(0,query.length()-1)+" from "+tabla+(restricciones.size()>0?" where ":"");   
 		Iterator itm=restricciones.entrySet().iterator();
 		while (itm.hasNext()) {
 			Entry actual=(Entry)itm.next();
@@ -172,18 +165,6 @@ public abstract class DAO {
 					fila.add(cursor.getString(cursor.findColumn(nombreCol)));
 				}
 			}
-			
-			/*
-			String emailQ=cursor.getString(cursor.findColumn("email"));
-			String contraseñaQ=cursor.getString(cursor.findColumn("password"));
-			String nombreQ=cursor.getString(cursor.findColumn("nombre"));
-			int telefonoQ=cursor.getInt(cursor.findColumn("telefono"));
-			
-			fila.add(emailQ);
-			fila.add(contraseñaQ);
-			fila.add(nombreQ);
-			fila.add(telefonoQ);*/
-			
 		}
 		desconectar(smt);			
 		return fila;
