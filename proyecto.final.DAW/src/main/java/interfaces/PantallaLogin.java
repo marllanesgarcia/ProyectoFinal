@@ -49,6 +49,7 @@ public class PantallaLogin extends JPanel{
 		cuadro.add(bienvenido);
 		bienvenido.setFont(new Font("Segoe UI Black", Font.PLAIN, 11));
 		
+		
 		descripcion = new JTextField();
 		descripcion.setText("    ¡Introduce un correo y contraseña para empezar la aventura! ☺ ");
 		descripcion.setFont(new Font("Monotype Corsiva", Font.PLAIN, 15));
@@ -64,7 +65,14 @@ public class PantallaLogin extends JPanel{
 		iniciar.setBackground(new Color(216, 191, 216));
 		iniciar.setActionCommand("Press Start");
 		iniciar.setBounds(227, 430, 128, 23);
+		iniciar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.cambiarAPantalla(PantallaUsuario.class);
+			}
+		});
 		add(iniciar);
+		
 		
 		JProgressBar barraEstado = new JProgressBar();
 		barraEstado.setValue(50);
@@ -107,7 +115,7 @@ public class PantallaLogin extends JPanel{
 		registro.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ventana.cambiarAPantalla(PantallaLogin.class);
+				ventana.cambiarAPantalla(PantallaRegistro.class);
 			}
 		});
 		registro.setBackground(new Color(216, 191, 216));
@@ -118,7 +126,7 @@ public class PantallaLogin extends JPanel{
 		
 		JLabel fondo = new JLabel("");
 		fondo.setIcon(new ImageIcon(PantallaLogin.class.getResource("/imagenes/HD-wallpaper-video-game-genshin-impact-inazuma-genshin-impact.jpg")));
-		fondo.setBounds(0, 0, 601, 500);
+		fondo.setBounds(0, 0, 601, 502);
 		add(fondo);
 	}
 }

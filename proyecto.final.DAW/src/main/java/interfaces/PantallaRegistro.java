@@ -22,9 +22,9 @@ public class PantallaRegistro extends JPanel{
 	
 	private Ventana ventana;
 	private JTextField descripcion;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField usuario;
+	private JTextField email;
+	private JTextField password;
 	private JPasswordField datosPassword;
 	
 	public PantallaRegistro (Ventana v) {
@@ -57,14 +57,14 @@ public class PantallaRegistro extends JPanel{
 		cuadroUsuario.setBounds(59, 177, 128, 35);
 		add(cuadroUsuario);
 		
-		textField_1 = new JTextField();
-		textField_1.setText("     Usuario");
-		textField_1.setFont(new Font("MV Boli", Font.PLAIN, 11));
-		textField_1.setEditable(false);
-		textField_1.setColumns(10);
-		cuadroUsuario.add(textField_1);
+		usuario = new JTextField();
+		usuario.setText("     Usuario");
+		usuario.setFont(new Font("MV Boli", Font.PLAIN, 11));
+		usuario.setEditable(false);
+		usuario.setColumns(10);
+		cuadroUsuario.add(usuario);
 		
-		TextField datosUsuario = new TextField();
+		final TextField datosUsuario = new TextField();
 		datosUsuario.setBounds(59, 239, 128, 28);
 		add(datosUsuario);
 		
@@ -73,14 +73,14 @@ public class PantallaRegistro extends JPanel{
 		cuadroEmail.setBounds(409, 177, 128, 35);
 		add(cuadroEmail);
 		
-		textField_2 = new JTextField();
-		textField_2.setText("     Correo");
-		textField_2.setFont(new Font("MV Boli", Font.PLAIN, 11));
-		textField_2.setEditable(false);
-		textField_2.setColumns(10);
-		cuadroEmail.add(textField_2);
+		email = new JTextField();
+		email.setText("     Correo");
+		email.setFont(new Font("MV Boli", Font.PLAIN, 11));
+		email.setEditable(false);
+		email.setColumns(10);
+		cuadroEmail.add(email);
 		
-		TextField datosEmail = new TextField();
+		final TextField datosEmail = new TextField();
 		datosEmail.setBounds(409, 239, 128, 28);
 		add(datosEmail);
 		
@@ -89,12 +89,12 @@ public class PantallaRegistro extends JPanel{
 		cuadroPassword.setBounds(238, 177, 128, 35);
 		add(cuadroPassword);
 		
-		textField_3 = new JTextField();
-		textField_3.setText("   Contraseña");
-		textField_3.setFont(new Font("MV Boli", Font.PLAIN, 11));
-		textField_3.setEditable(false);
-		textField_3.setColumns(10);
-		cuadroPassword.add(textField_3);
+		password = new JTextField();
+		password.setText("   Contraseña");
+		password.setFont(new Font("MV Boli", Font.PLAIN, 11));
+		password.setEditable(false);
+		password.setColumns(10);
+		cuadroPassword.add(password);
 		
 		datosPassword = new JPasswordField();
 		datosPassword.setBounds(238, 239, 128, 28);
@@ -104,6 +104,11 @@ public class PantallaRegistro extends JPanel{
 		guardarInfo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {;
+			String usuario=datosUsuario.getText();
+			String email=datosEmail.getText();
+			String contraseña=new String(datosPassword.getPassword());
+			System.out.println(usuario+" : "+contraseña);
+			ventana.cambiarAPantalla(PantallaUsuario.class);	
 			}
 		});
 		guardarInfo.setToolTipText("SUUUUU");
