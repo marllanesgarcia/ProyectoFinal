@@ -122,7 +122,7 @@ public class PantallaRegistro extends JPanel{
 				e1.printStackTrace();
 			}
 			
-			ventana.cambiarAPantalla(PantallaUsuario.class);	
+			ventana.cambiarAPantalla(PantallaPersonaje.class);	
 			}
 		});
 		guardarInfo.setToolTipText("SUUUUU");

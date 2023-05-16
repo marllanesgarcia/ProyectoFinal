@@ -24,8 +24,6 @@ import javax.swing.JPasswordField;
 
 public class PantallaLogin extends JPanel{
 
-	
-	
 	private Ventana ventana;
 	private JTextField descripcion;
 	private JTextField email;
@@ -68,7 +66,7 @@ public class PantallaLogin extends JPanel{
 		iniciar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ventana.cambiarAPantalla(PantallaUsuario.class);
+				ventana.cambiarAPantalla(PantallaPersonaje.class);
 			}
 		});
 		add(iniciar);
