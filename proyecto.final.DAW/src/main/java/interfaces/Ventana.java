@@ -9,7 +9,7 @@ public class Ventana extends JFrame{
 		this.setTitle("¡Bienvenido a Stixer Naver!");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
-		this.setContentPane(new PantallaRegistro(this));
+		this.setContentPane(new PantallaLogin(this));
 		this.setVisible(true); 
 	}
 	

@@ -25,7 +25,7 @@ public class Usuario {
 		
 	}
 
-	public Usuario(String email, String password) throws SQLException, ClienteNoExisteException, ContaseñaInvalidaException {
+	public Usuario(String nombre, String password) throws SQLException, ClienteNoExisteException, ContaseñaInvalidaException {
 	super();
 	LinkedHashSet columnasSacar=new LinkedHashSet<String>();
 	columnasSacar.add("email");
@@ -46,7 +46,6 @@ public class Usuario {
 		}
 	}
 	
-	this.email = email;
 	this.password = password;
 	this.setNombre(nombre);
 		

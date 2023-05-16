@@ -2,15 +2,21 @@ package interfaces;
 
 import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
+
+import clases.Usuario;
+
 import java.awt.Color;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JDesktopPane;
 import java.awt.Dimension;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.TextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -108,6 +114,14 @@ public class PantallaRegistro extends JPanel{
 			String email=datosEmail.getText();
 			String contraseña=new String(datosPassword.getPassword());
 			System.out.println(usuario+" : "+contraseña);
+			
+			try {
+				new Usuario(email,contraseña,usuario);
+				JOptionPane.showMessageDialog(ventana, "Registrado Correctamente","Éxito",JOptionPane.INFORMATION_MESSAGE);
+			}catch(SQLException e1) {
+				e1.printStackTrace();
+			}
+			
 			ventana.cambiarAPantalla(PantallaUsuario.class);	
 			}
 		});
