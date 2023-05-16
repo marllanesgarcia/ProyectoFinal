@@ -1,115 +1,116 @@
 package interfaces;
 
 import javax.swing.JPanel;
-import javax.swing.JButton;
 import javax.swing.border.MatteBorder;
 import java.awt.Color;
-import java.awt.SystemColor;
-import javax.swing.JMenuBar;
-import javax.swing.JEditorPane;
-import javax.swing.JToggleButton;
-import javax.swing.border.LineBorder;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JDesktopPane;
-import java.awt.Font;
 import javax.swing.JTextField;
-import javax.swing.border.BevelBorder;
-import javax.swing.JProgressBar;
+import java.awt.Font;
+import javax.swing.JDesktopPane;
+import java.awt.Dimension;
+import javax.swing.JLabel;
 import java.awt.TextField;
 import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import javax.swing.border.BevelBorder;
+import javax.swing.ImageIcon;
 
 public class PantallaRegistro extends JPanel{
 
 	
-	
 	private Ventana ventana;
 	private JTextField descripcion;
-	private JTextField email;
-	private JTextField password;
-	private JPasswordField cuadroPassword;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JPasswordField datosPassword;
 	
 	public PantallaRegistro (Ventana v) {
 		setBackground(new Color(216, 191, 216));
-		setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.controlDkShadow));
+		setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(128, 128, 128)));
 		this.ventana=v;
 		setLayout(null);
 		
-		JDesktopPane cuadro = new JDesktopPane();
-		cuadro.setBackground(new Color(147, 112, 219));
-		cuadro.setBounds(10, 11, 119, 46);
-		add(cuadro);
-		
-		JLabel bienvenido = new JLabel("¡Bienvenid@!");
-		bienvenido.setForeground(new Color(240, 255, 240));
-		bienvenido.setBounds(20, 11, 99, 24);
-		cuadro.add(bienvenido);
-		bienvenido.setFont(new Font("Segoe UI Black", Font.PLAIN, 11));
-		
 		descripcion = new JTextField();
-		descripcion.setText("    Para empezar el juego primero hace falta un correo y contraseña ☺ ");
+		descripcion.setText("      El primer paso, hacer el registro para guardar tus progresos ☺ ");
 		descripcion.setFont(new Font("Monotype Corsiva", Font.PLAIN, 15));
 		descripcion.setEditable(false);
 		descripcion.setColumns(10);
-		descripcion.setBounds(95, 219, 383, 43);
+		descripcion.setBounds(111, 101, 383, 43);
 		add(descripcion);
 		
-		JButton iniciar = new JButton("Press Start");
-		iniciar.setToolTipText("SUUUUU");
-		iniciar.setFont(new Font("Impact", Font.PLAIN, 11));
-		iniciar.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		iniciar.setBackground(new Color(216, 191, 216));
-		iniciar.setActionCommand("Press Start");
-		iniciar.setBounds(227, 430, 128, 23);
-		add(iniciar);
+		JDesktopPane cuadro = new JDesktopPane();
+		cuadro.setSize(new Dimension(4, 0));
+		cuadro.setBackground(new Color(135, 206, 250));
+		cuadro.setBounds(10, 11, 119, 35);
+		add(cuadro);
 		
-		JProgressBar barraEstado = new JProgressBar();
-		barraEstado.setValue(50);
-		barraEstado.setBounds(26, 475, 146, 14);
-		add(barraEstado);
+		JLabel lblaRegistrarse = new JLabel("¡A registrarse!");
+		lblaRegistrarse.setFont(new Font("Segoe UI Black", Font.PLAIN, 11));
+		lblaRegistrarse.setBounds(22, 11, 107, 14);
+		cuadro.add(lblaRegistrarse);
 		
-		JPanel panelCorreo = new JPanel();
-		panelCorreo.setBackground(new Color(230, 230, 250));
-		panelCorreo.setBounds(105, 273, 128, 35);
-		add(panelCorreo);
+		JPanel cuadroUsuario = new JPanel();
+		cuadroUsuario.setBackground(new Color(230, 230, 250));
+		cuadroUsuario.setBounds(59, 177, 128, 35);
+		add(cuadroUsuario);
 		
-		email = new JTextField();
-		email.setText("     Correo");
-		email.setFont(new Font("MV Boli", Font.PLAIN, 11));
-		email.setEditable(false);
-		email.setColumns(10);
-		panelCorreo.add(email);
+		textField_1 = new JTextField();
+		textField_1.setText("     Usuario");
+		textField_1.setFont(new Font("MV Boli", Font.PLAIN, 11));
+		textField_1.setEditable(false);
+		textField_1.setColumns(10);
+		cuadroUsuario.add(textField_1);
 		
-		JPanel panelPassword = new JPanel();
-		panelPassword.setBackground(new Color(230, 230, 250));
-		panelPassword.setBounds(350, 273, 128, 35);
-		add(panelPassword);
+		TextField datosUsuario = new TextField();
+		datosUsuario.setBounds(59, 239, 128, 28);
+		add(datosUsuario);
 		
-		password = new JTextField();
-		password.setText("   Contraseña");
-		password.setFont(new Font("MV Boli", Font.PLAIN, 11));
-		password.setEditable(false);
-		password.setColumns(10);
-		panelPassword.add(password);
-		
-		TextField cuadroEmail = new TextField();
-		cuadroEmail.setBounds(105, 314, 128, 28);
+		JPanel cuadroEmail = new JPanel();
+		cuadroEmail.setBackground(new Color(230, 230, 250));
+		cuadroEmail.setBounds(409, 177, 128, 35);
 		add(cuadroEmail);
 		
-		cuadroPassword = new JPasswordField();
-		cuadroPassword.setBounds(350, 314, 128, 28);
+		textField_2 = new JTextField();
+		textField_2.setText("     Correo");
+		textField_2.setFont(new Font("MV Boli", Font.PLAIN, 11));
+		textField_2.setEditable(false);
+		textField_2.setColumns(10);
+		cuadroEmail.add(textField_2);
+		
+		TextField datosEmail = new TextField();
+		datosEmail.setBounds(409, 239, 128, 28);
+		add(datosEmail);
+		
+		JPanel cuadroPassword = new JPanel();
+		cuadroPassword.setBackground(new Color(230, 230, 250));
+		cuadroPassword.setBounds(238, 177, 128, 35);
 		add(cuadroPassword);
 		
-		JButton registro = new JButton("¡Registrate aqui!");
-		registro.setBackground(new Color(216, 191, 216));
-		registro.setForeground(Color.BLACK);
-		registro.setFont(new Font("MV Boli", Font.PLAIN, 11));
-		registro.setBounds(139, 11, 136, 23);
-		add(registro);
+		textField_3 = new JTextField();
+		textField_3.setText("   Contraseña");
+		textField_3.setFont(new Font("MV Boli", Font.PLAIN, 11));
+		textField_3.setEditable(false);
+		textField_3.setColumns(10);
+		cuadroPassword.add(textField_3);
 		
-		JLabel fondo = new JLabel("");
-		fondo.setIcon(new ImageIcon(PantallaRegistro.class.getResource("/imagenes/HD-wallpaper-video-game-genshin-impact-inazuma-genshin-impact.jpg")));
-		fondo.setBounds(0, 0, 601, 500);
-		add(fondo);
-	}
+		datosPassword = new JPasswordField();
+		datosPassword.setBounds(238, 239, 128, 28);
+		add(datosPassword);
+		
+		JButton guardarInfo = new JButton("Guardar");
+		guardarInfo.setToolTipText("SUUUUU");
+		guardarInfo.setFont(new Font("Impact", Font.PLAIN, 11));
+		guardarInfo.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		guardarInfo.setBackground(new Color(216, 191, 216));
+		guardarInfo.setActionCommand("Press Start");
+		guardarInfo.setBounds(238, 431, 128, 23);
+		add(guardarInfo);
+		
+		JLabel fondoRegistro = new JLabel("");
+		fondoRegistro.setIcon(new ImageIcon(PantallaRegistro.class.getResource("/imagenes/registro4.jpg")));
+		fondoRegistro.setBounds(0, 0, 601, 501);
+		add(fondoRegistro);
+		
+		}
+	
 }
