@@ -9,6 +9,9 @@ import javax.swing.JDesktopPane;
 import java.awt.Dimension;
 import javax.swing.JLabel;
 import java.awt.TextField;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.border.BevelBorder;
@@ -98,6 +101,11 @@ public class PantallaRegistro extends JPanel{
 		add(datosPassword);
 		
 		JButton guardarInfo = new JButton("Guardar");
+		guardarInfo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {;
+			}
+		});
 		guardarInfo.setToolTipText("SUUUUU");
 		guardarInfo.setFont(new Font("Impact", Font.PLAIN, 11));
 		guardarInfo.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
