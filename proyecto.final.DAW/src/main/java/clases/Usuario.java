@@ -1,32 +1,47 @@
 package clases;
 
+import java.sql.SQLException;
+import java.util.HashMap;
+
+import util.DAO;
+
 public class Usuario {
 
-	private String contraseña;
-	private String correo;
+	private String password;
+	private String email;
 	private ElementoConNombre nombre;
 	
-	public Usuario(String contraseña, String correo, ElementoConNombre nombre) {
+	public Usuario (String email, String password, String nombre) throws SQLException {
 		super();
-		this.contraseña = contraseña;
-		this.correo = correo;
+		HashMap<String,Object> cols=new HashMap<String,Object>();
+		cols.put("email", email);
+		cols.put("nombre", nombre);
+		cols.put("password", password);
+		DAO.insertar("usuario",cols); 
+		
+	}
+
+	public Usuario(String password, String email, ElementoConNombre nombre) {
+		super();
+		this.password = password;
+		this.email = email;
 		this.nombre = nombre;
 	}
 
-	public String getContraseña() {
-		return contraseña;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public String getCorreo() {
-		return correo;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setCorreo(String correo) {
-		this.correo = correo;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public ElementoConNombre getNombre() {
@@ -39,8 +54,10 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [contraseña=" + contraseña + ", correo=" + correo + ", nombre=" + nombre + "]";
+		return "Usuario [password=" + password + ", email=" + email + ", nombre=" + nombre + "]";
 	}
+	
+
 	
 	
 }
