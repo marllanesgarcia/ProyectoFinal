@@ -41,5 +41,10 @@ public class PantallaPersonaje extends JPanel{
 		titulo.setFont(new Font("DejaVu Sans Condensed", Font.BOLD, 19));
 		panel.add(titulo);
 		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(PantallaPersonaje.class.getResource("/imagenes/pensando2.png")));
+		lblNewLabel.setBounds(0, 361, 195, 140);
+		add(lblNewLabel);
+		
 	}
 }
