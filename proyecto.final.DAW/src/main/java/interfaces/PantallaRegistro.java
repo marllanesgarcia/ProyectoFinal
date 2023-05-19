@@ -1,6 +1,5 @@
 package interfaces;
 
-import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
 
 import clases.Usuario;
@@ -12,11 +11,13 @@ import javax.swing.JDesktopPane;
 import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import java.awt.TextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -118,7 +119,10 @@ public class PantallaRegistro extends JPanel{
 			try {
 				new Usuario(email,contraseña,usuario);
 				JOptionPane.showMessageDialog(ventana, "Registrado Correctamente","Éxito",JOptionPane.INFORMATION_MESSAGE);
+			}catch(SQLIntegrityConstraintViolationException e3) {
+					JOptionPane.showMessageDialog(ventana,"El email ya existe", "No se pudo registrar",JOptionPane.ERROR_MESSAGE);
 			}catch(SQLException e1) {
+				JOptionPane.showMessageDialog(ventana,e1.getMessage(), "No se puede conectar con la BD",JOptionPane.ERROR_MESSAGE);
 				e1.printStackTrace();
 			}
 			
