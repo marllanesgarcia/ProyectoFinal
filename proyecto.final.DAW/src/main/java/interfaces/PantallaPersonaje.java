@@ -205,7 +205,7 @@ public class PantallaPersonaje extends JPanel{
 		add(datosArma);
 		
 		JLabel fondoPJ = new JLabel("New label");
-		fondoPJ.setIcon(new ImageIcon(PantallaPersonaje.class.getResource("/imagenes/fondoPJ.jpg")));
+		fondoPJ.setIcon(new ImageIcon(PantallaPersonaje.class.getResource("/imagenes/7.jpg")));
 		fondoPJ.setBounds(0, 0, 700, 501);
 		add(fondoPJ);
 		
