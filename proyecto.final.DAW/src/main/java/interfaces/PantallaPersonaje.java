@@ -27,8 +27,7 @@ public class PantallaPersonaje extends JPanel{
 	private JTextField txtVida;
 	private JTextField txtTalento;
 	private JTextField datosAltura;
-	private JTextField textField_3;
-	private JTextField datosTalento;
+	private JTextField datosVida;
 	private JTextField textoArma;
 	
 	public PantallaPersonaje(VentanaPersonaje v) {
@@ -178,15 +177,10 @@ public class PantallaPersonaje extends JPanel{
 		datosAltura.setBounds(306, 221, 128, 20);
 		add(datosAltura);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(306, 308, 128, 20);
-		add(textField_3);
-		
-		datosTalento = new JTextField();
-		datosTalento.setColumns(10);
-		datosTalento.setBounds(517, 308, 128, 20);
-		add(datosTalento);
+		datosVida = new JTextField();
+		datosVida.setColumns(10);
+		datosVida.setBounds(306, 308, 128, 20);
+		add(datosVida);
 		
 		JPanel cuadroUsuario_2_1_1_1_1 = new JPanel();
 		cuadroUsuario_2_1_1_1_1.setBackground(new Color(230, 230, 250));
@@ -199,6 +193,16 @@ public class PantallaPersonaje extends JPanel{
 		textoArma.setEditable(false);
 		textoArma.setColumns(10);
 		cuadroUsuario_2_1_1_1_1.add(textoArma);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
+		comboBox_1.setBounds(517, 307, 128, 22);
+		add(comboBox_1);
+		
+		JComboBox comboBox_1_1 = new JComboBox();
+		comboBox_1_1.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
+		comboBox_1_1.setBounds(409, 403, 128, 22);
+		add(comboBox_1_1);
 		
 	}
 }
