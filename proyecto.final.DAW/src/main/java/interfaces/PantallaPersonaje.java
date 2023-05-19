@@ -199,10 +199,15 @@ public class PantallaPersonaje extends JPanel{
 		comboBox_1.setBounds(517, 307, 128, 22);
 		add(comboBox_1);
 		
-		JComboBox comboBox_1_1 = new JComboBox();
-		comboBox_1_1.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
-		comboBox_1_1.setBounds(409, 403, 128, 22);
-		add(comboBox_1_1);
+		JComboBox datosArma = new JComboBox();
+		datosArma.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
+		datosArma.setBounds(409, 403, 128, 22);
+		add(datosArma);
+		
+		JLabel fondoPJ = new JLabel("New label");
+		fondoPJ.setIcon(new ImageIcon(PantallaPersonaje.class.getResource("/imagenes/fondoPJ.jpg")));
+		fondoPJ.setBounds(0, 0, 700, 501);
+		add(fondoPJ);
 		
 	}
 }
