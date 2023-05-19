@@ -53,7 +53,7 @@ public class PantallaLogin extends JPanel{
 		descripcion.setFont(new Font("Monotype Corsiva", Font.PLAIN, 15));
 		descripcion.setEditable(false);
 		descripcion.setColumns(10);
-		descripcion.setBounds(114, 220, 357, 43);
+		descripcion.setBounds(114, 220, 364, 43);
 		add(descripcion);
 		
 		JButton iniciar = new JButton("Press Start");

@@ -19,7 +19,17 @@ public class PantallaPersonaje extends JPanel{
 
 	
 	private VentanaPersonaje ventana;
-	private JTextField textField;
+	private JTextField datosEdad;
+	private JTextField textoRegion;
+	private JTextField txtEdad;
+	private JTextField txtAltura;
+	private JTextField txtElemento;
+	private JTextField txtVida;
+	private JTextField txtTalento;
+	private JTextField datosAltura;
+	private JTextField textField_3;
+	private JTextField datosTalento;
+	private JTextField textoArma;
 	
 	public PantallaPersonaje(VentanaPersonaje v) {
 		setBackground(new Color(224, 255, 255));
@@ -77,13 +87,118 @@ public class PantallaPersonaje extends JPanel{
 		JComboBox comboBox = new JComboBox();
 		comboBox.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Asia", "África", "América del Norte", "América del Sur", "Antártida", "Europa", "Oceanía"}));
-		comboBox.setBounds(306, 130, 134, 22);
+		comboBox.setBounds(306, 130, 128, 22);
 		add(comboBox);
 		
-		textField = new JTextField();
-		textField.setBounds(527, 132, 118, 20);
-		add(textField);
-		textField.setColumns(10);
+		datosEdad = new JTextField();
+		datosEdad.setBounds(517, 132, 128, 20);
+		add(datosEdad);
+		datosEdad.setColumns(10);
+		
+		JPanel cuadroUsuario = new JPanel();
+		cuadroUsuario.setBackground(new Color(230, 230, 250));
+		cuadroUsuario.setBounds(306, 83, 128, 35);
+		add(cuadroUsuario);
+		
+		textoRegion = new JTextField();
+		textoRegion.setText("     Región");
+		textoRegion.setFont(new Font("MV Boli", Font.PLAIN, 11));
+		textoRegion.setEditable(false);
+		textoRegion.setColumns(10);
+		cuadroUsuario.add(textoRegion);
+		
+		JPanel cuadroUsuario_1 = new JPanel();
+		cuadroUsuario_1.setBackground(new Color(230, 230, 250));
+		cuadroUsuario_1.setBounds(517, 83, 128, 35);
+		add(cuadroUsuario_1);
+		
+		txtEdad = new JTextField();
+		txtEdad.setText("     Edad");
+		txtEdad.setFont(new Font("MV Boli", Font.PLAIN, 11));
+		txtEdad.setEditable(false);
+		txtEdad.setColumns(10);
+		cuadroUsuario_1.add(txtEdad);
+		
+		JPanel cuadroUsuario_2 = new JPanel();
+		cuadroUsuario_2.setBackground(new Color(230, 230, 250));
+		cuadroUsuario_2.setBounds(306, 175, 128, 35);
+		add(cuadroUsuario_2);
+		
+		txtAltura = new JTextField();
+		txtAltura.setText("     Altura");
+		txtAltura.setFont(new Font("MV Boli", Font.PLAIN, 11));
+		txtAltura.setEditable(false);
+		txtAltura.setColumns(10);
+		cuadroUsuario_2.add(txtAltura);
+		
+		JPanel cuadroUsuario_2_1 = new JPanel();
+		cuadroUsuario_2_1.setBackground(new Color(230, 230, 250));
+		cuadroUsuario_2_1.setBounds(517, 175, 128, 35);
+		add(cuadroUsuario_2_1);
+		
+		txtElemento = new JTextField();
+		txtElemento.setText("    Elemento");
+		txtElemento.setFont(new Font("MV Boli", Font.PLAIN, 11));
+		txtElemento.setEditable(false);
+		txtElemento.setColumns(10);
+		cuadroUsuario_2_1.add(txtElemento);
+		
+		JPanel cuadroUsuario_2_1_1 = new JPanel();
+		cuadroUsuario_2_1_1.setBackground(new Color(230, 230, 250));
+		cuadroUsuario_2_1_1.setBounds(306, 262, 128, 35);
+		add(cuadroUsuario_2_1_1);
+		
+		txtVida = new JTextField();
+		txtVida.setText("       Vida");
+		txtVida.setFont(new Font("MV Boli", Font.PLAIN, 11));
+		txtVida.setEditable(false);
+		txtVida.setColumns(10);
+		cuadroUsuario_2_1_1.add(txtVida);
+		
+		JPanel cuadroUsuario_2_1_1_1 = new JPanel();
+		cuadroUsuario_2_1_1_1.setBackground(new Color(230, 230, 250));
+		cuadroUsuario_2_1_1_1.setBounds(517, 262, 128, 35);
+		add(cuadroUsuario_2_1_1_1);
+		
+		txtTalento = new JTextField();
+		txtTalento.setText("    Talento");
+		txtTalento.setFont(new Font("MV Boli", Font.PLAIN, 11));
+		txtTalento.setEditable(false);
+		txtTalento.setColumns(10);
+		cuadroUsuario_2_1_1_1.add(txtTalento);
+		
+		JComboBox datosElemento = new JComboBox();
+		datosElemento.setModel(new DefaultComboBoxModel(new String[] {"AIRE", "HIELO", "ELECTRO", "AGUA", "PLANTA", "ROCA"}));
+		datosElemento.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
+		datosElemento.setBounds(527, 221, 107, 22);
+		add(datosElemento);
+		
+		datosAltura = new JTextField();
+		datosAltura.setColumns(10);
+		datosAltura.setBounds(306, 221, 128, 20);
+		add(datosAltura);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(306, 308, 128, 20);
+		add(textField_3);
+		
+		datosTalento = new JTextField();
+		datosTalento.setColumns(10);
+		datosTalento.setBounds(517, 308, 128, 20);
+		add(datosTalento);
+		
+		JPanel cuadroUsuario_2_1_1_1_1 = new JPanel();
+		cuadroUsuario_2_1_1_1_1.setBackground(new Color(230, 230, 250));
+		cuadroUsuario_2_1_1_1_1.setBounds(409, 353, 128, 35);
+		add(cuadroUsuario_2_1_1_1_1);
+		
+		textoArma = new JTextField();
+		textoArma.setText("      Arma");
+		textoArma.setFont(new Font("MV Boli", Font.PLAIN, 11));
+		textoArma.setEditable(false);
+		textoArma.setColumns(10);
+		cuadroUsuario_2_1_1_1_1.add(textoArma);
 		
 	}
 }
