@@ -9,20 +9,24 @@ import java.awt.Font;
 import javax.swing.border.LineBorder;
 
 import enums.Elemento;
+import util.DAO;
 
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
 import javax.swing.ButtonGroup;
+import javax.swing.JToggleButton;
 
 public class PantallaPersonaje extends JPanel{
 
 	
-	private VentanaPersonaje ventana;
+	private Ventana ventana;
 	private JTextField datosEdad;
 	private JTextField textoRegion;
 	private JTextField txtEdad;
@@ -34,14 +38,22 @@ public class PantallaPersonaje extends JPanel{
 	private JTextField datosVida;
 	private JTextField textoArma;
 	
-	public PantallaPersonaje(VentanaPersonaje v) {
+	public PantallaPersonaje(Ventana v) {
 		setBackground(new Color(224, 255, 255));
 		this.ventana=v;
+		this.ventana.setSize(800,501);
 		setLayout(null);
 		
 		JButton botonNext = new JButton("Siguiente");
 		botonNext.setFont(new Font("Monotype Corsiva", Font.BOLD, 18));
 		botonNext.setBounds(555, 456, 135, 34);
+		botonNext.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				ventana.cambiarAPantalla(PantallaPregunta1.class);
+			}
+		});
 		add(botonNext);
 		
 		JPanel panel = new JPanel();
@@ -61,8 +73,11 @@ public class PantallaPersonaje extends JPanel{
 		lblNewLabel.setBounds(0, 361, 195, 140);
 		add(lblNewLabel);
 		
+		// BOTON PARA GÉNERO MASCULINO O FEMENINO
+		
 		JButton botonChico = new JButton("Aether");
 		buttonGroup.add(botonChico);
+	
 		botonChico.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
 		botonChico.setBackground(new Color(100, 149, 237));
 		botonChico.setBounds(20, 240, 89, 23);
@@ -70,14 +85,13 @@ public class PantallaPersonaje extends JPanel{
 		
 		JButton btnLumine = new JButton("Lumine");
 		buttonGroup.add(btnLumine);
-		btnLumine.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+	
 		btnLumine.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
 		btnLumine.setBackground(new Color(100, 149, 237));
 		btnLumine.setBounds(144, 240, 89, 23);
 		add(btnLumine);
+		
+		// IMAGENES BOTONES GENERO 
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(PantallaPersonaje.class.getResource("/imagenes/modificado aether.png")));
@@ -89,11 +103,15 @@ public class PantallaPersonaje extends JPanel{
 		lblNewLabel_2.setBounds(134, 77, 135, 163);
 		add(lblNewLabel_2);
 		
-		JComboBox comboBox = new JComboBox();
+		// BOTON PARA ELEGIR REGION
+		 
+		final JComboBox comboBox = new JComboBox();
 		comboBox.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Asia", "África", "América del Norte", "América del Sur", "Antártida", "Europa", "Oceanía"}));
 		comboBox.setBounds(306, 130, 128, 22);
 		add(comboBox);
+		
+		
 		
 		datosEdad = new JTextField();
 		datosEdad.setBounds(517, 132, 128, 20);
@@ -210,10 +228,14 @@ public class PantallaPersonaje extends JPanel{
 		datosArma.setBounds(409, 403, 128, 22);
 		add(datosArma);
 		
-		JLabel fondoPJ = new JLabel("New label");
+		/*JLabel fondoPJ = new JLabel("New label");
 		fondoPJ.setIcon(new ImageIcon(PantallaPersonaje.class.getResource("/imagenes/7.jpg")));
 		fondoPJ.setBounds(0, 0, 700, 501);
-		add(fondoPJ);
+		add(fondoPJ);*/
+		
+		JToggleButton tglbtnNewToggleButton = new JToggleButton("New toggle button");
+		tglbtnNewToggleButton.setBounds(74, 307, 121, 23);
+		add(tglbtnNewToggleButton);
 		
 	}
 	

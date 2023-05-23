@@ -2,7 +2,11 @@ package interfaces;
 
 import javax.swing.JFrame;
 
+import clases.Jugador;
+
 public class Ventana extends JFrame{
+	
+	protected Jugador jugador;
 
 	public Ventana() {
 		this.setSize(600, 500);
