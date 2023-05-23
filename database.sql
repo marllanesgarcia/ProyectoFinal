@@ -8,4 +8,3 @@ create table usuario(
     email varchar (150) primary key  
 );
 
-
