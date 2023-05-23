@@ -7,6 +7,9 @@ import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
+
+import enums.Elemento;
+
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -14,6 +17,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
+import javax.swing.ButtonGroup;
 
 public class PantallaPersonaje extends JPanel{
 
@@ -58,12 +62,14 @@ public class PantallaPersonaje extends JPanel{
 		add(lblNewLabel);
 		
 		JButton botonChico = new JButton("Aether");
+		buttonGroup.add(botonChico);
 		botonChico.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
 		botonChico.setBackground(new Color(100, 149, 237));
 		botonChico.setBounds(20, 240, 89, 23);
 		add(botonChico);
 		
 		JButton btnLumine = new JButton("Lumine");
+		buttonGroup.add(btnLumine);
 		btnLumine.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -210,4 +216,8 @@ public class PantallaPersonaje extends JPanel{
 		add(fondoPJ);
 		
 	}
+	
+	
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	
 }
