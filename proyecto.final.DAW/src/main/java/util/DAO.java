@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -87,6 +88,7 @@ public abstract class DAO {
 		desconectar(smt);
 		return ret;
 	}
+	
 	
 	public static int borrar(String tabla, HashMap<String, Object> columnasBorrar) throws SQLException {
 		Statement smt=conectar();

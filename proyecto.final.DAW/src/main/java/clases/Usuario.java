@@ -9,24 +9,20 @@ import exceptions.ClienteNoExisteException;
 import exceptions.ContaseñaInvalidaException;
 import util.DAO;
 
-public class Usuario {
+public class Usuario extends ElementoConNombre {
 
 	private String password;
 	private String email;
-	private ElementoConNombre nombre;
 	
-	public Usuario (String email, String password, String nombre) throws SQLException {
-		super();
-		HashMap<String,Object> cols=new HashMap<String,Object>();
-		cols.put("email", email);
-		cols.put("nombre", nombre);
-		cols.put("password", password);
-		DAO.insertar("usuario",cols); 
-		
+
+	public Usuario(String nombre, String password, String email) {
+		super(nombre);
+		this.password = password;
+		this.email = email;
 	}
 
 	public Usuario(String nombre, String password) throws SQLException, ClienteNoExisteException, ContaseñaInvalidaException {
-	super();
+	super(nombre);
 	LinkedHashSet columnasSacar=new LinkedHashSet<String>();
 	columnasSacar.add("email");
 	columnasSacar.add("password");
@@ -40,22 +36,12 @@ public class Usuario {
 		String passwordAlmacenada=(String)resultado.get(1);
 		if(passwordAlmacenada.equals(password)) {
 			this.email=(String)resultado.get(0);
-			this.nombre=(ElementoConNombre)resultado.get(2);
 		}else {
 			throw new ContaseñaInvalidaException("ERROR: la contraseña esta mal.");
 		}
 	}
 	
-	this.password = password;
-	this.setNombre(nombre);
 		
-	}
-	
-	public Usuario(String password, String email, ElementoConNombre nombre) {
-		super();
-		this.password = password;
-		this.email = email;
-		this.nombre = nombre;
 	}
 
 	public void setEmail(String email) throws SQLException {
@@ -67,14 +53,6 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public void setNombre(String nombre) throws SQLException {
-	HashMap<String,Object> nombreModificar=new HashMap<String,Object>();
-	nombreModificar.put("nombre", nombre);
-	HashMap<String,Object> restricciones=new HashMap<String,Object>();
-	restricciones.put("email", email);
-	DAO.actualizar("usuario", nombreModificar, restricciones);
-	}
-	
 	public String getPassword() {
 		return password;
 	}
@@ -87,20 +65,10 @@ public class Usuario {
 		return email;
 	}
 
-
-	public ElementoConNombre getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(ElementoConNombre nombre) {
-		this.nombre = nombre;
-	}
-
 	@Override
 	public String toString() {
-		return "Usuario [password=" + password + ", email=" + email + ", nombre=" + nombre + "]";
+		return "Usuario [password=" + password + ", email=" + email + "]";
 	}
-	
 
 	
 	

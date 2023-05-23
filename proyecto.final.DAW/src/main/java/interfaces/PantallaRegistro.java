@@ -3,10 +3,13 @@ package interfaces;
 import javax.swing.border.MatteBorder;
 
 import clases.Usuario;
+import util.DAO;
 
 import java.awt.Color;
 import javax.swing.JTextField;
 import java.awt.Font;
+import java.awt.HeadlessException;
+
 import javax.swing.JDesktopPane;
 import java.awt.Dimension;
 import javax.swing.JLabel;
@@ -109,26 +112,23 @@ public class PantallaRegistro extends JPanel{
 		
 		JButton guardarInfo = new JButton("Guardar");
 		guardarInfo.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {;
-			String usuario=datosUsuario.getText();
-			String email=datosEmail.getText();
-			String contraseña=new String(datosPassword.getPassword());
-			System.out.println(usuario+" : "+contraseña);
-			
-			try {
-				new Usuario(email,contraseña,usuario);
-				JOptionPane.showMessageDialog(ventana, "Registrado Correctamente","Éxito",JOptionPane.INFORMATION_MESSAGE);
-			}catch(SQLIntegrityConstraintViolationException e3) {
-					JOptionPane.showMessageDialog(ventana,"El email ya existe", "No se pudo registrar",JOptionPane.ERROR_MESSAGE);
-			}catch(SQLException e1) {
-				JOptionPane.showMessageDialog(ventana,e1.getMessage(), "No se puede conectar con la BD",JOptionPane.ERROR_MESSAGE);
-				e1.printStackTrace();
-			}
-			
-			ventana.cambiarAPantalla(PantallaPersonaje.class);	
-			}
-		});
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                String usuario = datosUsuario.getText();
+                String email = datosEmail.getText();
+                String contraseña = new String(datosPassword.getPassword());
+                System.out.println(usuario + " : " + contraseña);
+                
+                try {
+					DAO.insertar(contraseña, usuario, email);
+					JOptionPane.showMessageDialog(ventana, "Registrado Correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+					ventana.cambiarAPantalla(PantallaPersonaje.class);
+				} catch (HeadlessException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+            }
+        });
 		guardarInfo.setToolTipText("SUUUUU");
 		guardarInfo.setFont(new Font("Impact", Font.PLAIN, 11));
 		guardarInfo.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
