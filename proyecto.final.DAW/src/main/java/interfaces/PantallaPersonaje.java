@@ -41,7 +41,7 @@ public class PantallaPersonaje extends JPanel{
 	public PantallaPersonaje(Ventana v) {
 		setBackground(new Color(224, 255, 255));
 		this.ventana=v;
-		this.ventana.setSize(800,501);
+		this.ventana.setSize(800,550);
 		setLayout(null);
 		
 		JButton botonNext = new JButton("Siguiente");
@@ -229,9 +229,13 @@ public class PantallaPersonaje extends JPanel{
 		datosArma.setBounds(409, 403, 128, 22);
 		add(datosArma);
 		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon(PantallaPersonaje.class.getResource("/imagenes/7.jpg")));
+		lblNewLabel_3.setBounds(0, 0, 700, 501);
+		add(lblNewLabel_3);
+		
 	}
 	
 	
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	
 }

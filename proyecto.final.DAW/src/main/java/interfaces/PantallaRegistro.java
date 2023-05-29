@@ -122,7 +122,7 @@ public class PantallaRegistro extends JPanel{
                 
                 try {
                 	HashMap<String, Object> columnas = new HashMap<>();
-                	columnas.put("contraseña", password);
+                	columnas.put("password", password);
                 	columnas.put("usuario", usuario);
                 	columnas.put("email", email);
                 	try {
@@ -132,13 +132,11 @@ public class PantallaRegistro extends JPanel{
                 	} catch (SQLException e1) {
                 	    e1.printStackTrace();
                 	}
-
-					JOptionPane.showMessageDialog(ventana, "Registrado Correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-					ventana.cambiarAPantalla(PantallaPersonaje.class);
 				} catch (HeadlessException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+                ventana.cambiarAPantalla(PantallaPersonaje.class);
             }
         });
 		guardarInfo.setToolTipText("SUUUUU");

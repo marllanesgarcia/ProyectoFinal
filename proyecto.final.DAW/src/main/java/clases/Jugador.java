@@ -2,8 +2,8 @@ package clases;
 
 import enums.Elemento;
 import enums.Region;
-import subclases.Arma;
-import subclases.Talento;
+import clases.Arma;
+import clases.Talento;
 
 public class Jugador extends ElementoConNombre{
 
