@@ -29,7 +29,6 @@ create table jugador(
 
 -- Tabla Arma
 	CREATE TABLE Arma (
-    id INT PRIMARY KEY,
     nombre varchar(30),
     fuerza INT,
     peso TINYINT
@@ -37,11 +36,10 @@ create table jugador(
 
 -- Tabla Talento
 CREATE TABLE Talento (
-    id INT PRIMARY KEY,
     habilidadEspecial VARCHAR(255),
     duracion TINYINT
 );
-
+drop table talento;
 -- Tabla Respuesta
 CREATE TABLE Respuesta (
     id INT PRIMARY KEY,
@@ -72,6 +70,13 @@ VALUES
   ('bazooka', 800, 7),
   ('escupitajo', 50, 0);
 
+-- Talento
+INSERT INTO Talento (habilidadEspecial, duracion)
+VALUES
+('Cubierta Proyectora',10),
+('Llamas Fervientes',12),
+('Aguas Medicinales',15),
+('Vientos impetuosos',5);
 	 * 
 	 * 
 	 */
