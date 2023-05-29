@@ -36,8 +36,9 @@ public class Arma {
 /*
 
 -- Tabla Arma
-CREATE TABLE Arma (
+	CREATE TABLE Arma (
     id INT PRIMARY KEY,
+    nombre String,
     fuerza INT,
     peso TINYINT
 );
