@@ -41,7 +41,7 @@ public class PantallaPersonaje extends JPanel{
 	public PantallaPersonaje(Ventana v) {
 		setBackground(new Color(224, 255, 255));
 		this.ventana=v;
-		this.ventana.setSize(800,501);
+		this.ventana.setSize(700,504);
 		setLayout(null);
 		
 		JButton botonNext = new JButton("Siguiente");
