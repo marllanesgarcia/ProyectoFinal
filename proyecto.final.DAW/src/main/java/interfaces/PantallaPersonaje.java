@@ -27,6 +27,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
 import javax.swing.ButtonGroup;
 import javax.swing.JToggleButton;
+import javax.swing.JRadioButton;
 
 public class PantallaPersonaje extends JPanel{
 
@@ -42,6 +43,7 @@ public class PantallaPersonaje extends JPanel{
 	private JTextField datosAltura;
 	private JTextField datosVida;
 	private JTextField textoArma;
+	private final ButtonGroup botonGenero = new ButtonGroup();
 	
 	public PantallaPersonaje(Ventana v) {
 		setBackground(new Color(224, 255, 255));
@@ -65,24 +67,6 @@ public class PantallaPersonaje extends JPanel{
 		lblNewLabel.setIcon(new ImageIcon(PantallaPersonaje.class.getResource("/imagenes/pensando2.png")));
 		lblNewLabel.setBounds(0, 361, 195, 140);
 		add(lblNewLabel);
-		
-		// BOTON PARA GÉNERO MASCULINO O FEMENINO
-		
-		JButton botonChico = new JButton("Aether");
-		buttonGroup.add(botonChico);
-	
-		botonChico.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
-		botonChico.setBackground(new Color(100, 149, 237));
-		botonChico.setBounds(20, 240, 89, 23);
-		add(botonChico);
-		
-		JButton btnLumine = new JButton("Lumine");
-		buttonGroup.add(btnLumine);
-	
-		btnLumine.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
-		btnLumine.setBackground(new Color(100, 149, 237));
-		btnLumine.setBounds(144, 240, 89, 23);
-		add(btnLumine);
 		
 		// IMAGENES BOTONES GENERO 
 		
@@ -212,7 +196,8 @@ public class PantallaPersonaje extends JPanel{
 		cuadroUsuario_2_1_1_1_1.add(textoArma);
 		
 		final JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Cubierta Protectora", "Llamas Fervientes", "Aguas medicinales", "Vientos impetuosos"}));
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] 
+		{"Cubierta Protectora", "Llamas Fervientes", "Aguas medicinales", "Vientos impetuosos"}));
 		comboBox_1.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
 		comboBox_1.setBounds(517, 308, 143, 22);
 		add(comboBox_1);
@@ -223,6 +208,39 @@ public class PantallaPersonaje extends JPanel{
 		datosArma.setBounds(409, 403, 128, 22);
 		add(datosArma);
 		
+		final JRadioButton aether = new JRadioButton("Aether");
+		aether.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				aether.setActionCommand("aether");
+				String genero = aether.getActionCommand();
+
+		        // Guardar la selección en la base de datos
+		        HashMap<String, Object> columnas = new HashMap<>();
+		        columnas.put("genero", genero);
+			}
+		});
+		botonGenero.add(aether);
+		aether.setBounds(20, 240, 109, 23);
+		
+		add(aether);
+		
+		final JRadioButton lumine = new JRadioButton("Lumine");
+		lumine.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lumine.setActionCommand("lumine");
+		        String genero = lumine.getActionCommand();
+
+		        // Guardar la selección en la base de datos
+		        HashMap<String, Object> columnas = new HashMap<>();
+		        columnas.put("genero", genero);
+			}
+		});
+		botonGenero.add(lumine);
+		lumine.setBounds(144, 240, 109, 23);
+		add(lumine);
+		
 		JButton botonNext = new JButton("Siguiente");
 		botonNext.setFont(new Font("Monotype Corsiva", Font.BOLD, 18));
 		botonNext.setBounds(555, 456, 135, 34);
@@ -232,8 +250,8 @@ public class PantallaPersonaje extends JPanel{
 			public void mouseClicked(MouseEvent e) {
 				String region = comboBox.getSelectedItem().toString();
 				int edad = Integer.parseInt(datosEdad.getText());
-				int altura = Integer.parseInt(datosAltura.getText());
-				String genero = buttonGroup.getSelection().getActionCommand();
+				float altura = Float.parseFloat(datosAltura.getText());
+				String genero = botonGenero.getSelection().getActionCommand();
 				String elemento = datosElemento.getSelectedItem().toString();
 				int vida = Integer.parseInt(datosVida.getText());
 				String talento = comboBox_1.getSelectedItem().toString();
@@ -264,38 +282,14 @@ public class PantallaPersonaje extends JPanel{
 				} catch (HeadlessException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+            	    System.out.println("Noup, no vale, hazlo de nuevo");
+            	    ventana.cambiarAPantalla(PantallaPersonaje.class);
 				}
-                ventana.cambiarAPantalla(PantallaPersonaje.class);
+                ventana.cambiarAPantalla(PantallaPregunta1.class);
             }
-			
-			
-			
-			
-		/*	public void mouseClicked(MouseEvent e) {
-				
-				String region = comboBox.getSelectedItem().toString();
-				int edad = Integer.parseInt(datosEdad.getText());
-				int altura = Integer.parseInt(datosAltura.getText());
-				String genero = buttonGroup.getSelection().getActionCommand();
-				String elemento = datosElemento.getSelectedItem().toString();
-				int vida = Integer.parseInt(datosVida.getText());
-				String talento = comboBox_1.getSelectedItem().toString();
-				String arma = datosArma.getSelectedItem().toString();
-
-				// Realizando la inserción en la tabla jugador
-				String sql = "INSERT INTO jugador (region, edad, altura, genero, elemento, vida, talento, arma) " +
-				             "VALUES ('" + region + "', " + edad + ", " + altura + ", '" + genero + "', '" + 
-						elemento + "', " + vida + ", '" + talento + "', '" + arma + "')";
-
-
-				ventana.cambiarAPantalla(PantallaPregunta1.class);
-			}*/
 		});
 		add(botonNext);
 		
 		
 	}
-	
-	
-	private final ButtonGroup buttonGroup = new ButtonGroup();
 }
