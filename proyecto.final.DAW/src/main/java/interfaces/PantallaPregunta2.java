@@ -36,7 +36,7 @@ public class PantallaPregunta2 extends JPanel{
 		panel.setBackground(new Color(255, 228, 225));
 		add(panel);
 		
-		JLabel lblempiezaElJuego = new JLabel("¡Empieza el juego!");
+		JLabel lblempiezaElJuego = new JLabel("¡Siguiente Acertijo!");
 		lblempiezaElJuego.setBackground(new Color(128, 0, 128));
 		lblempiezaElJuego.setForeground(new Color(128, 0, 128));
 		lblempiezaElJuego.setFont(new Font("DejaVu Sans Condensed", Font.BOLD, 19));
@@ -50,7 +50,7 @@ public class PantallaPregunta2 extends JPanel{
 		tituloPregunta = new JTextField();
 		tituloPregunta.setEditable(false);
 		tituloPregunta.setFont(new Font("MS PGothic", Font.ITALIC, 16));
-		tituloPregunta.setText("PRIMERA PREGUNTA: Elige para seguir con la aventura. Piensa bien la respuesta (!!!).");
+		tituloPregunta.setText("SEGUNDA PREGUNTA: Elige para seguir con la aventura. Piensa bien la respuesta (!!!).");
 		preguntaUno.setColumnHeaderView(tituloPregunta);
 		tituloPregunta.setColumns(10);
 		

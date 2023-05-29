@@ -109,7 +109,7 @@ public class PantallaPregunta1 extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				if (botonesRespuesta.equals("Respuesta 2")) {
+				if (botonesRespuesta.equals("Respuesta 1")) {
 					JOptionPane.showMessageDialog(ventana, "¡Acertaste, bien hecho!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 					ventana.cambiarAPantalla(PantallaPregunta2.class);
 				}else {
