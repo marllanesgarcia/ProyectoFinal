@@ -28,3 +28,43 @@ public class Arma {
         this.peso = peso;
     }
 }
+/*
+
+-- Tabla Arma
+CREATE TABLE Arma (
+    id INT PRIMARY KEY,
+    fuerza INT,
+    peso TINYINT
+);
+
+-- Tabla Talento
+CREATE TABLE Talento (
+    id INT PRIMARY KEY,
+    habilidadEspecial VARCHAR(255),
+    duracion TINYINT
+);
+
+-- Tabla Respuesta
+CREATE TABLE Respuesta (
+    id INT PRIMARY KEY,
+    descripcion VARCHAR(255),
+    esCorrecta BOOLEAN,
+    pregunta_id INT,
+    FOREIGN KEY (pregunta_id) REFERENCES Pregunta(id)
+);
+
+-- Tabla Pregunta
+CREATE TABLE Pregunta (
+    id INT PRIMARY KEY,
+    descripcion VARCHAR(255)
+);
+
+-- Tabla Historia
+CREATE TABLE Historia (
+    id INT PRIMARY KEY,
+    descripcion VARCHAR(255),
+    titulo VARCHAR(255)
+);
+
+
+*/
