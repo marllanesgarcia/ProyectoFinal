@@ -91,7 +91,7 @@ public class PantallaPregunta1 extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("¡Seleccionado!");
-				respuesta1.setActionCommand("Respuesta 2");
+				respuesta2.setActionCommand("Respuesta 2");
 			}
 		});
 		botonesRespuesta.add(respuesta2);
@@ -108,14 +108,15 @@ public class PantallaPregunta1 extends JPanel{
 		BotonNext.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				if (botonesRespuesta.equals("Respuesta 1")) {
-					JOptionPane.showMessageDialog(ventana, "¡Acertaste, bien hecho!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-					ventana.cambiarAPantalla(PantallaPregunta2.class);
-				}else {
-					JOptionPane.showMessageDialog(ventana, "¡oh no....Cagaste!", "Dead", JOptionPane.INFORMATION_MESSAGE);
-					ventana.cambiarAPantalla(PantallaBatalla.class);
-				}
+				String respuestaSeleccionada = botonesRespuesta.getSelection().getActionCommand();
+
+                if (respuestaSeleccionada.equals("Respuesta 2")) {
+                    JOptionPane.showMessageDialog(ventana, "¡Oh no.... Cagaste!", "Dead", JOptionPane.INFORMATION_MESSAGE);
+                    ventana.cambiarAPantalla(PantallaBatalla.class);
+                } else {
+                    JOptionPane.showMessageDialog(ventana, "¡Acertaste, bien hecho!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    ventana.cambiarAPantalla(PantallaPregunta2.class);
+                }
 				
 			}
 		});
