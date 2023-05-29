@@ -1,11 +1,14 @@
 package interfaces;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.HeadlessException;
+
 import javax.swing.border.LineBorder;
 
 import enums.Elemento;
@@ -15,6 +18,8 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -223,7 +228,50 @@ public class PantallaPersonaje extends JPanel{
 		botonNext.setBounds(555, 456, 135, 34);
 		botonNext.addMouseListener(new MouseAdapter() {
 			@Override
+			
 			public void mouseClicked(MouseEvent e) {
+				String region = comboBox.getSelectedItem().toString();
+				int edad = Integer.parseInt(datosEdad.getText());
+				int altura = Integer.parseInt(datosAltura.getText());
+				String genero = buttonGroup.getSelection().getActionCommand();
+				String elemento = datosElemento.getSelectedItem().toString();
+				int vida = Integer.parseInt(datosVida.getText());
+				String talento = comboBox_1.getSelectedItem().toString();
+				String arma = datosArma.getSelectedItem().toString();
+                System.out.println(region + " : " + edad + " : " + altura + " : " + 
+				genero + " : " + elemento + " : " + vida + " : " + talento + " : " +
+                		arma);
+                
+                try {
+                	HashMap<String, Object> columnas = new HashMap<>();
+                	columnas.put("region", region);
+                	columnas.put("edad", edad);
+                	columnas.put("altura", altura);
+                	columnas.put("genero", genero);
+                	columnas.put("elemento", elemento);
+                	columnas.put("vida", vida);
+                	columnas.put("talento", talento);
+                	columnas.put("arma", arma);
+                	try {
+                	    DAO.insertar("Jugador", columnas);
+                	    JOptionPane.showMessageDialog(ventana, "Registrado Correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                	    ventana.cambiarAPantalla(PantallaPregunta1.class);
+                	} catch (SQLException e1) {
+                	    e1.printStackTrace();
+                	    System.out.println("Noup, no vale, hazlo de nuevo");
+                	    ventana.cambiarAPantalla(PantallaPersonaje.class);
+                	}
+				} catch (HeadlessException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+                ventana.cambiarAPantalla(PantallaPersonaje.class);
+            }
+			
+			
+			
+			
+		/*	public void mouseClicked(MouseEvent e) {
 				
 				String region = comboBox.getSelectedItem().toString();
 				int edad = Integer.parseInt(datosEdad.getText());
@@ -241,7 +289,7 @@ public class PantallaPersonaje extends JPanel{
 
 
 				ventana.cambiarAPantalla(PantallaPregunta1.class);
-			}
+			}*/
 		});
 		add(botonNext);
 		
