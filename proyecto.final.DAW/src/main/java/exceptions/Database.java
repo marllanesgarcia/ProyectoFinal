@@ -5,8 +5,8 @@ public class Database {
 	/*
 	 * 
 	 * 
-	 * drop database if exists proyectofinaldaw;
-create database proyectofinaldaw;
+	 * -- drop database if exists proyectofinaldaw;
+-- create database proyectofinaldaw;
 use proyectofinaldaw;
 
 create table usuario(
@@ -18,7 +18,7 @@ create table usuario(
 create table jugador(
     region varchar(30),
     edad numeric(12),
-    altura numeric(12),
+    altura DECIMAL(3,2),
     genero varchar(30),
     elemento varchar(30),
 	vida numeric(12),
@@ -26,6 +26,7 @@ create table jugador(
 	arma varchar(30)
 );
 
+drop table jugador;
 -- Tabla Arma
 	CREATE TABLE Arma (
     nombre varchar(30),
@@ -87,6 +88,11 @@ VALUES
 INSERT INTO Jugador (genero)
 VALUES
 ('Lumine'),('Aether');
+
+INSERT INTO Jugador (elemento)
+VALUES 
+('AIRE'),('HIELO'),('ELECTRO'),
+ ('AGUA'),('PLANTA'),('ROCA');
 	 * 
 	 * 
 	 */
