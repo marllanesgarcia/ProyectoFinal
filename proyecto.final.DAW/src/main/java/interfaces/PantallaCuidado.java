@@ -15,40 +15,36 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.GridLayout;
 
 public class PantallaCuidado extends JPanel{
 
 	private Ventana ventana;
 	private JTextArea areaTexto;
 	private int cuidadoLetras = 0;
-	private String[] letras = { "¡CUIDADO, VIENEN LOS ENEMIGOS...! ¡¡¡PREPARAOS PARA LA BATALLA MIS VALIENTES...!!! ¡QUIEN MUERA ES"+ 
-	"TONTO Y SE LLEVA UN SUSPENSO" };
+	private String[] letras = { "¡CUIDADO, VIENEN LOS ENEMIGOS...!",
+			"¡¡¡PREPARAOS PARA LA BATALLA MIS VALIENTES...!!!"," ¡QUIEN MUERA ES TONTO Y SE LLEVA UN SUSPENSO!" };
 	
 	public PantallaCuidado(Ventana v) {
 		
 		this.ventana=v;
-		setLayout(null);
-		JPanel panel = new JPanel();
-		panel.setForeground(Color.BLACK);
-		panel.setBorder(new LineBorder(new Color(178, 34, 34), 3, true));
-		panel.setBackground(new Color(250, 235, 215));
-		panel.setBounds(275, 11, 260, 37);
-		add(panel);
-		
+		this.ventana.setSize(700,500);
 		JPanel contenedorTexto = new JPanel();
+		contenedorTexto.setBounds(0, 0, 770, 492);
 		contenedorTexto.setBackground(Color.BLACK);
 		
 		final JLabel letrasLabel = new JLabel();
-		letrasLabel.setBounds(0, -30, 700, 500);
+		letrasLabel.setBounds(38, 31, 684, 375);
 		letrasLabel.setFont(new Font("Arial", Font.PLAIN, 16));
 		letrasLabel.setForeground(Color.WHITE);
 		letrasLabel.setHorizontalAlignment(SwingConstants.CENTER);
 	
 		Border borde = BorderFactory.createLineBorder(Color.RED, 2);
+		setLayout(null);
 		contenedorTexto.setBorder(borde);
 		contenedorTexto.setLayout(null);
 		contenedorTexto.add(letrasLabel);
-		add(contenedorTexto, BorderLayout.CENTER);
+		add(contenedorTexto);
 		
 		final JButton botonNext = new JButton("Next");
 		botonNext.setBounds(129, 417, 446, 25);

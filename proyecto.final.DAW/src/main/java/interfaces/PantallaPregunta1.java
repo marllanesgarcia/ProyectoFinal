@@ -110,12 +110,13 @@ public class PantallaPregunta1 extends JPanel{
 			public void mouseClicked(MouseEvent e) {
 				String respuestaSeleccionada = botonesRespuesta.getSelection().getActionCommand();
 
-                if (respuestaSeleccionada.equals("Respuesta 2")) {
-                    JOptionPane.showMessageDialog(ventana, "¡Oh no.... Cagaste!", "Dead", JOptionPane.INFORMATION_MESSAGE);
-                    ventana.cambiarAPantalla(PantallaBatalla.class);
-                } else {
-                    JOptionPane.showMessageDialog(ventana, "¡Acertaste, bien hecho!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                if (respuestaSeleccionada.equals("Respuesta 1")) {
+                	JOptionPane.showMessageDialog(ventana, "¡Acertaste, bien hecho!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                     ventana.cambiarAPantalla(PantallaPregunta2.class);
+                    
+                } else {
+                    JOptionPane.showMessageDialog(ventana, "¡Oh no.... Cagaste!", "Dead", JOptionPane.INFORMATION_MESSAGE);
+                    ventana.cambiarAPantalla(PantallaCuidado.class);
                 }
 				
 			}
