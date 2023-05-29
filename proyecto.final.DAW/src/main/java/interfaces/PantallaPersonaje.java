@@ -107,7 +107,8 @@ public class PantallaPersonaje extends JPanel{
 		 
 		final JComboBox comboBox = new JComboBox();
 		comboBox.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Asia", "África", "América del Norte", "América del Sur", "Antártida", "Europa", "Oceanía"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] 
+				{"Asia", "África", "América del Norte", "América del Sur", "Antártida", "Europa", "Oceanía"}));
 		comboBox.setBounds(306, 130, 128, 22);
 		add(comboBox);
 		
@@ -227,15 +228,6 @@ public class PantallaPersonaje extends JPanel{
 		datosArma.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
 		datosArma.setBounds(409, 403, 128, 22);
 		add(datosArma);
-		
-		/*JLabel fondoPJ = new JLabel("New label");
-		fondoPJ.setIcon(new ImageIcon(PantallaPersonaje.class.getResource("/imagenes/7.jpg")));
-		fondoPJ.setBounds(0, 0, 700, 501);
-		add(fondoPJ);*/
-		
-		JToggleButton tglbtnNewToggleButton = new JToggleButton("New toggle button");
-		tglbtnNewToggleButton.setBounds(74, 307, 121, 23);
-		add(tglbtnNewToggleButton);
 		
 	}
 	
