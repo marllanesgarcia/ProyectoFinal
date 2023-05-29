@@ -128,14 +128,14 @@ public class PantallaPregunta1 extends JPanel{
 		
 		descripcion1 = new JTextField();
 		descripcion1.setEditable(false);
-		descripcion1.setText("⇒  Con sabiduria: \"El verdadero propósito del poder elemental es proteger y preservar el equilibrio natural de Teyvat\".");
+		descripcion1.setText("⇒ \"El verdadero propósito del poder elemental es proteger y preservar el equilibrio natural de Teyvat\".");
 		descripcion1.setBounds(161, 366, 581, 20);
 		add(descripcion1);
 		descripcion1.setColumns(10);
 		
 		descripcion2 = new JTextField();
 		descripcion2.setEditable(false);
-		descripcion2.setText("⇒  Respondes impulsivamente: \"El verdadero propósito del poder elemental es obtener control y dominio sobre los demás\"");
+		descripcion2.setText("⇒ \"El verdadero propósito del poder elemental es obtener control y dominio sobre los demás\"");
 		descripcion2.setBounds(161, 406, 599, 20);
 		add(descripcion2);
 		descripcion2.setColumns(10);
