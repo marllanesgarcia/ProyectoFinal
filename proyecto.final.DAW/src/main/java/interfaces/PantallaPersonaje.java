@@ -41,7 +41,7 @@ public class PantallaPersonaje extends JPanel{
 	public PantallaPersonaje(Ventana v) {
 		setBackground(new Color(224, 255, 255));
 		this.ventana=v;
-		this.ventana.setSize(800,550);
+		this.ventana.setSize(800,501);
 		setLayout(null);
 		
 		JButton botonNext = new JButton("Siguiente");
@@ -220,11 +220,13 @@ public class PantallaPersonaje extends JPanel{
 		cuadroUsuario_2_1_1_1_1.add(textoArma);
 		
 		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Cubierta Protectora", "Llamas Fervientes", "Aguas medicinales", "Vientos impetuosos"}));
 		comboBox_1.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
-		comboBox_1.setBounds(517, 307, 128, 22);
+		comboBox_1.setBounds(517, 308, 143, 22);
 		add(comboBox_1);
 		
 		JComboBox datosArma = new JComboBox();
+		datosArma.setModel(new DefaultComboBoxModel(new String[] {"espada corta", "bazooka", "escupitajo", "chancla"}));
 		datosArma.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
 		datosArma.setBounds(409, 403, 128, 22);
 		add(datosArma);

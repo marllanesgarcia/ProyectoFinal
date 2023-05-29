@@ -13,6 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class PantallaPregunta1 extends JPanel{
 
@@ -20,6 +21,8 @@ public class PantallaPregunta1 extends JPanel{
 	private JTextField tituloPregunta;
 	private JTextField pregunta1;
 	private final ButtonGroup botonesRespuesta = new ButtonGroup();
+	private JTextField descripcion1;
+	private JTextField descripcion2;
 	
 
 	public PantallaPregunta1(Ventana v) {
@@ -63,7 +66,7 @@ public class PantallaPregunta1 extends JPanel{
 		pregunta1.setEditable(false);
 		pregunta1.setFont(new Font("Mongolian Baiti", Font.BOLD, 15));
 		pregunta1.setText("La estatua te plantea una pregunta: \r\n\"¿Cuál es el verdadero propósito del poder elemental?\".");
-		pregunta1.setBounds(103, 247, 619, 37);
+		pregunta1.setBounds(103, 263, 619, 37);
 		add(pregunta1);
 		pregunta1.setColumns(10);
 		
@@ -77,25 +80,35 @@ public class PantallaPregunta1 extends JPanel{
 		respuesta2.setBounds(46, 405, 109, 23);
 		add(respuesta2);
 		
-		JLabel textoRespuesta1 = new JLabel("⇒  Con sabiduria: \"El verdadero propósito del poder elemental es proteger y preservar el equilibrio natural de Teyvat\".");
-		textoRespuesta1.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 11));
-		textoRespuesta1.setBounds(161, 362, 629, 33);
-		add(textoRespuesta1);
-		
-		JLabel flechita2 = new JLabel("⇒  Respondes impulsivamente: \"El verdadero propósito del poder elemental es obtener control y dominio sobre los demás\"");
-		flechita2.setBounds(161, 409, 629, 14);
-		add(flechita2);
-		
 		JLabel descripcionAnimo = new JLabel("¡ES TU MOMENTO! Elige una de las dos opciones...\r\n¿Cual será la correcta?");
+		descripcionAnimo.setForeground(new Color(255, 255, 255));
 		descripcionAnimo.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
-		descripcionAnimo.setBounds(187, 295, 445, 44);
+		descripcionAnimo.setBounds(188, 311, 445, 44);
 		add(descripcionAnimo);
 		
 		JButton BotonNext = new JButton("Siguiente");
+		BotonNext.setForeground(new Color(240, 248, 255));
 		BotonNext.setBackground(new Color(128, 0, 128));
 		BotonNext.setFont(new Font("Segoe UI Symbol", Font.BOLD, 18));
 		BotonNext.setBounds(305, 449, 157, 41);
 		add(BotonNext);
+		
+		descripcion1 = new JTextField();
+		descripcion1.setText("⇒  Con sabiduria: \"El verdadero propósito del poder elemental es proteger y preservar el equilibrio natural de Teyvat\".");
+		descripcion1.setBounds(161, 366, 581, 20);
+		add(descripcion1);
+		descripcion1.setColumns(10);
+		
+		descripcion2 = new JTextField();
+		descripcion2.setText("⇒  Respondes impulsivamente: \"El verdadero propósito del poder elemental es obtener control y dominio sobre los demás\"");
+		descripcion2.setBounds(161, 406, 599, 20);
+		add(descripcion2);
+		descripcion2.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(PantallaPregunta1.class.getResource("/imagenes/PantallaPreguntaDefinitiva.png")));
+		lblNewLabel.setBounds(0, 0, 800, 501);
+		add(lblNewLabel);
 
 		
 		
