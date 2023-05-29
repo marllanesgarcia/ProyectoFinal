@@ -5,7 +5,7 @@ public class Database {
 	/*
 	 * 
 	 * 
-	 * -- drop database if exists proyectofinaldaw;
+	 *-- drop database if exists proyectofinaldaw;
 -- create database proyectofinaldaw;
 use proyectofinaldaw;
 
