@@ -44,18 +44,6 @@ public class PantallaPersonaje extends JPanel{
 		this.ventana.setSize(700,504);
 		setLayout(null);
 		
-		JButton botonNext = new JButton("Siguiente");
-		botonNext.setFont(new Font("Monotype Corsiva", Font.BOLD, 18));
-		botonNext.setBounds(555, 456, 135, 34);
-		botonNext.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				ventana.cambiarAPantalla(PantallaPregunta1.class);
-			}
-		});
-		add(botonNext);
-		
 		JPanel panel = new JPanel();
 		panel.setForeground(new Color(0, 0, 0));
 		panel.setBorder(new LineBorder(new Color(0, 0, 255), 2, true));
@@ -107,8 +95,7 @@ public class PantallaPersonaje extends JPanel{
 		 
 		final JComboBox comboBox = new JComboBox();
 		comboBox.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] 
-				{"Asia", "África", "América del Norte", "América del Sur", "Antártida", "Europa", "Oceanía"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Asia", "África", "América del Norte", "América del Sur", "Antártida", "Europa", "Oceanía"}));
 		comboBox.setBounds(306, 130, 128, 22);
 		add(comboBox);
 		
@@ -191,7 +178,7 @@ public class PantallaPersonaje extends JPanel{
 		txtTalento.setColumns(10);
 		cuadroUsuario_2_1_1_1.add(txtTalento);
 		
-		JComboBox datosElemento = new JComboBox();
+		final JComboBox datosElemento = new JComboBox();
 		datosElemento.setModel(new DefaultComboBoxModel(new String[] {"AIRE", "HIELO", "ELECTRO", "AGUA", "PLANTA", "ROCA"}));
 		datosElemento.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
 		datosElemento.setBounds(527, 221, 107, 22);
@@ -219,22 +206,45 @@ public class PantallaPersonaje extends JPanel{
 		textoArma.setColumns(10);
 		cuadroUsuario_2_1_1_1_1.add(textoArma);
 		
-		JComboBox comboBox_1 = new JComboBox();
+		final JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Cubierta Protectora", "Llamas Fervientes", "Aguas medicinales", "Vientos impetuosos"}));
 		comboBox_1.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
 		comboBox_1.setBounds(517, 308, 143, 22);
 		add(comboBox_1);
 		
-		JComboBox datosArma = new JComboBox();
+		final JComboBox datosArma = new JComboBox();
 		datosArma.setModel(new DefaultComboBoxModel(new String[] {"espada corta", "bazooka", "escupitajo", "chancla"}));
 		datosArma.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
 		datosArma.setBounds(409, 403, 128, 22);
 		add(datosArma);
 		
-		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon(PantallaPersonaje.class.getResource("/imagenes/7.jpg")));
-		lblNewLabel_3.setBounds(0, 0, 700, 501);
-		add(lblNewLabel_3);
+		JButton botonNext = new JButton("Siguiente");
+		botonNext.setFont(new Font("Monotype Corsiva", Font.BOLD, 18));
+		botonNext.setBounds(555, 456, 135, 34);
+		botonNext.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				String region = comboBox.getSelectedItem().toString();
+				int edad = Integer.parseInt(datosEdad.getText());
+				int altura = Integer.parseInt(datosAltura.getText());
+				String genero = buttonGroup.getSelection().getActionCommand();
+				String elemento = datosElemento.getSelectedItem().toString();
+				int vida = Integer.parseInt(datosVida.getText());
+				String talento = comboBox_1.getSelectedItem().toString();
+				String arma = datosArma.getSelectedItem().toString();
+
+				// Realizando la inserción en la tabla jugador
+				String sql = "INSERT INTO jugador (region, edad, altura, genero, elemento, vida, talento, arma) " +
+				             "VALUES ('" + region + "', " + edad + ", " + altura + ", '" + genero + "', '" + 
+						elemento + "', " + vida + ", '" + talento + "', '" + arma + "')";
+
+
+				ventana.cambiarAPantalla(PantallaPregunta1.class);
+			}
+		});
+		add(botonNext);
+		
 		
 	}
 	
