@@ -22,8 +22,9 @@ public class PantallaCuidado extends JPanel{
 	private Ventana ventana;
 	private JTextArea areaTexto;
 	private int cuidadoLetras = 0;
-	private String[] letras = { "¡CUIDADO, VIENEN LOS ENEMIGOS...!",
-			"¡¡¡PREPARAOS PARA LA BATALLA MIS VALIENTES...!!!"," ¡QUIEN MUERA ES TONTO Y SE LLEVA UN SUSPENSO!" };
+	private String[] letras = { "CAGASTE MAI FRIEN...", "¡CUIDADO, VIENEN LOS ENEMIGOS...!",
+			"¡¡¡PREPARAOS PARA LA BATALLA MIS VALIENTES...!!!"," ¡QUIEN MUERA ES TONTO Y SE LLEVA UN SUSPENSO!",
+			"A por todas", "Preparados..", "Listos..", "YAAAAAAAA."};
 	
 	public PantallaCuidado(Ventana v) {
 		
