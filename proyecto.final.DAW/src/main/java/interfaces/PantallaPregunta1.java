@@ -92,6 +92,7 @@ public class PantallaPregunta1 extends JPanel{
 		add(descripcionAnimo);
 		
 		JButton BotonNext = new JButton("Siguiente");
+		BotonNext.setBackground(new Color(128, 0, 128));
 		BotonNext.setFont(new Font("Segoe UI Symbol", Font.BOLD, 18));
 		BotonNext.setBounds(305, 449, 157, 41);
 		add(BotonNext);

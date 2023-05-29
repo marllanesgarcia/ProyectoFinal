@@ -117,12 +117,12 @@ public class PantallaRegistro extends JPanel{
             public void mouseClicked(MouseEvent e) {
                 String usuario = datosUsuario.getText();
                 String email = datosEmail.getText();
-                String contraseña = new String(datosPassword.getPassword());
-                System.out.println(usuario + " : " + contraseña);
+                String password = new String(datosPassword.getPassword());
+                System.out.println(usuario + " : " + password);
                 
                 try {
                 	HashMap<String, Object> columnas = new HashMap<>();
-                	columnas.put("contraseña", contraseña);
+                	columnas.put("contraseña", password);
                 	columnas.put("usuario", usuario);
                 	columnas.put("email", email);
                 	try {
