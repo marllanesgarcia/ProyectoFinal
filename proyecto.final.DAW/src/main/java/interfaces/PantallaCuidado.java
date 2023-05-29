@@ -47,6 +47,7 @@ public class PantallaCuidado extends JPanel{
 		add(contenedorTexto);
 		
 		final JButton botonNext = new JButton("Next");
+		botonNext.setBackground(new Color(192, 192, 192));
 		botonNext.setBounds(129, 417, 446, 25);
 		botonNext.addMouseListener(new MouseAdapter() {
 			@Override
@@ -55,7 +56,7 @@ public class PantallaCuidado extends JPanel{
 			}
 		});
 		botonNext.setForeground(new Color(255, 0, 0));
-		botonNext.setFont(new Font("Franklin Gothic Book", Font.BOLD | Font.ITALIC, 17));
+		botonNext.setFont(new Font("DejaVu Serif", Font.BOLD | Font.ITALIC, 17));
 		contenedorTexto.add(botonNext);
 		
 		// Crear y iniciar un hilo para mostrar la historia gradualmente
