@@ -290,6 +290,11 @@ public class PantallaPersonaje extends JPanel{
 		});
 		add(botonNext);
 		
+		JLabel fondoPJ = new JLabel("");
+		fondoPJ.setIcon(new ImageIcon(PantallaPersonaje.class.getResource("/imagenes/7.jpg")));
+		fondoPJ.setBounds(0, 0, 700, 501);
+		add(fondoPJ);
+		
 		
 	}
 }
