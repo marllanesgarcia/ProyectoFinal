@@ -16,7 +16,6 @@ create table usuario(
 );
 
 create table jugador(
-	id INT PRIMARY KEY,
     region varchar(30),
     edad numeric(12),
     altura numeric(12),
@@ -77,6 +76,17 @@ VALUES
 ('Llamas Fervientes',12),
 ('Aguas Medicinales',15),
 ('Vientos impetuosos',5);
+
+-- Jugador
+INSERT INTO Jugador (region)
+VALUES
+('Asia'), ('Asia'),('África'),
+('América del Norte'),('América del Sur'),
+('Antártida'),('Europa'),('Oceanía');
+
+INSERT INTO Jugador (genero)
+VALUES
+('Lumine'),('Aether');
 	 * 
 	 * 
 	 */
