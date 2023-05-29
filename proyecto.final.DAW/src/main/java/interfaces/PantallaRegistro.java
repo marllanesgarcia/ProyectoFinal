@@ -118,25 +118,29 @@ public class PantallaRegistro extends JPanel{
                 String usuario = datosUsuario.getText();
                 String email = datosEmail.getText();
                 String password = new String(datosPassword.getPassword());
-                System.out.println(usuario + " : " + password);
-                
-                try {
-                	HashMap<String, Object> columnas = new HashMap<>();
-                	columnas.put("password", password);
-                	columnas.put("usuario", usuario);
-                	columnas.put("email", email);
-                	try {
-                	    DAO.insertar("usuario", columnas);
-                	    JOptionPane.showMessageDialog(ventana, "Registrado Correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                	    ventana.cambiarAPantalla(PantallaPersonaje.class);
-                	} catch (SQLException e1) {
-                	    e1.printStackTrace();
-                	}
-				} catch (HeadlessException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-                ventana.cambiarAPantalla(PantallaPersonaje.class);
+
+                if (usuario.isEmpty() || email.isEmpty() || password.isEmpty()) {
+                    // Mostrar un mensaje de error o hacer alguna acción para indicar que se deben completar todos los campos
+                    JOptionPane.showMessageDialog(null, "Por favor, completa todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    System.out.println(usuario + " : " + password);
+                    
+                    try {
+                        HashMap<String, Object> columnas = new HashMap<>();
+                        columnas.put("password", password);
+                        columnas.put("usuario", usuario);
+                        columnas.put("email", email);
+                        try {
+                            DAO.insertar("usuario", columnas);
+                            JOptionPane.showMessageDialog(ventana, "Registrado Correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                            ventana.cambiarAPantalla(PantallaPersonaje.class);
+                        } catch (SQLException e1) {
+                            e1.printStackTrace();
+                        }
+                    } catch (HeadlessException e1) {
+                        e1.printStackTrace();
+                    }
+                }
             }
         });
 		guardarInfo.setToolTipText("SUUUUU");
