@@ -14,7 +14,7 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 
-public class PantallaPregunta1 extends JPanel{
+public class PantallaPregunta2 extends JPanel{
 
 	private Ventana ventana;
 	private JTextField tituloPregunta;
@@ -22,7 +22,7 @@ public class PantallaPregunta1 extends JPanel{
 	private final ButtonGroup botonesRespuesta = new ButtonGroup();
 	
 
-	public PantallaPregunta1(Ventana v) {
+	public PantallaPregunta2(Ventana v) {
 		setBackground(new Color(216, 191, 216));
 
 		this.ventana=v;

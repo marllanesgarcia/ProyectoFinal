@@ -21,6 +21,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.HashMap;
 
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -48,7 +49,7 @@ public class PantallaRegistro extends JPanel{
 		descripcion.setFont(new Font("Monotype Corsiva", Font.PLAIN, 15));
 		descripcion.setEditable(false);
 		descripcion.setColumns(10);
-		descripcion.setBounds(111, 101, 383, 43);
+		descripcion.setBounds(87, 106, 450, 43);
 		add(descripcion);
 		
 		JDesktopPane cuadro = new JDesktopPane();
@@ -120,7 +121,18 @@ public class PantallaRegistro extends JPanel{
                 System.out.println(usuario + " : " + contraseña);
                 
                 try {
-					DAO.insertar(contraseña, usuario, email);
+                	HashMap<String, Object> columnas = new HashMap<>();
+                	columnas.put("contraseña", contraseña);
+                	columnas.put("usuario", usuario);
+                	columnas.put("email", email);
+                	try {
+                	    DAO.insertar("usuario", columnas);
+                	    JOptionPane.showMessageDialog(ventana, "Registrado Correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                	    ventana.cambiarAPantalla(PantallaPersonaje.class);
+                	} catch (SQLException e1) {
+                	    e1.printStackTrace();
+                	}
+
 					JOptionPane.showMessageDialog(ventana, "Registrado Correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 					ventana.cambiarAPantalla(PantallaPersonaje.class);
 				} catch (HeadlessException e1) {
@@ -139,7 +151,7 @@ public class PantallaRegistro extends JPanel{
 		
 		JLabel fondoRegistro = new JLabel("");
 		fondoRegistro.setIcon(new ImageIcon(PantallaRegistro.class.getResource("/imagenes/registro4.jpg")));
-		fondoRegistro.setBounds(0, 0, 601, 501);
+		fondoRegistro.setBounds(0, 0, 587, 485);
 		add(fondoRegistro);
 		
 		}
