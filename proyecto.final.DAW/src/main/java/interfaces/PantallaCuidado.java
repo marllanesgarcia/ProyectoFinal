@@ -7,11 +7,11 @@ import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 
-public class PantallaBatalla extends JPanel{
+public class PantallaCuidado extends JPanel{
 
 	private Ventana ventana;
 	
-	public PantallaBatalla(Ventana v) {
+	public PantallaCuidado(Ventana v) {
 		
 		this.ventana=v;
 		setLayout(null);

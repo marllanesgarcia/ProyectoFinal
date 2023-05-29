@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JScrollPane;
 import javax.swing.JToggleButton;
@@ -14,6 +16,8 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PantallaPregunta1 extends JPanel{
 
@@ -29,7 +33,7 @@ public class PantallaPregunta1 extends JPanel{
 		setBackground(new Color(216, 191, 216));
 
 		this.ventana=v;
-		this.ventana.setSize(800,501);
+		this.ventana.setSize(820,510);
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -70,12 +74,26 @@ public class PantallaPregunta1 extends JPanel{
 		add(pregunta1);
 		pregunta1.setColumns(10);
 		
-		JRadioButton respuesta1 = new JRadioButton("Respuesta 1");
+		final JRadioButton respuesta1 = new JRadioButton("Respuesta 1");
+		respuesta1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("¡Seleccionado!");
+				respuesta1.setActionCommand("Respuesta 1");
+			}
+		});
 		botonesRespuesta.add(respuesta1);
 		respuesta1.setBounds(46, 365, 109, 23);
 		add(respuesta1);
 		
-		JRadioButton respuesta2 = new JRadioButton("Respuesta 2");
+		final JRadioButton respuesta2 = new JRadioButton("Respuesta 2");
+		respuesta2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("¡Seleccionado!");
+				respuesta1.setActionCommand("Respuesta 2");
+			}
+		});
 		botonesRespuesta.add(respuesta2);
 		respuesta2.setBounds(46, 405, 109, 23);
 		add(respuesta2);
@@ -87,6 +105,20 @@ public class PantallaPregunta1 extends JPanel{
 		add(descripcionAnimo);
 		
 		JButton BotonNext = new JButton("Siguiente");
+		BotonNext.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				if (botonesRespuesta.equals("Respuesta 2")) {
+					JOptionPane.showMessageDialog(ventana, "¡Acertaste, bien hecho!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+					ventana.cambiarAPantalla(PantallaPregunta2.class);
+				}else {
+					JOptionPane.showMessageDialog(ventana, "¡oh no....Cagaste!", "Dead", JOptionPane.INFORMATION_MESSAGE);
+					ventana.cambiarAPantalla(PantallaBatalla.class);
+				}
+				
+			}
+		});
 		BotonNext.setForeground(new Color(240, 248, 255));
 		BotonNext.setBackground(new Color(128, 0, 128));
 		BotonNext.setFont(new Font("Segoe UI Symbol", Font.BOLD, 18));
@@ -94,12 +126,14 @@ public class PantallaPregunta1 extends JPanel{
 		add(BotonNext);
 		
 		descripcion1 = new JTextField();
+		descripcion1.setEditable(false);
 		descripcion1.setText("⇒  Con sabiduria: \"El verdadero propósito del poder elemental es proteger y preservar el equilibrio natural de Teyvat\".");
 		descripcion1.setBounds(161, 366, 581, 20);
 		add(descripcion1);
 		descripcion1.setColumns(10);
 		
 		descripcion2 = new JTextField();
+		descripcion2.setEditable(false);
 		descripcion2.setText("⇒  Respondes impulsivamente: \"El verdadero propósito del poder elemental es obtener control y dominio sobre los demás\"");
 		descripcion2.setBounds(161, 406, 599, 20);
 		add(descripcion2);
