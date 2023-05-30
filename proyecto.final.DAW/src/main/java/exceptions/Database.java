@@ -104,6 +104,22 @@ VALUES
  elemento varchar(30),
  fuerza byte
  );
+ 
+ -Insertar
+ 
+INSERT INTO Enemigo (nombre, vida, elemento, fuerza)
+VALUES ('Lawachurl Electroyelmo', 120, 'ELECTRO', 50);
+INSERT INTO Enemigo (nombre, vida, elemento, fuerza)
+VALUES ('Sabueso Acechador', 80, 'ROCA', 20);
+INSERT INTO Enemigo (nombre, vida, elemento, fuerza)
+VALUES ('Maga de Cicin', 30, 'HIELO', 15);
+INSERT INTO Enemigo (nombre, vida, elemento, fuerza)
+VALUES ('Samurai Kairagi', 90, 'AGUA', 30);
+INSERT INTO Enemigo (nombre, vida, elemento, fuerza)
+VALUES ('Megaflora', 35, 'PLANTA', 25);
+INSERT INTO Enemigo (nombre, vida, elemento, fuerza)
+VALUES ('Slime', 10, 'AIRE', 5);
+ 
 	 * 
 	 * 
 	 */

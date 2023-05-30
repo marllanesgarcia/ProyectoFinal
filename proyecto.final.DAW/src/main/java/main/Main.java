@@ -11,17 +11,17 @@ public class Main {
 		
 		Ventana v=new Ventana();
 			
-	        SwingUtilities.invokeLater(new Runnable() {
-	            @Override
-	            public void run() {
-	                Batalla batalla = new Batalla();
-	                batalla.iniciarBatalla();
-	                batalla.setVisible(true);
-	            }
-	        });
+//	       SwingUtilities.invokeLater(new Runnable() {
+//	            @Override
+//	            public void run() {
+//	                Batalla batalla = new Batalla();
+//	                batalla.iniciarBatalla();
+//	                batalla.setVisible(true);
+//	            }
+//	        });
 	    }
 
 		
 	}
 
-}
+
