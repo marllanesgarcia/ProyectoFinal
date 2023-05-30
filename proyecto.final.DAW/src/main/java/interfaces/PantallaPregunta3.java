@@ -179,7 +179,7 @@ public class PantallaPregunta3 extends JPanel{
 		text2.setText("Después de una feroz batalla, Alphonse y los alquimistas lograron \r\nrepeler el ataque de los Elementales y proteger su conocimiento \r\ny poder alquímico. Los Elementales, conscientes de su derrota, \r\nse retiraron y acordaron mantener la paz con los Alquimistas. \r\nAmbas facciones reconocieron la importancia de la alquimia y \r\nlos poderes elementales, y trabajaron juntas para promover la \r\nprosperidad y el equilibrio en Teyvat.");
 		descipcion2.setViewportView(text2);
 		
-		JLabel fondoPregunta3 = new JLabel("");
+	/*	Label fondoPregunta3 = new JLabel("");
 		try {
 		BufferedImage imagen = ImageIO.read(PantallaPregunta3.class.getResource("/imagenes/pantallaPregunta3.jpg"));
 		Image enIcono = imagen.getScaledInstance(810, 520, Image.SCALE_SMOOTH);
@@ -190,7 +190,7 @@ public class PantallaPregunta3 extends JPanel{
 		add(fondoPregunta3);
 		
 
-		/*
+	
 		 * 
 		 * JLabel lblFondo = new JLabel("");
 		try {

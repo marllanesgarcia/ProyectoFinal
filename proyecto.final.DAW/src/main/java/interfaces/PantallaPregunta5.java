@@ -178,7 +178,7 @@ public class PantallaPregunta5 extends JPanel{
 		text2.setFont(new Font("Microsoft YaHei", Font.PLAIN, 13));
 		text2.setText("Los residentes de Arbolinia creían fervientemente en el poder del \r\nÁrbol de los Mil Deseos y lo visitaban regularmente para expresar sus \r\nesperanzas y aspiraciones. Aunque no todos los deseos se cumplían, se creía \r\nque el acto de compartirlos con el árbol inspiraba a las personas a trabajar \r\narduamente para lograr sus metas y encontrar la felicidad en el proceso.");
 		descipcion2.setViewportView(text2);
-		try {
+		/*	try {
 			BufferedImage imagen = ImageIO.read(PantallaPregunta5.class.getResource("/imagenes/pantallaPregunta4.jpg"));
 			Image enIcono = imagen.getScaledInstance(810, 520, Image.SCALE_SMOOTH);
 			} catch (IOException e1) {
@@ -188,7 +188,7 @@ public class PantallaPregunta5 extends JPanel{
 		
 		
 
-		/*
+	
 		 * 
 		 * JLabel lblFondo = new JLabel("");
 		try {

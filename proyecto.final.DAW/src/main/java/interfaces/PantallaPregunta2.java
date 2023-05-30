@@ -1,15 +1,6 @@
 package interfaces;
 
 import javax.swing.JPanel;
-import javax.imageio.ImageIO;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import java.io.File;
-import java.io.IOException;
-
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 
@@ -19,24 +10,17 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-
 import javax.swing.JScrollPane;
-import javax.swing.JToggleButton;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import java.awt.List;
 import javax.swing.ImageIcon;
-import javax.swing.JPasswordField;
 
 public class PantallaPregunta2 extends JPanel{
 
@@ -179,11 +163,12 @@ public class PantallaPregunta2 extends JPanel{
 		text2.setFont(new Font("Microsoft YaHei", Font.PLAIN, 13));
 		text2.setText("El Viajero, con la ayuda de sus amigos y aliados, logró encontrar \r\nlas Estatuas de los Siete y liberar a los dioses de su cautiverio. \r\nCon el poder restaurado, los dioses unieron fuerzas una vez más \r\npara enfrentar a El Destructor y finalmente lo derrotaron, \r\ndevolviendo la paz a Teyvat. El Viajero cumplió su misión y\r\npudo encontrar respuestas sobre su pasado y reunirse con su \r\nhermana perdida, estableciendo un nuevo hogar en Teyvat.");
 		descipcion2.setViewportView(text2);
-		
-		JLabel fondoPregunta2 = new JLabel("");
-		fondoPregunta2.setIcon(new ImageIcon(PantallaPregunta2.class.getResource("/imagenes/fondoPregunta2.jpg")));
-		fondoPregunta2.setBounds(0, 0, 783, 517);
-		add(fondoPregunta2);
+//		
+//		JLabel lblNewLabel = new JLabel("");
+//		lblNewLabel.setIcon(new ImageIcon(PantallaPregunta2.class.getResource("/imagenes/fondoPregunta2.jpg")));
+//		lblNewLabel.setBounds(0, 0, 784, 521);
+//		add(lblNewLabel);
+//		
 		
 	}
 }
