@@ -277,7 +277,7 @@ public class PantallaPersonaje extends JPanel{
 					Arma arma = (Arma) datosArma.getSelectedItem();
 	                System.out.println(region + " : " + edad + " : " + altura + " : " + 
 					genero + " : " + elemento + " : " + vida + " : " + talento + " : " + arma);
-	            		
+	            	
 	                   
 					Jugador jugadorCreado=Jugador.jugadorNuevo(region, edad, altura, genero, elemento, vida, talento, arma);
 						

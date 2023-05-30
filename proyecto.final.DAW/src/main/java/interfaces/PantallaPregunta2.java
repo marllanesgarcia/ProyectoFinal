@@ -36,6 +36,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.List;
 import javax.swing.ImageIcon;
+import javax.swing.JPasswordField;
 
 public class PantallaPregunta2 extends JPanel{
 
@@ -180,29 +181,9 @@ public class PantallaPregunta2 extends JPanel{
 		descipcion2.setViewportView(text2);
 		
 		JLabel fondoPregunta2 = new JLabel("");
-		try {
-		BufferedImage imagen = ImageIO.read(PantallaPregunta2.class.getResource("fondoPregunta2.jpg"));
-		Image enIcono = imagen.getScaledInstance(810, 520, Image.SCALE_SMOOTH);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		fondoPregunta2.setBounds(0, 0, 777, 536);
+		fondoPregunta2.setIcon(new ImageIcon(PantallaPregunta2.class.getResource("/imagenes/fondoPregunta2.jpg")));
+		fondoPregunta2.setBounds(0, 0, 783, 517);
 		add(fondoPregunta2);
-
-		/*
-		 * 
-		 * JLabel lblFondo = new JLabel("");
-		try {
-			BufferedImage imagen = ImageIO.read(new File("./imagenes/fondo1.png"));
-			Image enIcono = imagen.getScaledInstance(700, 500, Image.SCALE_SMOOTH);
-			lblFondo.setIcon(new ImageIcon(enIcono));
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		lblFondo.setBounds(0, 0, 700, 500);
-		add(lblFondo);
-		 */
-		
 		
 	}
 }

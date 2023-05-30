@@ -87,43 +87,6 @@ public class Jugador {
 	}
 	
 	
-
-//	public static ArrayList<Arma> getTodos() {
-//	    ArrayList<Arma> arma = new ArrayList<>();
-//
-//	    try {
-//	        // Definir las columnas a seleccionar en la consulta
-//	        LinkedHashSet<String> columnasSelect = new LinkedHashSet<>();;
-//	        columnasSelect.add("nombre");
-//	        columnasSelect.add("fuerza");
-//	        columnasSelect.add("peso");
-//
-//	        // Definir las restricciones de la consulta (si es necesario)
-//	        HashMap<String, Object> restricciones = new HashMap<>();
-//
-//	        // Realizar la consulta a la base de datos para obtener los resultados
-//	        ArrayList<Object> result = DAO.consultar("Arma", columnasSelect, restricciones);
-//
-//	        // Recorrer los resultados y crear instancias de Personaje
-//	        for (int i = 0; i < result.size(); i += 3) {
-//	        	String nombre = (String) result.get(i);
-//	            int fuerza = ((Integer) result.get(i + 1));
-//	            int peso = ((Integer) result.get(i + 2));
-//	            
-//	            Arma arma2 = new Arma(nombre, fuerza, peso);
-//
-//	            arma.add(arma2);
-//            
-//	        }
-//	    } catch (SQLException e) {
-//	        e.printStackTrace();
-//	        // Manejar la excepción de SQL
-//	    }
-//
-//	    return arma;
-//	}
-//	
-	
 	public static Jugador jugadorNuevo(Region region, byte edad, float altura, String genero,
 			Elemento elemento, byte vida, Talento talento, Arma arma) throws SQLException {
 		return new Jugador (region, edad, altura, genero, elemento, vida, talento, arma);

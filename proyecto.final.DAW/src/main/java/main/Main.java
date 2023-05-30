@@ -7,6 +7,7 @@ import javax.swing.SwingUtilities;
 
 import clases.Arma;
 import clases.Batalla;
+import clases.Enemigo;
 import clases.Jugador;
 import interfaces.Ventana;
 
@@ -35,8 +36,17 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	
-	
+	System.out.println();
+		try {
+			ArrayList<Enemigo> enemigo = Enemigo.getTodos();
+			 for (Enemigo a : enemigo) {
+	    	        System.out.println("Nombre: " + a.getNombre() + ", Vida: " + a.getVida()+ ", Elemento: " + a.getElemento()
+	    	        +", Fuerza: " + a.getFuerza()); 
+			 }
+	    	    
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	
 	
 	}

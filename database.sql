@@ -79,6 +79,7 @@ VALUES
  fuerza TINYINT
  );
  
+-- drop table Enemigo;
  -- Insertar
  
 INSERT INTO Enemigo (nombre, vida, elemento, fuerza)

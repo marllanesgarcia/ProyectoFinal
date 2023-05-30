@@ -40,7 +40,7 @@ public class Arma extends ElementoConNombre {
 
     @Override
     public String toString() {
-        return getNombre() + " fuerza=" + fuerza + " peso=" + peso;
+        return getNombre();
     }
 
     
