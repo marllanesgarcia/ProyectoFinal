@@ -273,7 +273,7 @@ public class PantallaPersonaje extends JPanel{
                 	try {
                 	    DAO.insertar("Jugador", columnas);
                 	    JOptionPane.showMessageDialog(ventana, "Registrado Correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                	    ventana.cambiarAPantalla(PantallaPregunta1.class);
+                	    ventana.cambiarAPantalla(PantallaHistoria.class);
                 	} catch (SQLException e1) {
                 	    e1.printStackTrace();
                 	    System.out.println("Noup, no vale, hazlo de nuevo");
@@ -285,7 +285,7 @@ public class PantallaPersonaje extends JPanel{
             	    System.out.println("Noup, no vale, hazlo de nuevo");
             	    ventana.cambiarAPantalla(PantallaPersonaje.class);
 				}
-                ventana.cambiarAPantalla(PantallaPregunta1.class);
+                ventana.cambiarAPantalla(PantallaHistoria.class);
             }
 		});
 		add(botonNext);
