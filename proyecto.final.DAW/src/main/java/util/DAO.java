@@ -16,6 +16,8 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map.Entry;
 
+import clases.Arma;
+
 public abstract class DAO {
 
 	private static Connection conexion;
@@ -72,9 +74,9 @@ public abstract class DAO {
 		it=columnas.values().iterator();
 		while (it.hasNext()) {
 			Object elemento=it.next();
-			System.out.println(elemento.getClass());
+		//	System.out.println(elemento.getClass());
 			// poner una excepcion para que, cuando la clase sea distinta de String y de class, me ponga comillas menos los numeros
-			if(elemento.getClass()!=String.class&&elemento.getClass()!=Character.class) { 
+			if(elemento.getClass()!=String.class&&elemento.getClass()!=Character.class&&elemento.getClass()!=Enum.class&&elemento.getClass()!=Arma.class) { 
 				consulta+=elemento+",";
 			} else {
 				consulta+= "'"+elemento+"',";
