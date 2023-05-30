@@ -30,6 +30,9 @@ public class Ventana extends JFrame{
 		if(clase.equals(PantallaPersonaje.class)) {
 			this.setContentPane(new PantallaPersonaje(this));
 		}
+		if(clase.equals(PantallaHistoria.class)) {
+			this.setContentPane(new PantallaHistoria(this));
+		}
 		if(clase.equals(PantallaPregunta1.class)) {
 			this.setContentPane(new PantallaPregunta1(this));
 		}
