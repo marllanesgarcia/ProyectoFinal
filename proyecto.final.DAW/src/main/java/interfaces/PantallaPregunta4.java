@@ -142,7 +142,7 @@ public class PantallaPregunta4 extends JPanel{
 
                 if (respuestaSeleccionada.equals("Respuesta 1")) {
                 	JOptionPane.showMessageDialog(ventana, "¡Acertaste, bien hecho!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                    ventana.cambiarAPantalla(PantallaPregunta4.class);
+                    ventana.cambiarAPantalla(PantallaPregunta5.class);
                     
                 } else {
                     JOptionPane.showMessageDialog(ventana, "¡Oh no.... Cagaste!", "Dead", JOptionPane.INFORMATION_MESSAGE);

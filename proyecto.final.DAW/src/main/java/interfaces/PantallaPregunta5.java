@@ -37,7 +37,7 @@ import javax.swing.JButton;
 import java.awt.List;
 import javax.swing.ImageIcon;
 
-public class PantallaPregunta3 extends JPanel{
+public class PantallaPregunta5 extends JPanel{
 
 	private Ventana ventana;
 	private JTextField tituloPregunta;
@@ -45,11 +45,11 @@ public class PantallaPregunta3 extends JPanel{
 	private final ButtonGroup botonesRespuesta = new ButtonGroup();
 	
 
-	public PantallaPregunta3(Ventana v) {
+	public PantallaPregunta5(Ventana v) {
 		setBackground(new Color(216, 191, 216));
 
 		this.ventana=v;
-		this.ventana.setSize(800,501);
+		this.ventana.setSize(800,508);
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -82,21 +82,21 @@ public class PantallaPregunta3 extends JPanel{
 		tituloPregunta = new JTextField();
 		tituloPregunta.setEditable(false);
 		tituloPregunta.setFont(new Font("MS PGothic", Font.ITALIC, 16));
-		tituloPregunta.setText("TERCERA PREGUNTA: Elige para seguir con la aventura. Piensa bien la respuesta (!!!).");
+		tituloPregunta.setText("QUINTA PREGUNTA: Elige para seguir con la aventura. Piensa bien la respuesta (!!!).");
 		preguntaUno.setColumnHeaderView(tituloPregunta);
 		tituloPregunta.setColumns(10);
 		
 		JTextArea txtrEnUnVasto = new JTextArea();
 		txtrEnUnVasto.setEditable(false);
 		txtrEnUnVasto.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 13));
-		txtrEnUnVasto.setText("Hace siglos, en el mundo de Teyvat, existían dos poderosas facciones: los Alquimistas y los \r\nElementales. Los Alquimistas eran sabios estudiosos de la naturaleza y buscaban entender \r\ny dominar los secretos de la alquimia, mientras que los Elementales eran seres dotados de\r\npoderes elementales y eran venerados como semidioses.\r\n\r\nAmbas facciones vivían en relativa armonía, colaborando en la búsqueda del conocimiento\r\ny protegiendo a Teyvat de las amenazas externas. Sin embargo, a medida que \r\npasaban los años, comenzaron a surgir tensiones entre ellos. Los Elementales se volvieron\r\ncada vez más arrogantes y despreciaron a los Alquimistas, considerándolos inferiores \r\ny sin poder real. \r\n\r\nLa rivalidad llegó a su punto máximo cuando un grupo de Elementales liderados por un\r\npoderoso líder llamado Venti intentó usurpar el poder de los Alquimistas. Aprovechando\r\nsu control sobre los elementos, los Elementales lanzaron ataques contra los laboratorios y\r\nbibliotecas de los Alquimistas, tratando de destruir su conocimiento y controlar la alquimia\r\npara sí mismos.\r\n\r\nEn medio del conflicto, surgió un joven alquimista llamado Alphonse. Con su ingenio y\r\nconocimientos alquímicos, Alphonse descubrió una antigua fórmula que le permitía\r\ncanalizar el poder elemental y otorgarse visiones temporales. Armado con estas visiones y\r\nacompañado por un grupo de leales alquimistas, Alphonse se enfrentó a los Elementales\r\nen una batalla épica para defender el conocimiento y la libertad de los Alquimistas.\r\n\r\nFinalmente, Alphonse logró derrotar a Venti y a los Elementales rebeldes, restableciendo \r\nla paz y el equilibrio en Teyvat. Reconociendo el valor de la alquimia y la sabiduría de los \r\nAlquimistas, los Elementales se retractaron de su arrogancia y ambos grupos acordaron\r\ncolaborar en adelante, compartiendo su conocimiento y protegiendo juntos a\r\nTeyvat de futuras amenazas.");
+		txtrEnUnVasto.setText("En un remoto rincón de Teyvat, existía un antiguo templo oculto \r\nconocido como \"El Santuario de los Sueños\". Se decía que aquellos \r\nque ingresaban al santuario eran transportados a un reino de \r\nensueño donde sus deseos más profundos se hacían realidad. \r\nLos rumores sobre el poder del santuario se extendieron rápidamente, \r\natrayendo a aventureros de todas partes de Teyvat en busca de su fortuna.");
 		preguntaUno.setViewportView(txtrEnUnVasto);
 		
 		pregunta2 = new JTextField();
 		pregunta2.setEditable(false);
 		pregunta2.setFont(new Font("Mongolian Baiti", Font.BOLD, 15));
-		pregunta2.setText("¿Qué pasó después de dicha batalla? ¿Se fue todo a la verga?");
-		pregunta2.setBounds(214, 227, 419, 37);
+		pregunta2.setText("El Santuario de los Sueños... ¿Es verdad o una ilusión?");
+		pregunta2.setBounds(257, 227, 376, 37);
 		add(pregunta2);
 		pregunta2.setColumns(10);
 		
@@ -140,9 +140,9 @@ public class PantallaPregunta3 extends JPanel{
 			public void mouseClicked(MouseEvent e) {
 				String respuestaSeleccionada = botonesRespuesta.getSelection().getActionCommand();
 
-                if (respuestaSeleccionada.equals("Respuesta 2")) {
+                if (respuestaSeleccionada.equals("Respuesta 1")) {
                 	JOptionPane.showMessageDialog(ventana, "¡Acertaste, bien hecho!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                    ventana.cambiarAPantalla(PantallaPregunta4.class);
+                    ventana.cambiarAPantalla(PantallaPregunta5.class);
                     
                 } else {
                     JOptionPane.showMessageDialog(ventana, "¡Oh no.... Cagaste!", "Dead", JOptionPane.INFORMATION_MESSAGE);
@@ -165,7 +165,7 @@ public class PantallaPregunta3 extends JPanel{
 		JTextArea text1 = new JTextArea();
 		text1.setEditable(false);
 		text1.setFont(new Font("Microsoft YaHei", Font.PLAIN, 13));
-		text1.setText("A pesar de los esfuerzos de Alphonse y los alquimistas, los Elementales \r\nlograron destruir gran parte del conocimiento alquímico y sometieron \r\na los Alquimistas a su dominio. Los Elementales se convirtieron en la \r\nfacción dominante y prohibieron la práctica de la alquimia, \r\nconsiderándola una amenaza para su poder. Teyvat quedó bajo el \r\ncontrol totalitario de los Elementales, y los alquimistas fueron \r\ndesterrados o perseguidos, mientras el mundo se sumía en la \r\noscuridad y la opresión.");
+		text1.setText("Sin embargo, cuando los aventureros finalmente encontraban el \r\nSantuario de los Sueños, descubrían que era solo una ilusión. \r\nNo importaba cuánto anhelaran sus deseos, el santuario nunca \r\ncumplía realmente sus promesas. Los aventureros se daban \r\ncuenta de que el verdadero tesoro estaba en aprender a valorar \r\ny perseguir sus sueños en el mundo real, y no en las ilusiones \r\nefímeras del santuario.");
 		descripcion1.setViewportView(text1);
 		
 		JScrollPane descipcion2 = new JScrollPane();
@@ -176,18 +176,16 @@ public class PantallaPregunta3 extends JPanel{
 		JTextArea text2 = new JTextArea();
 		text2.setEditable(false);
 		text2.setFont(new Font("Microsoft YaHei", Font.PLAIN, 13));
-		text2.setText("Después de una feroz batalla, Alphonse y los alquimistas lograron \r\nrepeler el ataque de los Elementales y proteger su conocimiento \r\ny poder alquímico. Los Elementales, conscientes de su derrota, \r\nse retiraron y acordaron mantener la paz con los Alquimistas. \r\nAmbas facciones reconocieron la importancia de la alquimia y \r\nlos poderes elementales, y trabajaron juntas para promover la \r\nprosperidad y el equilibrio en Teyvat.");
+		text2.setText("A medida que los aventureros ingresaban al Santuario de los Sueños, \r\nse encontraban con una dimensión alterna llena de maravillas y \r\nriquezas sin fin. En este reino onírico, sus deseos se materializaban \r\ny podían vivir una vida de lujo y exuberancia. Los aventureros se \r\nvolvían adictos a la ilusión y abandonaban sus responsabilidades \r\nen Teyvat, quedando atrapados para siempre en el Santuario de \r\nlos Sueños, persiguiendo un sueño que nunca se convertiría en \r\nrealidad.");
 		descipcion2.setViewportView(text2);
-		
-		JLabel fondoPregunta3 = new JLabel("");
 		try {
-		BufferedImage imagen = ImageIO.read(PantallaPregunta3.class.getResource("/imagenes/pantallaPregunta3.jpg"));
-		Image enIcono = imagen.getScaledInstance(810, 520, Image.SCALE_SMOOTH);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		fondoPregunta3.setBounds(0, 0, 808, 544);
-		add(fondoPregunta3);
+			BufferedImage imagen = ImageIO.read(PantallaPregunta5.class.getResource("/imagenes/pantallaPregunta4.jpg"));
+			Image enIcono = imagen.getScaledInstance(810, 520, Image.SCALE_SMOOTH);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		
+		
 		
 
 		/*
