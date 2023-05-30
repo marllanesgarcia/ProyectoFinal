@@ -39,6 +39,15 @@ public class Enemigo extends ElementoConNombre{
 		this.vida = vida;
 	}
 
+	
+	public void recibirAtaque(int fuerzaAtaque) {
+        vida -= fuerzaAtaque;
+    }
+
+    public boolean estaDerrotado() {
+        return vida <= 0;
+    }
+	
 	@Override
 	public String toString() {
 		return "Enemigo [fuerza=" + fuerza + ", elemento=" + elemento + ", vida=" + vida + "]";

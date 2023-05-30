@@ -92,6 +92,15 @@ public class Jugador extends ElementoConNombre{
 	public void setArma(Arma arma) {
 		this.arma = arma;
 	}
+	
+	public void recibirAtaque(int fuerzaAtaque) {
+        vida -= fuerzaAtaque;
+    }
+
+    public boolean estaDerrotado() {
+        return vida <= 0;
+    }
+	
 
 	@Override
 	public String toString() {

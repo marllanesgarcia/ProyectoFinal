@@ -26,6 +26,9 @@ public class Batalla {
 	public void setDuracion(int duracion) {
 		this.duracion = duracion;
 	}
+	
+	
+	
 
 	@Override
 	public String toString() {
