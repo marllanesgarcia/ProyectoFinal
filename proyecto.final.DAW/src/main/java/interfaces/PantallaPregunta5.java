@@ -76,7 +76,7 @@ public class PantallaPregunta5 extends JPanel{
 		
 		JScrollPane preguntaUno = new JScrollPane();
 		preguntaUno.setToolTipText("");
-		preguntaUno.setBounds(89, 71, 639, 155);
+		preguntaUno.setBounds(89, 71, 639, 110);
 		add(preguntaUno);
 		
 		tituloPregunta = new JTextField();
@@ -89,14 +89,14 @@ public class PantallaPregunta5 extends JPanel{
 		JTextArea txtrEnUnVasto = new JTextArea();
 		txtrEnUnVasto.setEditable(false);
 		txtrEnUnVasto.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 13));
-		txtrEnUnVasto.setText("En un remoto rincón de Teyvat, existía un antiguo templo oculto \r\nconocido como \"El Santuario de los Sueños\". Se decía que aquellos \r\nque ingresaban al santuario eran transportados a un reino de \r\nensueño donde sus deseos más profundos se hacían realidad. \r\nLos rumores sobre el poder del santuario se extendieron rápidamente, \r\natrayendo a aventureros de todas partes de Teyvat en busca de su fortuna.");
+		txtrEnUnVasto.setText("En un tranquilo pueblo de Teyvat llamado Arbolinia, se encontraba un \r\nlegendario árbol conocido como \"El Árbol de los Mil Deseos\". Según la \r\ntradición local, aquellos que escribían sus deseos en hojas especiales y \r\nlas ataban a las ramas del árbol, verían sus sueños cumplidos.");
 		preguntaUno.setViewportView(txtrEnUnVasto);
 		
 		pregunta2 = new JTextField();
 		pregunta2.setEditable(false);
 		pregunta2.setFont(new Font("Mongolian Baiti", Font.BOLD, 15));
-		pregunta2.setText("El Santuario de los Sueños... ¿Es verdad o una ilusión?");
-		pregunta2.setBounds(257, 227, 376, 37);
+		pregunta2.setText("¿Que pasaba cuando la gente iba a dicho árbol? ¿Pasaba algo o no?");
+		pregunta2.setBounds(191, 184, 471, 37);
 		add(pregunta2);
 		pregunta2.setColumns(10);
 		
@@ -109,7 +109,7 @@ public class PantallaPregunta5 extends JPanel{
 			}
 		});
 		botonesRespuesta.add(respuesta1);
-		respuesta1.setBounds(89, 321, 109, 23);
+		respuesta1.setBounds(89, 291, 109, 23);
 		add(respuesta1);
 		
 		final JRadioButton respuesta2 = new JRadioButton("Respuesta 2");
@@ -121,13 +121,13 @@ public class PantallaPregunta5 extends JPanel{
 			}
 		});
 		botonesRespuesta.add(respuesta2);
-		respuesta2.setBounds(89, 393, 109, 23);
+		respuesta2.setBounds(89, 365, 109, 23);
 		add(respuesta2);
 		
 		JLabel descripcionAnimo = new JLabel("¡ES TU MOMENTO! Elige una de las dos opciones...\r\n¿Cual será la correcta?");
 		descripcionAnimo.setForeground(new Color(255, 255, 255));
 		descripcionAnimo.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
-		descripcionAnimo.setBounds(188, 255, 445, 44);
+		descripcionAnimo.setBounds(203, 219, 445, 44);
 		add(descripcionAnimo);
 		
 		JButton BotonNext = new JButton("Siguiente");
@@ -154,29 +154,29 @@ public class PantallaPregunta5 extends JPanel{
 		BotonNext.setForeground(new Color(240, 248, 255));
 		BotonNext.setBackground(new Color(128, 0, 128));
 		BotonNext.setFont(new Font("Segoe UI Symbol", Font.BOLD, 18));
-		BotonNext.setBounds(333, 465, 157, 41);
+		BotonNext.setBounds(336, 431, 157, 41);
 		add(BotonNext);
 		
 		JScrollPane descripcion1 = new JScrollPane();
 		descripcion1.setToolTipText("");
-		descripcion1.setBounds(214, 295, 461, 73);
+		descripcion1.setBounds(213, 263, 461, 73);
 		add(descripcion1);
 		
 		JTextArea text1 = new JTextArea();
 		text1.setEditable(false);
 		text1.setFont(new Font("Microsoft YaHei", Font.PLAIN, 13));
-		text1.setText("Sin embargo, cuando los aventureros finalmente encontraban el \r\nSantuario de los Sueños, descubrían que era solo una ilusión. \r\nNo importaba cuánto anhelaran sus deseos, el santuario nunca \r\ncumplía realmente sus promesas. Los aventureros se daban \r\ncuenta de que el verdadero tesoro estaba en aprender a valorar \r\ny perseguir sus sueños en el mundo real, y no en las ilusiones \r\nefímeras del santuario.");
+		text1.setText("A medida que más y más personas visitaban el Árbol de los Mil Deseos \r\nen busca de su realización, surgieron problemas en el pueblo. Algunos \r\ncomenzaron a competir por la atención del árbol y se generaron \r\ntensiones entre los habitantes. Además, la codicia y la envidia \r\ncomenzaron a emerger cuando aquellos cuyos deseos no se cumplían \r\nempezaron a resentir a aquellos que parecían tener más suerte. \r\nFinalmente, el árbol se marchitó y perdió su poder, dejando a \r\nArbolinia sumida en la tristeza y el desencanto. Los habitantes \r\naprendieron la lección de que los deseos no pueden ser cumplidos \r\nsolo por la magia, sino que requieren esfuerzo y dedicación personal.");
 		descripcion1.setViewportView(text1);
 		
 		JScrollPane descipcion2 = new JScrollPane();
 		descipcion2.setToolTipText("");
-		descipcion2.setBounds(214, 378, 461, 73);
+		descipcion2.setBounds(213, 347, 461, 73);
 		add(descipcion2);
 		
 		JTextArea text2 = new JTextArea();
 		text2.setEditable(false);
 		text2.setFont(new Font("Microsoft YaHei", Font.PLAIN, 13));
-		text2.setText("A medida que los aventureros ingresaban al Santuario de los Sueños, \r\nse encontraban con una dimensión alterna llena de maravillas y \r\nriquezas sin fin. En este reino onírico, sus deseos se materializaban \r\ny podían vivir una vida de lujo y exuberancia. Los aventureros se \r\nvolvían adictos a la ilusión y abandonaban sus responsabilidades \r\nen Teyvat, quedando atrapados para siempre en el Santuario de \r\nlos Sueños, persiguiendo un sueño que nunca se convertiría en \r\nrealidad.");
+		text2.setText("Los residentes de Arbolinia creían fervientemente en el poder del \r\nÁrbol de los Mil Deseos y lo visitaban regularmente para expresar sus \r\nesperanzas y aspiraciones. Aunque no todos los deseos se cumplían, se creía \r\nque el acto de compartirlos con el árbol inspiraba a las personas a trabajar \r\narduamente para lograr sus metas y encontrar la felicidad en el proceso.");
 		descipcion2.setViewportView(text2);
 		try {
 			BufferedImage imagen = ImageIO.read(PantallaPregunta5.class.getResource("/imagenes/pantallaPregunta4.jpg"));
