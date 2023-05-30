@@ -7,11 +7,14 @@ import javax.swing.border.LineBorder;
 
 import clases.Enemigo;
 import clases.Jugador;
+import clases.ReproductorAudio;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +35,15 @@ public class PantallaBatalla extends JPanel{
 		setLayout(null);
 		this.ventana.setSize(820,510);
 
+		// MUSICA
+		
+				final JButton botonReproducir = new JButton("Reproducir");
+				botonReproducir.addActionListener(new ActionListener() {
+				    public void actionPerformed(ActionEvent e) {
+				        ReproductorAudio.reproduciroBatalla();
+				    }
+				});
+		
      /*   setTitle("Batalla");
         setSize(300, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

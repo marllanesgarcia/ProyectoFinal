@@ -9,10 +9,15 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+
+import clases.ReproductorAudio;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.GridLayout;
@@ -46,6 +51,15 @@ public class PantallaCuidado extends JPanel{
 		contenedorTexto.setLayout(null);
 		contenedorTexto.add(letrasLabel);
 		add(contenedorTexto);
+		
+		// MUSICA
+		
+		final JButton botonReproducir = new JButton("Reproducir");
+		botonReproducir.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        ReproductorAudio.reproduciroOtro();;
+		    }
+		});
 		
 		final JButton botonNext = new JButton("Next");
 		botonNext.setBackground(new Color(192, 192, 192));

@@ -57,6 +57,9 @@ public class PantallaLogin extends JPanel{
 		bienvenido.setBounds(20, 11, 99, 24);
 		cuadro.add(bienvenido);
 		bienvenido.setFont(new Font("Segoe UI Black", Font.PLAIN, 11));
+		
+		//MUSICA
+		
 		final JButton botonReproducir = new JButton("Reproducir");
 		botonReproducir.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {

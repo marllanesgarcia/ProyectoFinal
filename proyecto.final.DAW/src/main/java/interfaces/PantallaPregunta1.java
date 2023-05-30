@@ -11,6 +11,9 @@ import java.io.IOException;
 
 import java.awt.Color;
 import javax.swing.border.LineBorder;
+
+import clases.ReproductorAudio;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -24,6 +27,9 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -56,6 +62,15 @@ public class PantallaPregunta1 extends JPanel{
 		lblempiezaElJuego.setForeground(new Color(128, 0, 128));
 		lblempiezaElJuego.setFont(new Font("DejaVu Sans Condensed", Font.BOLD, 19));
 		panel.add(lblempiezaElJuego);
+		
+		// MUSICA
+		
+		final JButton botonReproducir = new JButton("Reproducir");
+		botonReproducir.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        ReproductorAudio.reproducirPreguntas();
+		    }
+		});
 		
 		JScrollPane preguntaUno = new JScrollPane();
 		preguntaUno.setToolTipText("");

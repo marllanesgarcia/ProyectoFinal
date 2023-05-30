@@ -20,6 +20,39 @@ public class ReproductorAudio {
         } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             e.printStackTrace();
         }
+    }
+    	 public static void reproduciroOtro() {
+    	    	try {
+    	            File archivoMusica = new File("/medioChill.mp3");
+    	            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(archivoMusica);
+    	            Clip clip = AudioSystem.getClip();
+    	            clip.open(audioInputStream);
+    	            clip.start();
+    	        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+    	            e.printStackTrace();
+    	        }
+    	 }
+    	 public static void reproduciroBatalla() {
+ 	    	try {
+ 	            File archivoMusica = new File("/batalla.mp3");
+ 	            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(archivoMusica);
+ 	            Clip clip = AudioSystem.getClip();
+ 	            clip.open(audioInputStream);
+ 	            clip.start();
+ 	        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+ 	            e.printStackTrace();
+ 	        }
 }
+    	 public static void reproducirPreguntas() {
+  	    	try {
+  	            File archivoMusica = new File("/musicaPreguntas.mp3");
+  	            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(archivoMusica);
+  	            Clip clip = AudioSystem.getClip();
+  	            clip.open(audioInputStream);
+  	            clip.start();
+  	        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+  	            e.printStackTrace();
+  	        }
+ }
 
 }

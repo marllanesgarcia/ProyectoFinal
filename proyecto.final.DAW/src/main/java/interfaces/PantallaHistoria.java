@@ -64,6 +64,8 @@ public class PantallaHistoria extends JPanel{
 		contenedorTexto.add(letrasLabel);
 		add(contenedorTexto);
 		
+		// MUSICA
+		
 		final JButton botonReproducir = new JButton("Reproducir");
 		botonReproducir.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
