@@ -72,12 +72,14 @@ public abstract class DAO {
 		it=columnas.values().iterator();
 		while (it.hasNext()) {
 			Object elemento=it.next();
-			if(elemento.getClass()!=String.class&&elemento.getClass()!=Character.class) { 
+			System.out.println(elemento.getClass());
+			// poner una excepcion para que, cuando la clase sea distinta de String y de class, me ponga comillas menos los numeros
+			if(elemento.getClass()!=String.class&&elemento.getClass()!=Character.class&&elemento.getClass()==Enum.class) { 
 				consulta+=elemento+",";
-			}else {
-			consulta+= "'"+(String)elemento+"',";
+			} else {
+				consulta+= "'"+elemento+"',";
+				}
 			}
-		}
 		consulta=consulta.substring(0,consulta.length()-1);
 		consulta+=")";	
 		

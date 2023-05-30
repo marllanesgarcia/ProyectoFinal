@@ -49,9 +49,8 @@ public class Jugador {
     	columnas.put("arma", arma);
     	
 	    DAO.insertar("jugador", columnas);
-
+	    
 	}
-	
 	
 	public static ArrayList<Arma> getTodos() {
 	    ArrayList<Arma> armas = new ArrayList<>();
