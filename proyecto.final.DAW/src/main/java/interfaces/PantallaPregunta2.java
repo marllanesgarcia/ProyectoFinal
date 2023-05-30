@@ -1,6 +1,7 @@
 package interfaces;
 
 import javax.swing.JPanel;
+import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -15,9 +16,15 @@ import javax.swing.border.LineBorder;
 import clases.ReproductorAudio;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JScrollPane;
 import javax.swing.JToggleButton;
@@ -93,29 +100,66 @@ public class PantallaPregunta2 extends JPanel{
 		add(pregunta2);
 		pregunta2.setColumns(10);
 		
-		JRadioButton respuesta1 = new JRadioButton("Respuesta 1");
+		final JRadioButton respuesta1 = new JRadioButton("Respuesta 1");
+		respuesta1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("¡Seleccionado!");
+				respuesta1.setActionCommand("Respuesta 1");
+			}
+		});
 		botonesRespuesta.add(respuesta1);
-		respuesta1.setBounds(128, 320, 109, 23);
+		respuesta1.setBounds(111, 323, 109, 23);
 		add(respuesta1);
 		
-		JRadioButton respuesta2 = new JRadioButton("Respuesta 2");
+		final JRadioButton respuesta2 = new JRadioButton("Respuesta 2");
+		respuesta2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("¡Seleccionado!");
+				respuesta2.setActionCommand("Respuesta 2");
+			}
+		});
 		botonesRespuesta.add(respuesta2);
-		respuesta2.setBounds(128, 403, 109, 23);
+		respuesta2.setBounds(111, 389, 109, 23);
 		add(respuesta2);
 		
 		JLabel descripcionAnimo = new JLabel("¡ES TU MOMENTO! Elige una de las dos opciones...\r\n¿Cual será la correcta?");
+		descripcionAnimo.setForeground(new Color(255, 255, 255));
 		descripcionAnimo.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
 		descripcionAnimo.setBounds(188, 255, 445, 44);
 		add(descripcionAnimo);
 		
 		JButton BotonNext = new JButton("Siguiente");
+		BotonNext.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		BotonNext.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String respuestaSeleccionada = botonesRespuesta.getSelection().getActionCommand();
+
+                if (respuestaSeleccionada.equals("Respuesta 2")) {
+                	JOptionPane.showMessageDialog(ventana, "¡Acertaste, bien hecho!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    ventana.cambiarAPantalla(PantallaPregunta3.class);
+                    
+                } else {
+                    JOptionPane.showMessageDialog(ventana, "¡Oh no.... Cagaste!", "Dead", JOptionPane.INFORMATION_MESSAGE);
+                    ventana.cambiarAPantalla(PantallaCuidado.class);
+                }
+				
+			}
+		});
+		BotonNext.setForeground(new Color(240, 248, 255));
+		BotonNext.setBackground(new Color(128, 0, 128));
 		BotonNext.setFont(new Font("Segoe UI Symbol", Font.BOLD, 18));
-		BotonNext.setBounds(301, 471, 157, 41);
+		BotonNext.setBounds(333, 465, 157, 41);
 		add(BotonNext);
 		
 		JScrollPane descripcion1 = new JScrollPane();
 		descripcion1.setToolTipText("");
-		descripcion1.setBounds(257, 303, 461, 73);
+		descripcion1.setBounds(226, 294, 461, 73);
 		add(descripcion1);
 		
 		JTextArea text1 = new JTextArea();
@@ -125,7 +169,7 @@ public class PantallaPregunta2 extends JPanel{
 		
 		JScrollPane descipcion2 = new JScrollPane();
 		descipcion2.setToolTipText("");
-		descipcion2.setBounds(257, 387, 461, 73);
+		descipcion2.setBounds(226, 378, 461, 73);
 		add(descipcion2);
 		
 		JTextArea text2 = new JTextArea();
@@ -134,10 +178,28 @@ public class PantallaPregunta2 extends JPanel{
 		descipcion2.setViewportView(text2);
 		
 		JLabel fondoPregunta2 = new JLabel("");
-		fondoPregunta2.setIcon(new ImageIcon(PantallaPregunta2.class.getResource("/imagenes/fondoPregunta2.jpg")));
-		fondoPregunta2.setBounds(10, 0, 777, 536);
+		try {
+		BufferedImage imagen = ImageIO.read(PantallaPregunta2.class.getResource("/imagenes/fondoPregunta2.jpg"));
+		Image enIcono = imagen.getScaledInstance(810, 520, Image.SCALE_SMOOTH);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		fondoPregunta2.setBounds(0, 0, 777, 536);
 		add(fondoPregunta2);
 
+		/*
+		 * 
+		 * JLabel lblFondo = new JLabel("");
+		try {
+			BufferedImage imagen = ImageIO.read(new File("./imagenes/fondo1.png"));
+			Image enIcono = imagen.getScaledInstance(700, 500, Image.SCALE_SMOOTH);
+			lblFondo.setIcon(new ImageIcon(enIcono));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		lblFondo.setBounds(0, 0, 700, 500);
+		add(lblFondo);
+		 */
 		
 		
 	}
