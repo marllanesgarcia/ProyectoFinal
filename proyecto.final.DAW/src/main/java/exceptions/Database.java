@@ -10,9 +10,9 @@ public class Database {
 use proyectofinaldaw;
 
 create table usuario(
-    password varchar (30) not null,
-	usuario varchar (80) not null,
-    email varchar (150) primary key  
+password varchar (30) not null,
+usuario varchar (80) not null,
+email varchar (150) primary key  
 );
 
 create table jugador(
@@ -55,7 +55,7 @@ CREATE TABLE Pregunta (
 );
 
 -- Tabla Historia
-CREATE TABLE Historia (
+	CREATE TABLE Historia (
     id INT PRIMARY KEY,
     descripcion VARCHAR(255),
     titulo VARCHAR(255)
@@ -93,6 +93,16 @@ INSERT INTO Jugador (elemento)
 VALUES 
 ('AIRE'),('HIELO'),('ELECTRO'),
  ('AGUA'),('PLANTA'),('ROCA');
+ 
+ 
+ -- ACTUALIZACION 30/05
+ 
+ 
+ CREATE TABLE Enemigo(
+ vida numeric(12), 
+ elemento varchar(30),
+ vida numeric(12),
+ );
 	 * 
 	 * 
 	 */
