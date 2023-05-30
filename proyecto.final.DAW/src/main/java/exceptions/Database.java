@@ -99,9 +99,10 @@ VALUES
  
  
  CREATE TABLE Enemigo(
+ nombre varchar(20),
  vida numeric(12), 
  elemento varchar(30),
- vida numeric(12),
+ fuerza byte
  );
 	 * 
 	 * 
