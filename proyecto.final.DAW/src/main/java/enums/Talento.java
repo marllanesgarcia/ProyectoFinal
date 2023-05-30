@@ -1,0 +1,10 @@
+package enums;
+
+public enum Talento {
+	
+	CUBIERTA_PROTECTORA,
+	LLAMAS_FERVIENTES,
+	AGUAS_MEDICIONALES,
+	VIENTOS_IMPETUOSOS
+	
+}

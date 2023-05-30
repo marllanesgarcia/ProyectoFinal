@@ -1,37 +1,50 @@
 package clases;
 
-public class Arma {
+public class Arma extends ElementoConNombre {
     /*
      * una espada corta con fuerza 
      * 100 y peso 20kg, una chancla con fuerza 10 y peso 1kg, 
      * un bazooka con fuerza 800 y peso 7kg y escupitajo con fuerza 50 y peso 0kg
      * 
      */
+	private ElementoConNombre nombre;
 	private int fuerza;
-    private byte peso;
+    private int peso;
     
     // Constructor
-    public Arma(int fuerza, byte peso) {
-        this.fuerza = fuerza;
-        this.peso = peso;
-    }
+	public Arma(String nombre, int fuerza, int peso) {
+		super(nombre);
+		this.fuerza = fuerza;
+		this.peso = peso;
+	}
     
-    // Getters y Setters
+   
+	// Getters y Setters
     public int getFuerza() {
         return fuerza;
     }
 
-    public void setFuerza(int fuerza) {
+
+	public void setFuerza(int fuerza) {
         this.fuerza = fuerza;
     }
 
-    public byte getPeso() {
+    public int getPeso() {
         return peso;
     }
 
     public void setPeso(byte peso) {
         this.peso = peso;
     }
+
+
+    @Override
+    public String toString() {
+        return getNombre() + " fuerza=" + fuerza + " peso=" + peso;
+    }
+
+    
+    
 }
 /*
 

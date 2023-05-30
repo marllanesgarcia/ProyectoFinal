@@ -26,12 +26,6 @@ drop table jugador;
     peso TINYINT
 );
 
--- Tabla Talento
-CREATE TABLE Talento (
-    habilidadEspecial VARCHAR(255),
-    duracion TINYINT
-);
-drop table talento;
 -- Tabla Respuesta
 CREATE TABLE Respuesta (
     id INT PRIMARY KEY,
@@ -61,14 +55,6 @@ VALUES
   ('chancla', 10, 1),
   ('bazooka', 800, 7),
   ('escupitajo', 50, 0);
-
--- Talento
-INSERT INTO Talento (habilidadEspecial, duracion)
-VALUES
-('Cubierta Proyectora',10),
-('Llamas Fervientes',12),
-('Aguas Medicinales',15),
-('Vientos impetuosos',5);
 
 -- Jugador
 INSERT INTO Jugador (region)

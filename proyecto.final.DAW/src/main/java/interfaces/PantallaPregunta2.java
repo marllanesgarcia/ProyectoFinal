@@ -181,7 +181,7 @@ public class PantallaPregunta2 extends JPanel{
 		
 		JLabel fondoPregunta2 = new JLabel("");
 		try {
-		BufferedImage imagen = ImageIO.read(PantallaPregunta2.class.getResource("/imagenes/fondoPregunta2.jpg"));
+		BufferedImage imagen = ImageIO.read(PantallaPregunta2.class.getResource("fondoPregunta2.jpg"));
 		Image enIcono = imagen.getScaledInstance(810, 520, Image.SCALE_SMOOTH);
 		} catch (IOException e1) {
 			e1.printStackTrace();

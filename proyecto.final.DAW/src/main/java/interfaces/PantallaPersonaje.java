@@ -11,7 +11,12 @@ import java.awt.HeadlessException;
 
 import javax.swing.border.LineBorder;
 
-import clases.ReproductorAudio;
+import clases.Arma;
+import clases.Jugador;
+import enums.Elemento;
+import enums.Region;
+import enums.Talento;
+//import clases.ReproductorAudio;
 import util.DAO;
 
 import javax.swing.ImageIcon;
@@ -19,7 +24,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -41,12 +48,14 @@ public class PantallaPersonaje extends JPanel{
 	private JTextField datosAltura;
 	private JTextField datosVida;
 	private JTextField textoArma;
+	private JComboBox datosElemento;
+	private JComboBox comboBox;
 	private final ButtonGroup botonGenero = new ButtonGroup();
 	
 	public PantallaPersonaje(Ventana v) {
 		setBackground(new Color(224, 255, 255));
 		this.ventana=v;
-		this.ventana.setSize(700,504);
+		this.ventana.setSize(710,530);
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -68,12 +77,12 @@ public class PantallaPersonaje extends JPanel{
 		
 		// MUSICA
 		
-		final JButton botonReproducir = new JButton("Reproducir");
-		botonReproducir.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {
-		        ReproductorAudio.reproducir();
-		    }
-		});
+//		final JButton botonReproducir = new JButton("Reproducir");
+//		botonReproducir.addActionListener(new ActionListener() {
+//		    public void actionPerformed(ActionEvent e) {
+//		        ReproductorAudio.reproducir();
+//		    }
+//		});
 		
 		// IMAGENES BOTONES GENERO 
 		
@@ -86,16 +95,14 @@ public class PantallaPersonaje extends JPanel{
 		lblNewLabel_2.setIcon(new ImageIcon(PantallaPersonaje.class.getResource("/imagenes/Lumine2.png")));
 		lblNewLabel_2.setBounds(134, 77, 135, 163);
 		add(lblNewLabel_2);
-		
-		// BOTON PARA ELEGIR REGION
-		 
-		final JComboBox comboBox = new JComboBox();
-		comboBox.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Asia", "África", "América del Norte", "América del Sur", "Antártida", "Europa", "Oceanía"}));
-		comboBox.setBounds(306, 130, 128, 22);
-		add(comboBox);
-		
-		
+			 
+		final JComboBox<Region> datosRegion = new JComboBox<>();
+		Region[] regiones = Region.values();
+		DefaultComboBoxModel<Region> modeloRegion = new DefaultComboBoxModel<>(regiones);
+		datosRegion.setModel(modeloRegion);
+		datosRegion.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
+		datosRegion.setBounds(292, 130, 156, 22);
+		add(datosRegion);
 		
 		datosEdad = new JTextField();
 		datosEdad.setBounds(517, 132, 128, 20);
@@ -174,10 +181,12 @@ public class PantallaPersonaje extends JPanel{
 		txtTalento.setColumns(10);
 		cuadroUsuario_2_1_1_1.add(txtTalento);
 		
-		final JComboBox datosElemento = new JComboBox();
-		datosElemento.setModel(new DefaultComboBoxModel(new String[] {"AIRE", "HIELO", "ELECTRO", "AGUA", "PLANTA", "ROCA"}));
+		final JComboBox<Elemento> datosElemento = new JComboBox<>();
+		Elemento[] elementos = Elemento.values();
+		DefaultComboBoxModel<Elemento> modeloElemento = new DefaultComboBoxModel<>(elementos);
+		datosElemento.setModel(modeloElemento);
 		datosElemento.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
-		datosElemento.setBounds(527, 221, 107, 22);
+		datosElemento.setBounds(501, 218, 156, 22);
 		add(datosElemento);
 		
 		datosAltura = new JTextField();
@@ -202,18 +211,22 @@ public class PantallaPersonaje extends JPanel{
 		textoArma.setColumns(10);
 		cuadroUsuario_2_1_1_1_1.add(textoArma);
 		
-		final JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] 
-		{"Cubierta Protectora", "Llamas Fervientes", "Aguas medicinales", "Vientos impetuosos"}));
-		comboBox_1.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
-		comboBox_1.setBounds(517, 308, 143, 22);
-		add(comboBox_1);
-		
 		final JComboBox datosArma = new JComboBox();
-		datosArma.setModel(new DefaultComboBoxModel(new String[] {"espada corta", "bazooka", "escupitajo", "chancla"}));
+		ArrayList<Arma> armas = Jugador.getTodos();
+		DefaultComboBoxModel<Arma> modeloArmas = new DefaultComboBoxModel<>(armas.toArray(new Arma[0]));
+		datosArma.setModel(modeloArmas);
 		datosArma.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
-		datosArma.setBounds(409, 403, 128, 22);
+		datosArma.setBounds(350, 399, 238, 22);
 		add(datosArma);
+		
+		
+		final JComboBox<Talento> datosTalento = new JComboBox<>();
+		Talento[] talentos = Talento.values();
+		DefaultComboBoxModel<Talento> modeloTalentos = new DefaultComboBoxModel<>(talentos);
+		datosTalento.setModel(modeloTalentos);
+		datosTalento.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
+		datosTalento.setBounds(501, 308, 171, 22);
+		add(datosTalento);
 		
 		final JRadioButton aether = new JRadioButton("Aether");
 		aether.addMouseListener(new MouseAdapter() {
@@ -249,52 +262,42 @@ public class PantallaPersonaje extends JPanel{
 		add(lumine);
 		
 		JButton botonNext = new JButton("Siguiente");
-		botonNext.setFont(new Font("Monotype Corsiva", Font.BOLD, 18));
-		botonNext.setBounds(555, 456, 135, 34);
-		botonNext.addMouseListener(new MouseAdapter() {
+		botonNext.addMouseListener(new MouseAdapter() {			
 			@Override
+		    public void mouseClicked(MouseEvent e) {
+	
+		            try {	
+		            Region region = (Region) datosRegion.getSelectedItem();
+					byte edad = Byte.parseByte(datosEdad.getText());
+					float altura = Float.parseFloat(datosAltura.getText());
+					String genero = botonGenero.getSelection().getActionCommand();
+					Elemento elemento =  (Elemento) datosElemento.getSelectedItem();
+					byte vida = Byte.parseByte(datosVida.getText());
+					Talento talento = (Talento) datosTalento.getSelectedItem();
+					Arma arma = (Arma) datosArma.getSelectedItem();
+	                System.out.println(region + " : " + edad + " : " + altura + " : " + 
+					genero + " : " + elemento + " : " + vida + " : " + talento + " : " + arma);
+	            		
+	                   
+					Jugador jugadorCreado=Jugador.jugadorNuevo(region, edad, altura, genero, elemento, vida, talento, arma);
+						
+	        	    JOptionPane.showMessageDialog(ventana, "Registrado Correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+	        	    ventana.cambiarAPantalla(PantallaHistoria.class);
+	            	} catch (SQLException e1) {
+	            	    e1.printStackTrace();
+	                System.out.println("Noup, no vale, hazlo de nuevo");
+	            	    ventana.cambiarAPantalla(PantallaPersonaje.class);
+	            	} catch (NumberFormatException e2) {
+	            	    e2.printStackTrace();
+	                System.out.println("Noup, no vale, esta mal el numerito");
+	            	    ventana.cambiarAPantalla(PantallaPersonaje.class);
+	            	}
 			
-			public void mouseClicked(MouseEvent e) {
-				String region = comboBox.getSelectedItem().toString();
-				int edad = Integer.parseInt(datosEdad.getText());
-				float altura = Float.parseFloat(datosAltura.getText());
-				String genero = botonGenero.getSelection().getActionCommand();
-				String elemento = datosElemento.getSelectedItem().toString();
-				int vida = Integer.parseInt(datosVida.getText());
-				String talento = comboBox_1.getSelectedItem().toString();
-				String arma = datosArma.getSelectedItem().toString();
-                System.out.println(region + " : " + edad + " : " + altura + " : " + 
-				genero + " : " + elemento + " : " + vida + " : " + talento + " : " +
-                		arma);
-                
-                try {
-                	HashMap<String, Object> columnas = new HashMap<>();
-                	columnas.put("region", region);
-                	columnas.put("edad", edad);
-                	columnas.put("altura", altura);
-                	columnas.put("genero", genero);
-                	columnas.put("elemento", elemento);
-                	columnas.put("vida", vida);
-                	columnas.put("talento", talento);
-                	columnas.put("arma", arma);
-                	try {
-                	    DAO.insertar("Jugador", columnas);
-                	    JOptionPane.showMessageDialog(ventana, "Registrado Correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                	    ventana.cambiarAPantalla(PantallaHistoria.class);
-                	} catch (SQLException e1) {
-                	    e1.printStackTrace();
-                	    System.out.println("Noup, no vale, hazlo de nuevo");
-                	    ventana.cambiarAPantalla(PantallaPersonaje.class);
-                	}
-				} catch (HeadlessException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-            	    System.out.println("Noup, no vale, hazlo de nuevo");
-            	    ventana.cambiarAPantalla(PantallaPersonaje.class);
-				}
                 ventana.cambiarAPantalla(PantallaHistoria.class);
             }
 		});
+		botonNext.setFont(new Font("Monotype Corsiva", Font.BOLD, 18));
+		botonNext.setBounds(555, 456, 135, 34);
 		add(botonNext);
 		
 		JLabel fondoPJ = new JLabel("");
@@ -302,6 +305,89 @@ public class PantallaPersonaje extends JPanel{
 		fondoPJ.setBounds(0, 0, 700, 501);
 		add(fondoPJ);
 		
-		
-	}
+
+			}
+	
+	
+
+	
+//	private Elemento guardarElemento() {
+//		Elemento elementoElegido=null;
+//
+//		if (datosElemento.equals("AIRE")) {
+//			elementoElegido=Elemento.AIRE;
+//		}
+//		if (datosElemento.equals("HIELO")) {
+//			elementoElegido=Elemento.HIELO;
+//		}
+//		if (datosElemento.equals("ELECTRO")) {
+//			elementoElegido=Elemento.ELECTRO;
+//		}
+//		if (datosElemento.equals("AGUA")) {
+//			elementoElegido=Elemento.AGUA;
+//		}
+//		if (datosElemento.equals("PLANTA")) {
+//			elementoElegido=Elemento.PLANTA;
+//		}
+//		if (datosElemento.equals("ROCA")) {
+//			elementoElegido=Elemento.ROCA;
+//		}
+//
+//		return elementoElegido;
+//	}
+	
+
+	
+	
+//	private Region guardarRegion() {
+//		Region regionElegida=null;
+//
+//		if (comboBox.equals("Asia")) {
+//			regionElegida=Region.ASIA;
+//		}
+//		if (comboBox.equals("África")) {
+//			regionElegida=Region.AFRICA;
+//		}
+//		if (comboBox.equals("Anérica del Norte")) {
+//			regionElegida=Region.AMERICA_DEL_NORTE;
+//		}
+//		if (comboBox.equals("América del Sur")) {
+//			regionElegida=Region.AMERICA_DEL_SUR;
+//		}
+//		if (comboBox.equals("Antártida")) {
+//			regionElegida=Region.ANTARTIDA;
+//		}
+//		if (comboBox.equals("Europa")) {
+//			regionElegida=Region.EUROPA;
+//		}
+//		if (comboBox.equals("Oceanía")) {
+//			regionElegida=Region.OCEANIA;
+//		}
+//
+//		return regionElegida;
+//	}
+	
+
+
+//	private Talento guardarTalento() {
+//		Talento talentoElegid0=null;
+//
+//		if (comboBox.equals("Cubierta Protectora")) {
+//			talentoElegid0=Talento.CUBIERTA_PROTECTORA;
+//		}
+//		if (comboBox.equals("Llamas Fervientes")) {
+//			talentoElegid0=Talento.LLAMAS_FERVIENTES;
+//		}
+//		if (comboBox.equals("Aguas medicinales")) {
+//			talentoElegid0=Talento.AGUAS_MEDICIONALES;
+//		}
+//		if (comboBox.equals("Vientos impetuosos")) {
+//			talentoElegid0=Talento.VIENTOS_IMPETUOSOS;
+//		}
+//
+//		return talentoElegid0;
+//	}
+
+
+	
 }

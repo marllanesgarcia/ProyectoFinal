@@ -47,7 +47,7 @@ public class PantallaPregunta1 extends JPanel{
 		setBackground(new Color(216, 191, 216));
 
 		this.ventana=v;
-		this.ventana.setSize(820,510);
+		this.ventana.setSize(820,515);
 		setLayout(null);
 		
 		JPanel panel = new JPanel();

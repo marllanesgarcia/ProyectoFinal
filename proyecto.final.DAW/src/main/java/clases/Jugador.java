@@ -2,31 +2,131 @@ package clases;
 
 import enums.Elemento;
 import enums.Region;
-import clases.Arma;
-import clases.Talento;
+import enums.Talento;
+import util.DAO;
 
-public class Jugador extends ElementoConNombre{
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+
+import clases.Arma;
+
+public class Jugador {
 
 	private Region region;
 	private byte edad;
-	private byte altura;
+	private float altura;
 	private String genero;
 	private Elemento elemento;
 	private byte vida;
 	private Talento talento;
 	private Arma arma;
 	
-	public Jugador(String nombre, Region region, byte edad, byte altura, String genero,
-			Elemento elemento, byte vida, Talento talento, Arma arma) {
-		super(nombre);
-		this.region = region;
+	public Jugador(String nombre, byte edad, float altura, String genero,
+			byte vida, Talento talento, Arma arma) {
+		
 		this.edad = edad;
 		this.altura = altura;
 		this.genero = genero;
-		this.elemento = elemento;
 		this.vida = vida;
 		this.talento = talento;
 		this.arma = arma;
+	}
+	
+	public Jugador(Region region, byte edad, float altura, String genero,
+			Elemento elemento, byte vida, Talento talento, Arma arma) throws SQLException {
+		super();
+    	HashMap<String, Object> columnas = new HashMap<>();
+    	columnas.put("region", region);
+    	columnas.put("edad", edad);
+    	columnas.put("altura", altura);
+    	columnas.put("genero", genero);
+    	columnas.put("elemento", elemento);
+    	columnas.put("vida", vida);
+    	columnas.put("talento", talento);
+    	columnas.put("arma", arma);
+    	
+	    DAO.insertar("jugador", columnas);
+
+	}
+	
+	
+	public static ArrayList<Arma> getTodos() {
+	    ArrayList<Arma> armas = new ArrayList<>();
+
+	    try {
+	        // Definir las columnas a seleccionar en la consulta
+	        LinkedHashSet<String> columnasSelect = new LinkedHashSet<>();
+	        columnasSelect.add("nombre");
+	        columnasSelect.add("fuerza");
+	        columnasSelect.add("peso");
+
+	        // Definir las restricciones de la consulta (si es necesario)
+	        HashMap<String, Object> restricciones = new HashMap<>();
+
+	        // Realizar la consulta a la base de datos para obtener los resultados
+	        ArrayList<Object> result = DAO.consultar("Arma", columnasSelect, restricciones);
+
+	        // Recorrer los resultados y crear instancias de Arma
+	        for (int i = 0; i < result.size(); i += 3) {
+	            String nombre = (String) result.get(i);
+	            int fuerza = (Integer) result.get(i + 1);
+	            int peso = (Integer) result.get(i + 2);
+
+	            Arma arma = new Arma(nombre, fuerza, peso);
+	            armas.add(arma);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        // Manejar la excepción de SQL
+	    }
+
+	    return armas;
+	}
+	
+	
+
+//	public static ArrayList<Arma> getTodos() {
+//	    ArrayList<Arma> arma = new ArrayList<>();
+//
+//	    try {
+//	        // Definir las columnas a seleccionar en la consulta
+//	        LinkedHashSet<String> columnasSelect = new LinkedHashSet<>();;
+//	        columnasSelect.add("nombre");
+//	        columnasSelect.add("fuerza");
+//	        columnasSelect.add("peso");
+//
+//	        // Definir las restricciones de la consulta (si es necesario)
+//	        HashMap<String, Object> restricciones = new HashMap<>();
+//
+//	        // Realizar la consulta a la base de datos para obtener los resultados
+//	        ArrayList<Object> result = DAO.consultar("Arma", columnasSelect, restricciones);
+//
+//	        // Recorrer los resultados y crear instancias de Personaje
+//	        for (int i = 0; i < result.size(); i += 3) {
+//	        	String nombre = (String) result.get(i);
+//	            int fuerza = ((Integer) result.get(i + 1));
+//	            int peso = ((Integer) result.get(i + 2));
+//	            
+//	            Arma arma2 = new Arma(nombre, fuerza, peso);
+//
+//	            arma.add(arma2);
+//            
+//	        }
+//	    } catch (SQLException e) {
+//	        e.printStackTrace();
+//	        // Manejar la excepción de SQL
+//	    }
+//
+//	    return arma;
+//	}
+//	
+	
+	public static Jugador jugadorNuevo(Region region, byte edad, float altura, String genero,
+			Elemento elemento, byte vida, Talento talento, Arma arma) throws SQLException {
+		return new Jugador (region, edad, altura, genero, elemento, vida, talento, arma);
 	}
 
 	public Region getRegion() {
@@ -45,7 +145,7 @@ public class Jugador extends ElementoConNombre{
 		this.edad = edad;
 	}
 
-	public byte getAltura() {
+	public float getAltura() {
 		return altura;
 	}
 
