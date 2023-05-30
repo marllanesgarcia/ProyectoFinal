@@ -74,7 +74,7 @@ public abstract class DAO {
 			Object elemento=it.next();
 			System.out.println(elemento.getClass());
 			// poner una excepcion para que, cuando la clase sea distinta de String y de class, me ponga comillas menos los numeros
-			if(elemento.getClass()!=String.class&&elemento.getClass()!=Character.class&&elemento.getClass()==Enum.class) { 
+			if(elemento.getClass()!=String.class&&elemento.getClass()!=Character.class) { 
 				consulta+=elemento+",";
 			} else {
 				consulta+= "'"+elemento+"',";
@@ -91,6 +91,7 @@ public abstract class DAO {
 		desconectar(smt);
 		return ret;
 	}
+	
 	
 	
 	public static int borrar(String tabla, HashMap<String, Object> columnasBorrar) throws SQLException {
