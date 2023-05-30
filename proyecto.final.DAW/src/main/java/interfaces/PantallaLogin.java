@@ -3,13 +3,12 @@ package interfaces;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.border.MatteBorder;
+
+import clases.ReproductorAudio;
+
 import java.awt.Color;
 import java.awt.SystemColor;
-import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
-import javax.swing.JEditorPane;
-import javax.swing.JToggleButton;
-import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
@@ -18,10 +17,21 @@ import javax.swing.JTextField;
 import javax.swing.border.BevelBorder;
 import javax.swing.JProgressBar;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JPasswordField;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.File;
+import java.io.IOException;
+
+
 
 public class PantallaLogin extends JPanel{
 
@@ -47,7 +57,12 @@ public class PantallaLogin extends JPanel{
 		bienvenido.setBounds(20, 11, 99, 24);
 		cuadro.add(bienvenido);
 		bienvenido.setFont(new Font("Segoe UI Black", Font.PLAIN, 11));
-		
+		final JButton botonReproducir = new JButton("Reproducir");
+		botonReproducir.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        ReproductorAudio.reproducir();
+		    }
+		});
 		
 		descripcion = new JTextField();
 		descripcion.setText("    ¡Introduce un correo y contraseña para empezar la aventura! ☺ ");

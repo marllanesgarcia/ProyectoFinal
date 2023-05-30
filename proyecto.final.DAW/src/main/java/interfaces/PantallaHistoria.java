@@ -1,6 +1,14 @@
 package interfaces;
 
 import java.awt.BorderLayout;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.File;
+import java.io.IOException;
+
 import java.awt.Color;
 
 import javax.swing.JPanel;
@@ -9,10 +17,15 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+
+import clases.ReproductorAudio;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.GridLayout;
@@ -51,6 +64,13 @@ public class PantallaHistoria extends JPanel{
 		contenedorTexto.add(letrasLabel);
 		add(contenedorTexto);
 		
+		final JButton botonReproducir = new JButton("Reproducir");
+		botonReproducir.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        ReproductorAudio.reproducir();
+		    }
+		});
+		
 		final JButton botonNext = new JButton("Next");
 		botonNext.setBackground(new Color(0, 0, 128));
 		botonNext.setBounds(129, 417, 446, 25);
@@ -79,7 +99,6 @@ public class PantallaHistoria extends JPanel{
 					});
 					cuidadoThread.start();
 			}
-
 
 	private void mostrarLetras(JLabel letrasLabel) {
 		try {

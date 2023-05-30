@@ -1,6 +1,14 @@
 package interfaces;
 
 import javax.swing.JLabel;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.File;
+import java.io.IOException;
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -11,6 +19,7 @@ import java.awt.HeadlessException;
 
 import javax.swing.border.LineBorder;
 
+import clases.ReproductorAudio;
 import enums.Elemento;
 import util.DAO;
 
@@ -67,6 +76,15 @@ public class PantallaPersonaje extends JPanel{
 		lblNewLabel.setIcon(new ImageIcon(PantallaPersonaje.class.getResource("/imagenes/pensando2.png")));
 		lblNewLabel.setBounds(0, 361, 195, 140);
 		add(lblNewLabel);
+		
+		// MUSICA
+		
+		final JButton botonReproducir = new JButton("Reproducir");
+		botonReproducir.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        ReproductorAudio.reproducir();
+		    }
+		});
 		
 		// IMAGENES BOTONES GENERO 
 		
