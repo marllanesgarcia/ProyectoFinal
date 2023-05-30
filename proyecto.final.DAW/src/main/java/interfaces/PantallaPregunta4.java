@@ -37,7 +37,7 @@ import javax.swing.JButton;
 import java.awt.List;
 import javax.swing.ImageIcon;
 
-public class PantallaPregunta2 extends JPanel{
+public class PantallaPregunta4 extends JPanel{
 
 	private Ventana ventana;
 	private JTextField tituloPregunta;
@@ -45,11 +45,11 @@ public class PantallaPregunta2 extends JPanel{
 	private final ButtonGroup botonesRespuesta = new ButtonGroup();
 	
 
-	public PantallaPregunta2(Ventana v) {
+	public PantallaPregunta4(Ventana v) {
 		setBackground(new Color(216, 191, 216));
 
 		this.ventana=v;
-		this.ventana.setSize(800,501);
+		this.ventana.setSize(800,508);
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -82,21 +82,21 @@ public class PantallaPregunta2 extends JPanel{
 		tituloPregunta = new JTextField();
 		tituloPregunta.setEditable(false);
 		tituloPregunta.setFont(new Font("MS PGothic", Font.ITALIC, 16));
-		tituloPregunta.setText("SEGUNDA PREGUNTA: Elige para seguir con la aventura. Piensa bien la respuesta (!!!).");
+		tituloPregunta.setText("CUARTA PREGUNTA: Elige para seguir con la aventura. Piensa bien la respuesta (!!!).");
 		preguntaUno.setColumnHeaderView(tituloPregunta);
 		tituloPregunta.setColumns(10);
 		
 		JTextArea txtrEnUnVasto = new JTextArea();
 		txtrEnUnVasto.setEditable(false);
 		txtrEnUnVasto.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 13));
-		txtrEnUnVasto.setText("Hace mucho tiempo, en el mundo de Teyvat, existían siete dioses elementales\r\npor cada ciudad que gobernaban sobre las siete naciones. \r\nCada dios representaba un elemento y otorgaba visiones a sus seguidores, \r\npermitiéndoles manipular el poder elemental. Durante siglos, \r\nla paz reinó en Teyvat bajo la protección de los dioses.\r\n\r\nSin embargo, un día, un poderoso dios llamado \"El Destructor\" \r\nsurgió de las profundidades y amenazó con sumir a Teyvat en la \r\noscuridad. Los dioses unieron fuerzas para enfrentarlo, pero a \r\npesar de sus esfuerzos, El Destructor resultó ser demasiado poderoso \r\ny logró derrotarlos a todos. Como último recurso, los dioses sellaron \r\nsus propias visiones dentro de estatuas conocidas como Estatuas \r\nde los Siete para protegerlas de la corrupción de El Destructor.\r\n\r\nCon los dioses derrotados y las visiones selladas, Teyvat se \r\nsumió en el caos. Los habitantes se vieron privados de sus poderes\r\nelementales y el mundo comenzó a desequilibrarse. Sin embargo, \r\nen medio de la oscuridad, surgió una esperanza: el Viajero. \r\nEl Viajero era un ser de otro mundo que llegó a Teyvat buscando \r\nrespuestas sobre su pasado y su hermana perdida.\r\n\r\nEl Viajero se embarcó en una aventura épica a través de las\r\nsiete naciones de Teyvat, desentrañando los secretos de los dioses, \r\nconociendo a personajes fascinantes y enfrentándose a peligrosos \r\nenemigos. A lo largo de su viaje, el Viajero descubrió que la única \r\nmanera de liberar a los dioses y restaurar el equilibrio en Teyvat era \r\nencontrar las Estatuas de los Siete y despertar el poder de las visiones.");
+		txtrEnUnVasto.setText("En un remoto rincón de Teyvat, existía un antiguo templo oculto \r\nconocido como \"El Santuario de los Sueños\". Se decía que aquellos \r\nque ingresaban al santuario eran transportados a un reino de \r\nensueño donde sus deseos más profundos se hacían realidad. \r\nLos rumores sobre el poder del santuario se extendieron rápidamente, \r\natrayendo a aventureros de todas partes de Teyvat en busca de su fortuna.");
 		preguntaUno.setViewportView(txtrEnUnVasto);
 		
 		pregunta2 = new JTextField();
 		pregunta2.setEditable(false);
 		pregunta2.setFont(new Font("Mongolian Baiti", Font.BOLD, 15));
-		pregunta2.setText("¿Qué pasará con el destino del Viajero? ¿Encontrará las Estatuas de los Siete?");
-		pregunta2.setBounds(143, 225, 529, 37);
+		pregunta2.setText("El Santuario de los Sueños... ¿Es verdad o una ilusión?");
+		pregunta2.setBounds(257, 227, 376, 37);
 		add(pregunta2);
 		pregunta2.setColumns(10);
 		
@@ -109,7 +109,7 @@ public class PantallaPregunta2 extends JPanel{
 			}
 		});
 		botonesRespuesta.add(respuesta1);
-		respuesta1.setBounds(111, 323, 109, 23);
+		respuesta1.setBounds(89, 321, 109, 23);
 		add(respuesta1);
 		
 		final JRadioButton respuesta2 = new JRadioButton("Respuesta 2");
@@ -121,7 +121,7 @@ public class PantallaPregunta2 extends JPanel{
 			}
 		});
 		botonesRespuesta.add(respuesta2);
-		respuesta2.setBounds(111, 389, 109, 23);
+		respuesta2.setBounds(89, 393, 109, 23);
 		add(respuesta2);
 		
 		JLabel descripcionAnimo = new JLabel("¡ES TU MOMENTO! Elige una de las dos opciones...\r\n¿Cual será la correcta?");
@@ -140,9 +140,9 @@ public class PantallaPregunta2 extends JPanel{
 			public void mouseClicked(MouseEvent e) {
 				String respuestaSeleccionada = botonesRespuesta.getSelection().getActionCommand();
 
-                if (respuestaSeleccionada.equals("Respuesta 2")) {
+                if (respuestaSeleccionada.equals("Respuesta 1")) {
                 	JOptionPane.showMessageDialog(ventana, "¡Acertaste, bien hecho!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                    ventana.cambiarAPantalla(PantallaPregunta3.class);
+                    ventana.cambiarAPantalla(PantallaPregunta4.class);
                     
                 } else {
                     JOptionPane.showMessageDialog(ventana, "¡Oh no.... Cagaste!", "Dead", JOptionPane.INFORMATION_MESSAGE);
@@ -159,35 +159,38 @@ public class PantallaPregunta2 extends JPanel{
 		
 		JScrollPane descripcion1 = new JScrollPane();
 		descripcion1.setToolTipText("");
-		descripcion1.setBounds(226, 294, 461, 73);
+		descripcion1.setBounds(214, 295, 461, 73);
 		add(descripcion1);
 		
 		JTextArea text1 = new JTextArea();
 		text1.setEditable(false);
 		text1.setFont(new Font("Microsoft YaHei", Font.PLAIN, 13));
-		text1.setText("A pesar de todos los esfuerzos del Viajero, no logró encontrar \r\ntodas las Estatuas de los Siete ni despertar el poder de las visiones. \r\nEl Destructor continuó extendiendo su influencia por todo Teyvat \r\ny sumió al mundo en un caos eterno. El Viajero, desesperado \r\npor encontrar una solución, se perdió en la oscuridad y su destino \r\nquedó desconocido. Teyvat quedó condenado a sufrir \r\nbajo el reinado de El Destructor por el resto de la eternidad.");
+		text1.setText("Sin embargo, cuando los aventureros finalmente encontraban el \r\nSantuario de los Sueños, descubrían que era solo una ilusión. \r\nNo importaba cuánto anhelaran sus deseos, el santuario nunca \r\ncumplía realmente sus promesas. Los aventureros se daban \r\ncuenta de que el verdadero tesoro estaba en aprender a valorar \r\ny perseguir sus sueños en el mundo real, y no en las ilusiones \r\nefímeras del santuario.");
 		descripcion1.setViewportView(text1);
 		
 		JScrollPane descipcion2 = new JScrollPane();
 		descipcion2.setToolTipText("");
-		descipcion2.setBounds(226, 378, 461, 73);
+		descipcion2.setBounds(214, 378, 461, 73);
 		add(descipcion2);
 		
 		JTextArea text2 = new JTextArea();
 		text2.setEditable(false);
 		text2.setFont(new Font("Microsoft YaHei", Font.PLAIN, 13));
-		text2.setText("El Viajero, con la ayuda de sus amigos y aliados, logró encontrar \r\nlas Estatuas de los Siete y liberar a los dioses de su cautiverio. \r\nCon el poder restaurado, los dioses unieron fuerzas una vez más \r\npara enfrentar a El Destructor y finalmente lo derrotaron, \r\ndevolviendo la paz a Teyvat. El Viajero cumplió su misión y\r\npudo encontrar respuestas sobre su pasado y reunirse con su \r\nhermana perdida, estableciendo un nuevo hogar en Teyvat.");
+		text2.setText("A medida que los aventureros ingresaban al Santuario de los Sueños, \r\nse encontraban con una dimensión alterna llena de maravillas y \r\nriquezas sin fin. En este reino onírico, sus deseos se materializaban \r\ny podían vivir una vida de lujo y exuberancia. Los aventureros se \r\nvolvían adictos a la ilusión y abandonaban sus responsabilidades \r\nen Teyvat, quedando atrapados para siempre en el Santuario de \r\nlos Sueños, persiguiendo un sueño que nunca se convertiría en \r\nrealidad.");
 		descipcion2.setViewportView(text2);
 		
-		JLabel fondoPregunta2 = new JLabel("");
+		JLabel fondoPantalla4 = new JLabel("");
 		try {
-		BufferedImage imagen = ImageIO.read(PantallaPregunta2.class.getResource("/imagenes/fondoPregunta2.jpg"));
-		Image enIcono = imagen.getScaledInstance(810, 520, Image.SCALE_SMOOTH);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		fondoPregunta2.setBounds(0, 0, 777, 536);
-		add(fondoPregunta2);
+			BufferedImage imagen = ImageIO.read(PantallaPregunta4.class.getResource("/imagenes/pantallaPregunta4.jpg"));
+			Image enIcono = imagen.getScaledInstance(810, 520, Image.SCALE_SMOOTH);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		fondoPantalla4.setBounds(0, 0, 814, 534);
+		add(fondoPantalla4);
+		
+		
+		
 
 		/*
 		 * 

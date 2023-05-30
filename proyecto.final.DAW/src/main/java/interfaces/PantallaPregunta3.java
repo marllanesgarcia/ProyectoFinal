@@ -1,6 +1,7 @@
 package interfaces;
 
 import javax.swing.JPanel;
+import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -18,6 +19,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+
 import javax.swing.JScrollPane;
 import javax.swing.JToggleButton;
 import javax.swing.JTextField;
@@ -26,28 +34,22 @@ import javax.swing.JTextArea;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import java.awt.List;
 import javax.swing.ImageIcon;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class PantallaPregunta3 extends JPanel{
 
 	private Ventana ventana;
 	private JTextField tituloPregunta;
-	private JTextField pregunta1;
+	private JTextField pregunta2;
 	private final ButtonGroup botonesRespuesta = new ButtonGroup();
-	private JTextField descripcion1;
-	private JTextField descripcion2;
 	
 
 	public PantallaPregunta3(Ventana v) {
 		setBackground(new Color(216, 191, 216));
 
 		this.ventana=v;
-		this.ventana.setSize(820,510);
+		this.ventana.setSize(800,501);
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -57,7 +59,7 @@ public class PantallaPregunta3 extends JPanel{
 		panel.setBackground(new Color(255, 228, 225));
 		add(panel);
 		
-		JLabel lblempiezaElJuego = new JLabel("¡Empieza el juego!");
+		JLabel lblempiezaElJuego = new JLabel("¡Siguiente Acertijo!");
 		lblempiezaElJuego.setBackground(new Color(128, 0, 128));
 		lblempiezaElJuego.setForeground(new Color(128, 0, 128));
 		lblempiezaElJuego.setFont(new Font("DejaVu Sans Condensed", Font.BOLD, 19));
@@ -65,37 +67,38 @@ public class PantallaPregunta3 extends JPanel{
 		
 		// MUSICA
 		
-		final JButton botonReproducir = new JButton("Reproducir");
-		botonReproducir.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {
-		        ReproductorAudio.reproducirPreguntas();
-		    }
-		});
+				final JButton botonReproducir = new JButton("Reproducir");
+				botonReproducir.addActionListener(new ActionListener() {
+				    public void actionPerformed(ActionEvent e) {
+				        ReproductorAudio.reproducirPreguntas();
+				    }
+				});
 		
 		JScrollPane preguntaUno = new JScrollPane();
 		preguntaUno.setToolTipText("");
-		preguntaUno.setBounds(93, 91, 639, 155);
+		preguntaUno.setBounds(89, 71, 639, 155);
 		add(preguntaUno);
 		
 		tituloPregunta = new JTextField();
 		tituloPregunta.setEditable(false);
 		tituloPregunta.setFont(new Font("MS PGothic", Font.ITALIC, 16));
-		tituloPregunta.setText("PRIMERA PREGUNTA: Elige para seguir con la aventura. Piensa bien la respuesta (!!!).");
+		tituloPregunta.setText("TERCERA PREGUNTA: Elige para seguir con la aventura. Piensa bien la respuesta (!!!).");
 		preguntaUno.setColumnHeaderView(tituloPregunta);
 		tituloPregunta.setColumns(10);
 		
 		JTextArea txtrEnUnVasto = new JTextArea();
+		txtrEnUnVasto.setEditable(false);
 		txtrEnUnVasto.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 13));
-		txtrEnUnVasto.setText("En un vasto continente conocido como Teyvat, una vez existieron\r\nsiete dioses elementales que gobernaban sobre las diferentes regiones.\r\nSin embargo, hace milenios, estos dioses desaparecieron misteriosamente, \r\nsumiendo a Teyvat en un caos sin precedentes.\r\n\r\nEn medio de esta turbulencia, llegas tú, un viajero o viajera de otro mundo. \r\nTu búsqueda para encontrar a tu hermano gemelo perdido te lleva a Teyvat,\r\n un mundo lleno de maravillas y peligros. Te encuentras con una variedad \r\nde personajes, cada uno con su propia historia y motivaciones.\r\n\r\nUn día, mientras exploras la ciudad de Mondstadt, escuchas un rumor \r\nsobre un antiguo tesoro oculto en las profundidades de las ruinas de \r\nun templo olvidado. Intrigado/a, decides emprender la aventura para \r\ndescubrir este tesoro legendario y desentrañar los secretos del pasado de Teyvat.\r\n\r\nEn tu camino hacia las ruinas, te encuentras con un enigmático \r\nsabio llamado Albedo, quien te advierte sobre los peligros que acechan en las profundidades del templo. \r\nÉl te dice que el tesoro es conocido como \r\n\"El Corazón de los Elementos\", un artefacto poderoso que puede conceder\r\na su poseedor un control absoluto sobre los elementos.\r\n\r\nLlegas al templo y te enfrentas a una serie de desafíos y trampas mortales.\r\nSin embargo, tu determinación y habilidades te permiten superar cada \r\nobstáculo hasta que finalmente llegas a la sala del tesoro. Allí, encuentras \r\nuna estatua antigua que te habla en un lenguaje ancestral.");
+		txtrEnUnVasto.setText("Hace siglos, en el mundo de Teyvat, existían dos poderosas facciones: los Alquimistas y los \r\nElementales. Los Alquimistas eran sabios estudiosos de la naturaleza y buscaban entender \r\ny dominar los secretos de la alquimia, mientras que los Elementales eran seres dotados de\r\npoderes elementales y eran venerados como semidioses.\r\n\r\nAmbas facciones vivían en relativa armonía, colaborando en la búsqueda del conocimiento\r\ny protegiendo a Teyvat de las amenazas externas. Sin embargo, a medida que \r\npasaban los años, comenzaron a surgir tensiones entre ellos. Los Elementales se volvieron\r\ncada vez más arrogantes y despreciaron a los Alquimistas, considerándolos inferiores \r\ny sin poder real. \r\n\r\nLa rivalidad llegó a su punto máximo cuando un grupo de Elementales liderados por un\r\npoderoso líder llamado Venti intentó usurpar el poder de los Alquimistas. Aprovechando\r\nsu control sobre los elementos, los Elementales lanzaron ataques contra los laboratorios y\r\nbibliotecas de los Alquimistas, tratando de destruir su conocimiento y controlar la alquimia\r\npara sí mismos.\r\n\r\nEn medio del conflicto, surgió un joven alquimista llamado Alphonse. Con su ingenio y\r\nconocimientos alquímicos, Alphonse descubrió una antigua fórmula que le permitía\r\ncanalizar el poder elemental y otorgarse visiones temporales. Armado con estas visiones y\r\nacompañado por un grupo de leales alquimistas, Alphonse se enfrentó a los Elementales\r\nen una batalla épica para defender el conocimiento y la libertad de los Alquimistas.\r\n\r\nFinalmente, Alphonse logró derrotar a Venti y a los Elementales rebeldes, restableciendo \r\nla paz y el equilibrio en Teyvat. Reconociendo el valor de la alquimia y la sabiduría de los \r\nAlquimistas, los Elementales se retractaron de su arrogancia y ambos grupos acordaron\r\ncolaborar en adelante, compartiendo su conocimiento y protegiendo juntos a\r\nTeyvat de futuras amenazas.");
 		preguntaUno.setViewportView(txtrEnUnVasto);
 		
-		pregunta1 = new JTextField();
-		pregunta1.setEditable(false);
-		pregunta1.setFont(new Font("Mongolian Baiti", Font.BOLD, 15));
-		pregunta1.setText("La estatua te plantea una pregunta: \r\n\"¿Cuál es el verdadero propósito del poder elemental?\".");
-		pregunta1.setBounds(103, 263, 619, 37);
-		add(pregunta1);
-		pregunta1.setColumns(10);
+		pregunta2 = new JTextField();
+		pregunta2.setEditable(false);
+		pregunta2.setFont(new Font("Mongolian Baiti", Font.BOLD, 15));
+		pregunta2.setText("¿Qué pasó después de dicha batalla? ¿Se fue todo a la verga?");
+		pregunta2.setBounds(214, 227, 419, 37);
+		add(pregunta2);
+		pregunta2.setColumns(10);
 		
 		final JRadioButton respuesta1 = new JRadioButton("Respuesta 1");
 		respuesta1.addMouseListener(new MouseAdapter() {
@@ -106,7 +109,7 @@ public class PantallaPregunta3 extends JPanel{
 			}
 		});
 		botonesRespuesta.add(respuesta1);
-		respuesta1.setBounds(46, 365, 109, 23);
+		respuesta1.setBounds(89, 321, 109, 23);
 		add(respuesta1);
 		
 		final JRadioButton respuesta2 = new JRadioButton("Respuesta 2");
@@ -118,24 +121,28 @@ public class PantallaPregunta3 extends JPanel{
 			}
 		});
 		botonesRespuesta.add(respuesta2);
-		respuesta2.setBounds(46, 405, 109, 23);
+		respuesta2.setBounds(89, 393, 109, 23);
 		add(respuesta2);
 		
 		JLabel descripcionAnimo = new JLabel("¡ES TU MOMENTO! Elige una de las dos opciones...\r\n¿Cual será la correcta?");
 		descripcionAnimo.setForeground(new Color(255, 255, 255));
 		descripcionAnimo.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
-		descripcionAnimo.setBounds(188, 311, 445, 44);
+		descripcionAnimo.setBounds(188, 255, 445, 44);
 		add(descripcionAnimo);
 		
 		JButton BotonNext = new JButton("Siguiente");
+		BotonNext.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		BotonNext.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				String respuestaSeleccionada = botonesRespuesta.getSelection().getActionCommand();
 
-                if (respuestaSeleccionada.equals("Respuesta 1")) {
+                if (respuestaSeleccionada.equals("Respuesta 2")) {
                 	JOptionPane.showMessageDialog(ventana, "¡Acertaste, bien hecho!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                    ventana.cambiarAPantalla(PantallaPregunta2.class);
+                    ventana.cambiarAPantalla(PantallaPregunta3.class);
                     
                 } else {
                     JOptionPane.showMessageDialog(ventana, "¡Oh no.... Cagaste!", "Dead", JOptionPane.INFORMATION_MESSAGE);
@@ -147,28 +154,55 @@ public class PantallaPregunta3 extends JPanel{
 		BotonNext.setForeground(new Color(240, 248, 255));
 		BotonNext.setBackground(new Color(128, 0, 128));
 		BotonNext.setFont(new Font("Segoe UI Symbol", Font.BOLD, 18));
-		BotonNext.setBounds(305, 449, 157, 41);
+		BotonNext.setBounds(333, 465, 157, 41);
 		add(BotonNext);
 		
-		descripcion1 = new JTextField();
-		descripcion1.setEditable(false);
-		descripcion1.setText("⇒ \"El verdadero propósito del poder elemental es proteger y preservar el equilibrio natural de Teyvat\".");
-		descripcion1.setBounds(161, 366, 581, 20);
+		JScrollPane descripcion1 = new JScrollPane();
+		descripcion1.setToolTipText("");
+		descripcion1.setBounds(214, 295, 461, 73);
 		add(descripcion1);
-		descripcion1.setColumns(10);
 		
-		descripcion2 = new JTextField();
-		descripcion2.setEditable(false);
-		descripcion2.setText("⇒ \"El verdadero propósito del poder elemental es obtener control y dominio sobre los demás\"");
-		descripcion2.setBounds(161, 406, 599, 20);
-		add(descripcion2);
-		descripcion2.setColumns(10);
+		JTextArea text1 = new JTextArea();
+		text1.setEditable(false);
+		text1.setFont(new Font("Microsoft YaHei", Font.PLAIN, 13));
+		text1.setText("A pesar de los esfuerzos de Alphonse y los alquimistas, los Elementales \r\nlograron destruir gran parte del conocimiento alquímico y sometieron \r\na los Alquimistas a su dominio. Los Elementales se convirtieron en la \r\nfacción dominante y prohibieron la práctica de la alquimia, \r\nconsiderándola una amenaza para su poder. Teyvat quedó bajo el \r\ncontrol totalitario de los Elementales, y los alquimistas fueron \r\ndesterrados o perseguidos, mientras el mundo se sumía en la \r\noscuridad y la opresión.");
+		descripcion1.setViewportView(text1);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(PantallaPregunta3.class.getResource("/imagenes/PantallaPreguntaDefinitiva.png")));
-		lblNewLabel.setBounds(0, 0, 800, 501);
-		add(lblNewLabel);
+		JScrollPane descipcion2 = new JScrollPane();
+		descipcion2.setToolTipText("");
+		descipcion2.setBounds(214, 378, 461, 73);
+		add(descipcion2);
+		
+		JTextArea text2 = new JTextArea();
+		text2.setEditable(false);
+		text2.setFont(new Font("Microsoft YaHei", Font.PLAIN, 13));
+		text2.setText("Después de una feroz batalla, Alphonse y los alquimistas lograron \r\nrepeler el ataque de los Elementales y proteger su conocimiento \r\ny poder alquímico. Los Elementales, conscientes de su derrota, \r\nse retiraron y acordaron mantener la paz con los Alquimistas. \r\nAmbas facciones reconocieron la importancia de la alquimia y \r\nlos poderes elementales, y trabajaron juntas para promover la \r\nprosperidad y el equilibrio en Teyvat.");
+		descipcion2.setViewportView(text2);
+		
+		JLabel fondoPregunta3 = new JLabel("");
+		try {
+		BufferedImage imagen = ImageIO.read(PantallaPregunta3.class.getResource("/imagenes/pantallaPregunta3.jpg"));
+		Image enIcono = imagen.getScaledInstance(810, 520, Image.SCALE_SMOOTH);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		fondoPregunta3.setBounds(0, 0, 808, 544);
+		add(fondoPregunta3);
+		
 
+		/*
+		 * 
+		 * JLabel lblFondo = new JLabel("");
+		try {
+			BufferedImage imagen = ImageIO.read(new File("./imagenes/fondo1.png"));
+			Image enIcono = imagen.getScaledInstance(700, 500, Image.SCALE_SMOOTH);
+			lblFondo.setIcon(new ImageIcon(enIcono));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		lblFondo.setBounds(0, 0, 700, 500);
+		add(lblFondo);
+		 */
 		
 		
 	}
