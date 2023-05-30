@@ -1,14 +1,6 @@
 package interfaces;
 
 import javax.swing.JLabel;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import java.io.File;
-import java.io.IOException;
-
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -20,7 +12,6 @@ import java.awt.HeadlessException;
 import javax.swing.border.LineBorder;
 
 import clases.ReproductorAudio;
-import enums.Elemento;
 import util.DAO;
 
 import javax.swing.ImageIcon;
@@ -30,12 +21,10 @@ import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
 import javax.swing.ButtonGroup;
-import javax.swing.JToggleButton;
 import javax.swing.JRadioButton;
 
 public class PantallaPersonaje extends JPanel{
