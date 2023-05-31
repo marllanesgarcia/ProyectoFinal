@@ -123,37 +123,17 @@ public class PantallaBatalla extends JPanel{
 		textoVersus.setBounds(373, 94, 63, 62);
 		add(textoVersus);
 		
-		// Ruta del archivo GIF animado
-        String rutaArchivoGif = "ruta_del_archivo.gif";
+		// Crear un JLabel para mostrar el GIF
+        JLabel gifLabel = new JLabel();
 
-        // Cargar el archivo GIF animado
-            AGifReader gifReader = new AGifReader(new File(rutaArchivoGif));
-            AGifImage gifImage = gifReader.read();
-            int frameCount = gifImage.getNumberOfFrames();
+        // Cargar el archivo GIF utilizando ImageIcon
+        ImageIcon gifIcon = new ImageIcon("hutao-slap.gif");
 
-            // Obtener el primer frame del GIF
-            BufferedImage frame = gifImage.getFrame(0);
+        // Asignar el icono GIF al JLabel
+        gifLabel.setIcon(new ImageIcon(PantallaBatalla.class.getResource("/imagenes/hutao-slap.gif")));
 
-            // Crear un JLabel para mostrar el GIF animado
-            JLabel gifLabel = new JLabel(new ImageIcon(frame));
-
-            // Agregar el JLabel al JFrame
-            add(gifLabel);
-
-            // Configurar el tamaño del JFrame según el tamaño del primer frame del GIF
-            setSize(frame.getWidth(), frame.getHeight());
-
-            // Reproducir el GIF animado
-            for (int i = 1; i < frameCount; i++) {
-            	// Obtener el siguiente frame del GIF
-                frame = gifImage.getFrame(i);
-
-                // Actualizar la imagen del JLabel con el siguiente frame
-                gifLabel.setIcon(new ImageIcon(frame));
-
-                // Reproducir el siguiente frame después de un tiempo de espera
-                Thread.sleep(gifImage.getFrameDelay(i));
-            }	
+        // Agregar el JLabel al JFrame
+        add(gifLabel);
 }
 	
 	public static ArrayList<Enemigo> getTodos() {
