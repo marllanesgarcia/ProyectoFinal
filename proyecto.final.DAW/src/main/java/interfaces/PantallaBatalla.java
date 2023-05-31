@@ -12,6 +12,7 @@ import clases.ReproductorAudio;
 import util.DAO;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -19,6 +20,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -114,34 +117,43 @@ public class PantallaBatalla extends JPanel{
 		datosUsuario.setBounds(579, 167, 154, 62);
 		add(datosUsuario);
 		
-		JLabel lblNewLabel = new JLabel("VS");
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("MV Boli", Font.BOLD, 32));
-		lblNewLabel.setBounds(373, 94, 63, 62);
-		add(lblNewLabel);
-		this.ventana.setSize(820,510);		
+		JLabel textoVersus = new JLabel("VS");
+		textoVersus.setForeground(new Color(255, 255, 255));
+		textoVersus.setFont(new Font("MV Boli", Font.BOLD, 32));
+		textoVersus.setBounds(373, 94, 63, 62);
+		add(textoVersus);
+		
+		// Ruta del archivo GIF animado
+        String rutaArchivoGif = "ruta_del_archivo.gif";
 
-		
-		
-        // Crear un JLabel para mostrar el GIF
-        JLabel gifLabel = new JLabel();
+        // Cargar el archivo GIF animado
+            AGifReader gifReader = new AGifReader(new File(rutaArchivoGif));
+            AGifImage gifImage = gifReader.read();
+            int frameCount = gifImage.getNumberOfFrames();
 
-        // Cargar el archivo GIF utilizando ImageIcon
-        ImageIcon gifIcon = new ImageIcon("ruta_del_archivo.gif");
+            // Obtener el primer frame del GIF
+            BufferedImage frame = gifImage.getFrame(0);
 
-        // Asignar el icono GIF al JLabel
-        gifLabel.setIcon(gifIcon);
+            // Crear un JLabel para mostrar el GIF animado
+            JLabel gifLabel = new JLabel(new ImageIcon(frame));
 
-        // Agregar el JLabel al JFrame
-        add(gifLabel);
-		
-		
-		
-		
-		
-		
-		
-			
+            // Agregar el JLabel al JFrame
+            add(gifLabel);
+
+            // Configurar el tamaño del JFrame según el tamaño del primer frame del GIF
+            setSize(frame.getWidth(), frame.getHeight());
+
+            // Reproducir el GIF animado
+            for (int i = 1; i < frameCount; i++) {
+            	// Obtener el siguiente frame del GIF
+                frame = gifImage.getFrame(i);
+
+                // Actualizar la imagen del JLabel con el siguiente frame
+                gifLabel.setIcon(new ImageIcon(frame));
+
+                // Reproducir el siguiente frame después de un tiempo de espera
+                Thread.sleep(gifImage.getFrameDelay(i));
+            }	
 }
 	
 	public static ArrayList<Enemigo> getTodos() {
