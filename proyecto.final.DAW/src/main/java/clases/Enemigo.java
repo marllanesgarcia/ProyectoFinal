@@ -17,10 +17,10 @@ public class Enemigo extends ElementoConNombre{
 	private int vida;
 		
 	
-	public Enemigo(String nombre, int fuerza, String elemento2, int fuerza2) {
+	public Enemigo(String nombre, int fuerza, String elemento, int fuerza2) {
 		super(nombre);
 		this.fuerza = fuerza;
-		this.elemento = elemento2;
+		this.elemento = elemento;
 		this.vida = fuerza2;
 	}
 
@@ -58,6 +58,7 @@ public class Enemigo extends ElementoConNombre{
 
 	    return enemigos;
 	}
+	
 	
 	
 	public int getFuerza() {

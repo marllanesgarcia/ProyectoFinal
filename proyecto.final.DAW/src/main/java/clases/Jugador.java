@@ -90,6 +90,10 @@ public class Jugador {
 			Elemento elemento, byte vida, Talento talento, Arma arma) throws SQLException {
 		return new Jugador (region, edad, altura, genero, elemento, vida, talento, arma);
 	}
+	
+	
+	
+
 
 	public Region getRegion() {
 		return region;
