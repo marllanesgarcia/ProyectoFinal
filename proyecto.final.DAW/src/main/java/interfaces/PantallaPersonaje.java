@@ -75,15 +75,6 @@ public class PantallaPersonaje extends JPanel{
 		lblNewLabel.setBounds(0, 361, 195, 140);
 		add(lblNewLabel);
 		
-		// MUSICA
-		
-//		final JButton botonReproducir = new JButton("Reproducir");
-//		botonReproducir.addActionListener(new ActionListener() {
-//		    public void actionPerformed(ActionEvent e) {
-//		        ReproductorAudio.reproducir();
-//		    }
-//		});
-		
 		// IMAGENES BOTONES GENERO 
 		
 		JLabel lblNewLabel_1 = new JLabel("");
@@ -307,87 +298,4 @@ public class PantallaPersonaje extends JPanel{
 		
 
 			}
-	
-	
-
-	
-//	private Elemento guardarElemento() {
-//		Elemento elementoElegido=null;
-//
-//		if (datosElemento.equals("AIRE")) {
-//			elementoElegido=Elemento.AIRE;
-//		}
-//		if (datosElemento.equals("HIELO")) {
-//			elementoElegido=Elemento.HIELO;
-//		}
-//		if (datosElemento.equals("ELECTRO")) {
-//			elementoElegido=Elemento.ELECTRO;
-//		}
-//		if (datosElemento.equals("AGUA")) {
-//			elementoElegido=Elemento.AGUA;
-//		}
-//		if (datosElemento.equals("PLANTA")) {
-//			elementoElegido=Elemento.PLANTA;
-//		}
-//		if (datosElemento.equals("ROCA")) {
-//			elementoElegido=Elemento.ROCA;
-//		}
-//
-//		return elementoElegido;
-//	}
-	
-
-	
-	
-//	private Region guardarRegion() {
-//		Region regionElegida=null;
-//
-//		if (comboBox.equals("Asia")) {
-//			regionElegida=Region.ASIA;
-//		}
-//		if (comboBox.equals("África")) {
-//			regionElegida=Region.AFRICA;
-//		}
-//		if (comboBox.equals("Anérica del Norte")) {
-//			regionElegida=Region.AMERICA_DEL_NORTE;
-//		}
-//		if (comboBox.equals("América del Sur")) {
-//			regionElegida=Region.AMERICA_DEL_SUR;
-//		}
-//		if (comboBox.equals("Antártida")) {
-//			regionElegida=Region.ANTARTIDA;
-//		}
-//		if (comboBox.equals("Europa")) {
-//			regionElegida=Region.EUROPA;
-//		}
-//		if (comboBox.equals("Oceanía")) {
-//			regionElegida=Region.OCEANIA;
-//		}
-//
-//		return regionElegida;
-//	}
-	
-
-
-//	private Talento guardarTalento() {
-//		Talento talentoElegid0=null;
-//
-//		if (comboBox.equals("Cubierta Protectora")) {
-//			talentoElegid0=Talento.CUBIERTA_PROTECTORA;
-//		}
-//		if (comboBox.equals("Llamas Fervientes")) {
-//			talentoElegid0=Talento.LLAMAS_FERVIENTES;
-//		}
-//		if (comboBox.equals("Aguas medicinales")) {
-//			talentoElegid0=Talento.AGUAS_MEDICIONALES;
-//		}
-//		if (comboBox.equals("Vientos impetuosos")) {
-//			talentoElegid0=Talento.VIENTOS_IMPETUOSOS;
-//		}
-//
-//		return talentoElegid0;
-//	}
-
-
-	
 }

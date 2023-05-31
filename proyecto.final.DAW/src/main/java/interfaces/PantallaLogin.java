@@ -59,13 +59,25 @@ public class PantallaLogin extends JPanel{
 		bienvenido.setFont(new Font("Segoe UI Black", Font.PLAIN, 11));
 		
 		//MUSICA
-		
-		final JButton botonReproducir = new JButton("Reproducir");
-		botonReproducir.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {
-		        ReproductorAudio.reproducir();
-		    }
+		final JButton btnNewButton = new JButton("Reproducir");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ReproductorAudio.reproducir();
+			}
 		});
+		btnNewButton.setFont(new Font("Microsoft Uighur", Font.PLAIN, 18));
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setBackground(new Color(147, 112, 219));
+		btnNewButton.setBounds(466, 11, 113, 23);
+		add(btnNewButton);
+		
+//		 JButton botonReproducir = new JButton("Reproducir");
+//		botonReproducir.addActionListener(new ActionListener() {
+//		    public void actionPerformed(ActionEvent e) {
+//		        
+//		    }
+//		});
 		
 		descripcion = new JTextField();
 		descripcion.setText("    ¡Introduce un correo y contraseña para empezar la aventura! ☺ ");
@@ -151,9 +163,9 @@ public class PantallaLogin extends JPanel{
 		registro.setBounds(139, 11, 136, 23);
 		add(registro);
 		
-		JLabel fondo = new JLabel("");
-		fondo.setIcon(new ImageIcon(PantallaLogin.class.getResource("/imagenes/HD-wallpaper-video-game-genshin-impact-inazuma-genshin-impact.jpg")));
-		fondo.setBounds(0, 0, 601, 502);
-		add(fondo);
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(PantallaLogin.class.getResource("/imagenes/HD-wallpaper-video-game-genshin-impact-inazuma-genshin-impact.jpg")));
+		lblNewLabel.setBounds(0, 0, 600, 500);
+		add(lblNewLabel);
 	}
 }

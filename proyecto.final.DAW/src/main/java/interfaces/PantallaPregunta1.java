@@ -165,12 +165,35 @@ public class PantallaPregunta1 extends JPanel{
 		add(descripcion2);
 		descripcion2.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(PantallaPregunta1.class.getResource("/imagenes/PantallaPreguntaDefinitiva.png")));
-		lblNewLabel.setBounds(0, 0, 800, 501);
-		add(lblNewLabel);
+		JButton btnNewButton = new JButton("Reproducir");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ReproductorAudio.reproducirPreguntas();
+			}
+		});
+		btnNewButton.setFont(new Font("Microsoft Uighur", Font.PLAIN, 16));
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setBackground(new Color(147, 112, 219));
+		btnNewButton.setBounds(10, 11, 120, 23);
+		add(btnNewButton);
 
-		
+		/*
+		 * 
+		 * final JButton btnNewButton = new JButton("Reproducir");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ReproductorAudio.reproducir();
+			}
+		});
+		btnNewButton.setFont(new Font("Microsoft Uighur", Font.PLAIN, 18));
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setBackground(new Color(147, 112, 219));
+		btnNewButton.setBounds(466, 11, 113, 23);
+		add(btnNewButton);
+		 * 
+		 */
 		
 	}
 }

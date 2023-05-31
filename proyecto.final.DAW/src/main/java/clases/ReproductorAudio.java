@@ -8,11 +8,11 @@ import java.io.File;
 import java.io.IOException;
 
 public class ReproductorAudio {
-    private Clip clip;
+    private static Clip clip;
 
     public static void reproducir() {
     	try {
-            File archivoMusica = new File("/musicaPrincipal.mp3");
+            File archivoMusica = new File("src/main/java/audios/musicaPrincipal.wav");
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(archivoMusica);
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
@@ -21,9 +21,27 @@ public class ReproductorAudio {
             e.printStackTrace();
         }
     }
+    
+       
+	    public static void reproducir(String rutaArchivo) {
+	        try {
+	            if (clip != null && clip.isRunning()) {
+	                clip.stop();
+	            }
+	            
+	            File archivoMusica = new File(rutaArchivo);
+	            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(archivoMusica);
+	            clip = AudioSystem.getClip();
+	            clip.open(audioInputStream);
+	            clip.start();
+	        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+	            e.printStackTrace();
+	        }
+	    }
+    
     	 public static void reproduciroOtro() {
     	    	try {
-    	            File archivoMusica = new File("/medioChill.mp3");
+    	            File archivoMusica = new File("src/main/java/audios/medioChill.wav");
     	            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(archivoMusica);
     	            Clip clip = AudioSystem.getClip();
     	            clip.open(audioInputStream);
@@ -34,7 +52,7 @@ public class ReproductorAudio {
     	 }
     	 public static void reproduciroBatalla() {
  	    	try {
- 	            File archivoMusica = new File("/batalla.mp3");
+ 	            File archivoMusica = new File("src/main/java/audios/musicaBatalla.wav");
  	            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(archivoMusica);
  	            Clip clip = AudioSystem.getClip();
  	            clip.open(audioInputStream);
@@ -45,7 +63,7 @@ public class ReproductorAudio {
 }
     	 public static void reproducirPreguntas() {
   	    	try {
-  	            File archivoMusica = new File("/musicaPreguntas.mp3");
+  	            File archivoMusica = new File("src/main/java/audios/musicaPreguntas.wav");
   	            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(archivoMusica);
   	            Clip clip = AudioSystem.getClip();
   	            clip.open(audioInputStream);
