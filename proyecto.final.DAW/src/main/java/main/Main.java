@@ -1,5 +1,6 @@
 package main;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -9,6 +10,7 @@ import clases.Arma;
 import clases.Batalla;
 import clases.Enemigo;
 import clases.Jugador;
+import interfaces.PantallaBatalla;
 import interfaces.Ventana;
 
 public class Main {
@@ -26,7 +28,17 @@ public class Main {
 //	            }
 //	        });
 	    
-	
+		System.out.println();
+		
+		try {
+	        String ultimoJugador = PantallaBatalla.getUltimoJugador();
+	        System.out.println("¡Hola, : " + ultimoJugador+" !");
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		
+		System.out.println();
+		
 		try {
 			ArrayList<Arma> arma = Jugador.getTodos();
 			 for (Arma a : arma) {
@@ -36,7 +48,9 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	System.out.println();
+		
+		System.out.println();
+		
 		try {
 			ArrayList<Enemigo> enemigo = Enemigo.getTodos();
 			 for (Enemigo a : enemigo) {
@@ -47,8 +61,6 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	
-	
 	}
 
 		

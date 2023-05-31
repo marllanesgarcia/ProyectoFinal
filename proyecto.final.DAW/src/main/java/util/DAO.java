@@ -177,6 +177,7 @@ public abstract class DAO {
 		desconectar(smt);			
 		return fila;
 }
+
 	
 	public static int actualizar(String tabla, HashMap<String,Object> datosModificar,HashMap<String,Object> restricciones) throws SQLException {
 		String query="update "+tabla+" set ";

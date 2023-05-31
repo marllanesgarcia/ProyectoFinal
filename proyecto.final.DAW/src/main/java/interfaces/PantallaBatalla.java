@@ -101,8 +101,15 @@ public class PantallaBatalla extends JPanel{
 		
 		datosUsuario = new JTextField();
 		datosUsuario.setEditable(false);
-		String nombreUsuario = Jugador.getNombreUsuario();
-        mostrarNombreUsuario(nombreUsuario);              
+		String nombreUsuario = null;   // <-----  OJO AQUI
+		
+		try {
+			nombreUsuario = getUltimoJugador();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		datosUsuario.setText(nombreUsuario);             
 		datosUsuario.setColumns(10);
 		datosUsuario.setBounds(579, 167, 154, 62);
 		add(datosUsuario);
@@ -112,30 +119,8 @@ public class PantallaBatalla extends JPanel{
 		lblNewLabel.setFont(new Font("MV Boli", Font.BOLD, 32));
 		lblNewLabel.setBounds(373, 94, 63, 62);
 		add(lblNewLabel);
-		this.ventana.setSize(820,510);
+		this.ventana.setSize(820,510);		
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		/*
-		 * 
-		 * 
-		final JComboBox datosArma = new JComboBox();
-		ArrayList<Arma> armas = Jugador.getTodos();
-		DefaultComboBoxModel<Arma> modeloArmas = new DefaultComboBoxModel<>(armas.toArray(new Arma[0]));
-		datosArma.setModel(modeloArmas);
-		datosArma.setFont(new Font("DejaVu Sans Condensed", Font.ITALIC, 13));
-		datosArma.setBounds(350, 399, 238, 22);
-		add(datosArma);
-		 * 
-		 *
-		 */
 			
 }
 	
@@ -210,15 +195,28 @@ public class PantallaBatalla extends JPanel{
         }
     }
     
-    public void mostrarNombreUsuario(String nombreUsuario) {
-        if (!nombreUsuario.isEmpty()) {
-            // Mostrar el nombre de usuario en el JTextField
-            datosUsuario.setText(nombreUsuario);
+//    public void mostrarNombreUsuario(String nombreUsuario) {
+//        if (!nombreUsuario.isEmpty()) {
+//            // Mostrar el nombre de usuario en el JTextField
+//            datosUsuario.setText(nombreUsuario);
+//        } else {
+//        	datosUsuario.setText("No se encontró el nombre de usuario.");
+//        }
+//    }
+//	
+    public static String getUltimoJugador() throws SQLException {
+        LinkedHashSet<String> columnasSelect = new LinkedHashSet<>();
+        columnasSelect.add("usuario");
+
+        ArrayList<Object> resultado = DAO.consultar("usuario");
+
+        if (!resultado.isEmpty()) {
+            int indexNombre = 0; // Índice de la columna "nombre"
+            return (String) resultado.get(resultado.size() - indexNombre - 1);
         } else {
-        	datosUsuario.setText("No se encontró el nombre de usuario.");
+            return "No se encontró el último jugador.";
         }
     }
-	
 	
  }				
 				
