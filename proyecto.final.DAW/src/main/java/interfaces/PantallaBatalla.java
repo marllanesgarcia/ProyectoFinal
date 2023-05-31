@@ -30,6 +30,8 @@ import java.util.List;
 import java.util.Random;
 
 import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
 
 public class PantallaBatalla extends JPanel{
 
@@ -120,7 +122,7 @@ public class PantallaBatalla extends JPanel{
 		JLabel textoVersus = new JLabel("VS");
 		textoVersus.setForeground(new Color(255, 255, 255));
 		textoVersus.setFont(new Font("MV Boli", Font.BOLD, 32));
-		textoVersus.setBounds(373, 94, 63, 62);
+		textoVersus.setBounds(362, 85, 63, 62);
 		add(textoVersus);
 		
 		// Crear un JLabel para mostrar el GIF
@@ -135,7 +137,54 @@ public class PantallaBatalla extends JPanel{
 
         // Agregar el JLabel al JFrame
         add(gifLabel);
-}
+        
+        JScrollPane panelCombate = new JScrollPane();
+        panelCombate.setBounds(247, 146, 314, 327);
+        add(panelCombate);
+        
+        JTextArea textoCombate = new JTextArea();
+        panelCombate.setViewportView(textoCombate);
+        textoCombate.setEditable(false);
+
+
+        // Crear el jugador
+//            Arma armaJugador = new Arma("Espada", 10); // Nombre y fuerza del arma del jugador
+//            Jugador jugador = new Jugador("Jugador 1", 100, armaJugador); // Nombre, vida y arma del jugador
+//
+//            // Crear el enemigo
+//            Enemigo enemigo = new Enemigo("Enemigo 1", 80, 15); // Nombre, vida y fuerza del enemigo
+
+        // Simular la batalla hasta que uno de ellos se quede sin vida
+        while (jugador.getVida() > 0 && enemigo.getVida() > 0) {
+            // Ataque del jugador al enemigo
+            int danioJugador = jugador.getArma().getFuerza(); // Fuerza del arma del jugador
+            enemigo.recibirAtaque(danioJugador);
+            textoCombate.setText( nombreUsuario+ " ataca a " + enemigo.getNombre() + " causando " + danioJugador + " de daño."+ "\n");
+
+            // Ataque del enemigo al jugador
+            int danioEnemigo = enemigo.getFuerza();
+            jugador.recibirAtaque(danioEnemigo);
+            textoCombate.append(enemigo.getNombre() + " ataca a " + nombreUsuario + " causando " + danioEnemigo + " de daño."+ "\n");
+
+            // Mostrar las vidas actuales
+            textoCombate.append("Vida de " + nombreUsuario + ": " + jugador.getVida()+ "\n");
+            textoCombate.append("Vida de " + enemigo.getNombre() + ": " + enemigo.getVida()+ "\n");
+            textoCombate.append("");
+        }
+
+        // Determinar el resultado de la batalla
+        if (jugador.getVida() <= 0 && enemigo.getVida() <= 0) {
+        	textoCombate.append("Ambos jugadores se quedaron sin vida. ¡Es un empate!"+ "\n");
+        } else if (jugador.getVida() <= 0) {
+        	textoCombate.append(nombreUsuario + " se quedó sin vida. " + enemigo.getNombre() + " gana la batalla."+ "\n");
+        } else {
+        	textoCombate.append(enemigo.getNombre() + " se quedó sin vida. " + nombreUsuario + " gana la batalla."+ "\n");
+        }
+    }
+	
+	
+	
+	}
 	
 	public static ArrayList<Enemigo> getTodos() {
 	    ArrayList<Enemigo> enemigos = new ArrayList<>();
@@ -230,7 +279,6 @@ public class PantallaBatalla extends JPanel{
             return "No se encontró el último jugador.";
         }
     }
-	
  }				
 				
 				
