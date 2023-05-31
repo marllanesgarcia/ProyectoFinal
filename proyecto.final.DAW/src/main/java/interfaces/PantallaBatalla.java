@@ -5,23 +5,17 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-import clases.Arma;
 import clases.Enemigo;
 import clases.Jugador;
 import clases.ReproductorAudio;
 import util.DAO;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -87,7 +81,7 @@ public class PantallaBatalla extends JPanel{
 		datosEnemigo.setEditable(false);
 		Enemigo enemigo = getEnemigoAlAzar();
         mostrarEnemigo(enemigo);
-		datosEnemigo.setBounds(64, 167, 154, 62);
+		datosEnemigo.setBounds(64, 167, 154, 101);
 		add(datosEnemigo);
 		datosEnemigo.setColumns(10);
 		
@@ -108,12 +102,12 @@ public class PantallaBatalla extends JPanel{
 		datosUsuario.setEditable(false);
 		String nombreUsuario = null;   //<----- OJO AQUI
 		
-		try {
-			nombreUsuario = getUltimoJugador();
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+//		try {
+//			nombreUsuario = getUltimoJugador();
+//		} catch (SQLException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
 		datosUsuario.setText(nombreUsuario);             
 		datosUsuario.setColumns(10);
 		datosUsuario.setBounds(589, 167, 154, 62);
@@ -125,18 +119,11 @@ public class PantallaBatalla extends JPanel{
 		textoVersus.setBounds(362, 85, 63, 62);
 		add(textoVersus);
 		
-		// Crear un JLabel para mostrar el GIF
-        JLabel gifLabel = new JLabel();
-        gifLabel.setBounds(58, 107, 114, -92);
-
-        // Cargar el archivo GIF utilizando ImageIcon
-        ImageIcon gifIcon = new ImageIcon("hutao-slap.gif");
-
-        // Asignar el icono GIF al JLabel
-        gifLabel.setIcon(new ImageIcon(PantallaBatalla.class.getResource("/imagenes/hutao-slap.gif")));
-
-        // Agregar el JLabel al JFrame
-        add(gifLabel);
+//		// Crear un JLabel para mostrar el GIF
+//        JLabel gifLabel = new JLabel();
+//        gifLabel.setBounds(58, 107, 114, -92);
+//        gifLabel.setIcon(new ImageIcon(PantallaBatalla.class.getResource("https://media.tenor.com/vAvdgJtf_cwAAAAi/hutao-slap.gif")));
+//        add(gifLabel);
         
         JScrollPane panelCombate = new JScrollPane();
         panelCombate.setBounds(233, 132, 346, 341);
@@ -145,19 +132,13 @@ public class PantallaBatalla extends JPanel{
         JTextArea textoCombate = new JTextArea();
         panelCombate.setViewportView(textoCombate);
         textoCombate.setEditable(false);
-        // Crear el jugador
-//      Arma armaJugador = new Arma("Espada", 10); // Nombre y fuerza del arma del jugador
-//      Jugador jugador = new Jugador("Jugador 1", 100, armaJugador); // Nombre, vida y arma del jugador
-//
-//      // Crear el enemigo
-//      Enemigo enemigo = new Enemigo("Enemigo 1", 80, 15); // Nombre, vida y fuerza del enemigo
 
 		  // Simular la batalla hasta que uno de ellos se quede sin vida
-		  while (jugador.getVida() > 0 && enemigo.getVida() > 0) {
+		  while (Jugador.getVida() > 0 && enemigo.getVida() > 0) {
 		      // Ataque del jugador al enemigo
-		  int danioJugador = jugador.getArma().getFuerza(); // Fuerza del arma del jugador
+		  int danioJugador = Jugador.getArma().getFuerza(); // Fuerza del arma del jugador
 		  enemigo.recibirAtaque(danioJugador);
-		  textoCombate.setText( nombreUsuario+ " ataca a " + enemigo.getNombre() + " causando " + danioJugador + " de daño."+ "\n");
+		  textoCombate.setText(nombreUsuario+ " ataca a " + enemigo.getNombre() + " causando " + danioJugador + " de daño."+ "\n");
 		
 		  // Ataque del enemigo al jugador
 		  int danioEnemigo = enemigo.getFuerza();
@@ -165,18 +146,21 @@ public class PantallaBatalla extends JPanel{
 		  textoCombate.append(enemigo.getNombre() + " ataca a " + nombreUsuario + " causando " + danioEnemigo + " de daño."+ "\n");
 		
 		  // Mostrar las vidas actuales
-		  textoCombate.append("Vida de " + nombreUsuario + ": " + jugador.getVida()+ "\n");
+		  textoCombate.append("Vida de " + nombreUsuario + ": " + Jugador.getVida()+ "\n");
 		  textoCombate.append("Vida de " + enemigo.getNombre() + ": " + enemigo.getVida()+ "\n");
 		  textoCombate.append("");
 		  }
 		
 		  // Determinar el resultado de la batalla
-		  if (jugador.getVida() <= 0 && enemigo.getVida() <= 0) {
+		  if (Jugador.getVida() <= 0 && enemigo.getVida() <= 0) {
 		  	textoCombate.append("Ambos jugadores se quedaron sin vida. ¡Es un empate!"+ "\n");
+		  	System.out.println();
 		  } else if (jugador.getVida() <= 0) {
 		  	textoCombate.append(nombreUsuario + " se quedó sin vida. " + enemigo.getNombre() + " gana la batalla."+ "\n");
+		  	System.out.println();
 		  } else {
 		  	textoCombate.append(enemigo.getNombre() + " se quedó sin vida. " + nombreUsuario + " gana la batalla."+ "\n");
+		  	System.out.println();
 		  }
         
         JLabel imagenEnemigo = new JLabel("");
@@ -184,9 +168,9 @@ public class PantallaBatalla extends JPanel{
         add(imagenEnemigo);
         
         JLabel ImagenJugador = new JLabel("");
-        if(jugador.getGenero()=="aether") {
+        if(Jugador.getGenero()=="aether") {
         ImagenJugador.setIcon(new ImageIcon(PantallaBatalla.class.getResource("/imagenes/modificado aether.png")));
-        } else if (jugador.getGenero()=="lumine") {
+        } else if (Jugador.getGenero()=="lumine") {
         ImagenJugador.setIcon(new ImageIcon(PantallaBatalla.class.getResource("/imagenes/Lumine2.png")));	
         }
         
@@ -257,7 +241,8 @@ public class PantallaBatalla extends JPanel{
             int fuerza = enemigo.getFuerza();
 
             // Mostrar los detalles del enemigo en el JTextField
-            String texto = "Nombre: " + nombre + "\n" +
+            String texto = 
+            		"Nombre: " + nombre + "\n" +
                     "Vida: " + vida + "\n" +
                     "Elemento: " + elemento + "\n" +
                     "Fuerza: " + fuerza;
@@ -277,19 +262,19 @@ public class PantallaBatalla extends JPanel{
 //        }
 //    }
 //	
-    public static String getUltimoJugador() throws SQLException {
-        LinkedHashSet<String> columnasSelect = new LinkedHashSet<>();
-        columnasSelect.add("usuario");
-
-        ArrayList<Object> resultado = DAO.consultar("usuario");
-
-        if (!resultado.isEmpty()) {
-            int indexNombre = 0; // Índice de la columna "nombre"
-            return (String) resultado.get(resultado.size() - indexNombre - 1);
-        } else {
-            return "No se encontró el último jugador.";
-        }
-    }
+//    public static String getUltimoJugador() throws SQLException {
+//        LinkedHashSet<String> columnasSelect = new LinkedHashSet<>();
+//        columnasSelect.add("usuario");
+//
+//        ArrayList<Object> resultado = DAO.consultar("usuario");
+//
+//        if (!resultado.isEmpty()) {
+//            int indexNombre = 0; // Índice de la columna "nombre"
+//            return (String) resultado.get(resultado.size() - indexNombre - 1);
+//        } else {
+//            return "No se encontró el último jugador.";
+//        }
+//    }
  }				
 				
 				

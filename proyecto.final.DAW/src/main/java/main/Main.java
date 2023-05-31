@@ -29,13 +29,13 @@ public class Main {
 //	        });
 	    
 		System.out.println();
-		
-		try {
-	        String ultimoJugador = PantallaBatalla.getUltimoJugador();
-	        System.out.println("¡Hola, : " + ultimoJugador+" !");
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+//		
+//		try {
+//	        String ultimoJugador = PantallaBatalla.getUltimoJugador();
+//	        System.out.println("¡Hola, : " + ultimoJugador+" !");
+//	    } catch (SQLException e) {
+//	        e.printStackTrace();
+//	    }
 		
 		System.out.println();
 		

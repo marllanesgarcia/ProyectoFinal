@@ -18,11 +18,11 @@ public class Jugador {
 	private Region region;
 	private byte edad;
 	private float altura;
-	private String genero;
+	private static String genero;
 	private Elemento elemento;
-	private byte vida;
+	private static byte vida;
 	private Talento talento;
-	private Arma arma;
+	private static Arma arma;
 	
 	public Jugador(String nombre, byte edad, float altura, String genero,
 			byte vida, Talento talento, Arma arma) {
@@ -85,10 +85,7 @@ public class Jugador {
 	    return armas;
 	}
 	
-	
-	
-	
-	
+
 	public static Jugador jugadorNuevo(Region region, byte edad, float altura, String genero,
 			Elemento elemento, byte vida, Talento talento, Arma arma) throws SQLException {
 		return new Jugador (region, edad, altura, genero, elemento, vida, talento, arma);
@@ -119,7 +116,7 @@ public class Jugador {
 		this.altura = altura;
 	}
 
-	public String getGenero() {
+	public static String getGenero() {
 		return genero;
 	}
 
@@ -135,7 +132,7 @@ public class Jugador {
 		this.elemento = elemento;
 	}
 
-	public byte getVida() {
+	public static byte getVida() {
 		return vida;
 	}
 
@@ -151,7 +148,7 @@ public class Jugador {
 		this.talento = talento;
 	}
 
-	public Arma getArma() {
+	public static Arma getArma() {
 		return arma;
 	}
 

@@ -36,10 +36,10 @@ public class PantallaHistoria extends JPanel{
 	private JTextArea areaTexto;
 	private int cuidadoLetras = 0;
 	private String[] letras = { "Las diferentes preguntas que van a aparecer a continuacion,",
-			" se desarrollan en un mundo de fantasía llamado Teyvat."+"Dicho mundo está dividido en ocho naciones: "
-			,"Mondstadt (Aire), Liyue (Roca), Inazuma (Electro),"+" Sumeru (Planta), Fontaine (Agua), Snezhnaya (Hielo)."
-			, "Tú, viajero, llegas con la mision de resolver cada pregunta que te van a ir"+" formulando cada habitante que te encuentres."
-			, " PERO CUIDADO..."+" En tu viaje, si no respondes con cuidado..."+"te enfrentaras a enemigos muy fuertes.",
+			" se desarrollan en un mundo de fantasía llamado Teyvat.","Dicho mundo está dividido en ocho naciones: "
+			,"Mondstadt (Aire), Liyue (Roca), Inazuma (Electro),"," Sumeru (Planta), Fontaine (Agua), Snezhnaya (Hielo)."
+			, "Tú, viajero, llegas con la mision de resolver cada pregunta que te van a ir"," formulando cada habitante que te encuentres."
+			, " PERO CUIDADO..."," En tu viaje, si no respondes con cuidado...","te enfrentaras a enemigos muy fuertes.",
 			"Mucha suerte en tu camino, viajero."};
 	
 	public PantallaHistoria(Ventana v) {

@@ -80,11 +80,11 @@ public abstract class DAO {
 			System.out.println(elemento.getClass());
 			// poner una excepcion para que, cuando la clase sea distinta de String y de class, me ponga comillas menos los numeros
 			if(elemento.getClass()!=String.class&&elemento.getClass()!=Character.class&&elemento.getClass()!=Arma.class&&
-					elemento.getClass()!=java.lang.Float.class&&elemento.getClass()!=Elemento.class&&elemento.getClass()!=Talento.class&&elemento.getClass()!=Region.class) { 
+					elemento.getClass()!=Elemento.class&&elemento.getClass()!=Talento.class&&elemento.getClass()!=Region.class&&elemento.getClass()!=Float.class) { 
 				consulta+=elemento+",";
 			} else {
 				consulta+= "'"+elemento+"',";
-				}
+				} 
 			}
 		consulta=consulta.substring(0,consulta.length()-1);
 		consulta+=")";	
