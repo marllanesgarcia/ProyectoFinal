@@ -17,6 +17,9 @@ import java.util.LinkedHashSet;
 import java.util.Map.Entry;
 
 import clases.Arma;
+import enums.Elemento;
+import enums.Region;
+import enums.Talento;
 
 public abstract class DAO {
 
@@ -74,9 +77,10 @@ public abstract class DAO {
 		it=columnas.values().iterator();
 		while (it.hasNext()) {
 			Object elemento=it.next();
-		//	System.out.println(elemento.getClass());
+			System.out.println(elemento.getClass());
 			// poner una excepcion para que, cuando la clase sea distinta de String y de class, me ponga comillas menos los numeros
-			if(elemento.getClass()!=String.class&&elemento.getClass()!=Character.class&&elemento.getClass()!=Enum.class&&elemento.getClass()!=Arma.class) { 
+			if(elemento.getClass()!=String.class&&elemento.getClass()!=Character.class&&elemento.getClass()!=Arma.class&&
+					elemento.getClass()!=java.lang.Float.class&&elemento.getClass()!=Elemento.class&&elemento.getClass()!=Talento.class&&elemento.getClass()!=Region.class) { 
 				consulta+=elemento+",";
 			} else {
 				consulta+= "'"+elemento+"',";
