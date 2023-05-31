@@ -101,7 +101,7 @@ public class PantallaBatalla extends JPanel{
 		
 		datosUsuario = new JTextField();
 		datosUsuario.setEditable(false);
-		String nombreUsuario = null;   // <-----  OJO AQUI
+		String nombreUsuario = null;   // <----   OJO AQUI
 		
 		try {
 			nombreUsuario = getUltimoJugador();
