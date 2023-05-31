@@ -46,6 +46,7 @@ public class PantallaBatalla extends JPanel{
 		setBackground(new Color(0, 0, 0));
 		
 		this.ventana=v;
+		this.ventana.setSize(820,500);
 		setLayout(null);
 		
 		// MUSICA
@@ -68,7 +69,7 @@ public class PantallaBatalla extends JPanel{
 		panelEnemigo.setForeground(new Color(128, 0, 0));
 		panelEnemigo.setBorder(new LineBorder(new Color(128, 0, 0), 3, true));
 		panelEnemigo.setBackground(new Color(0, 0, 0));
-		panelEnemigo.setBounds(64, 107, 154, 49);
+		panelEnemigo.setBounds(100, 107, 154, 49);
 		add(panelEnemigo);
 		
 		JLabel textoEnemigo = new JLabel("Enemigo");
@@ -81,7 +82,7 @@ public class PantallaBatalla extends JPanel{
 		datosEnemigo.setEditable(false);
 		Enemigo enemigo = getEnemigoAlAzar();
         mostrarEnemigo(enemigo);
-		datosEnemigo.setBounds(64, 167, 154, 101);
+		datosEnemigo.setBounds(24, 167, 329, 49);
 		add(datosEnemigo);
 		datosEnemigo.setColumns(10);
 		
@@ -89,7 +90,7 @@ public class PantallaBatalla extends JPanel{
 		panelUsuario.setForeground(new Color(0, 0, 0));
 		panelUsuario.setBorder(new LineBorder(new Color(128, 0, 0), 3, true));
 		panelUsuario.setBackground(new Color(0, 0, 0));
-		panelUsuario.setBounds(589, 107, 154, 49);
+		panelUsuario.setBounds(100, 264, 154, 49);
 		add(panelUsuario);
 		
 		JLabel textoUsuario = new JLabel("Jugador\r\n");
@@ -102,21 +103,21 @@ public class PantallaBatalla extends JPanel{
 		datosUsuario.setEditable(false);
 		String nombreUsuario = null;   //<----- OJO AQUI
 		
-//		try {
-//			nombreUsuario = getUltimoJugador();
-//		} catch (SQLException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
+		try {
+			nombreUsuario = getUltimoJugador();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		datosUsuario.setText(nombreUsuario);             
 		datosUsuario.setColumns(10);
-		datosUsuario.setBounds(589, 167, 154, 62);
+		datosUsuario.setBounds(100, 324, 154, 62);
 		add(datosUsuario);
 		
 		JLabel textoVersus = new JLabel("VS");
 		textoVersus.setForeground(new Color(255, 255, 255));
 		textoVersus.setFont(new Font("MV Boli", Font.BOLD, 32));
-		textoVersus.setBounds(362, 85, 63, 62);
+		textoVersus.setBounds(155, 208, 63, 62);
 		add(textoVersus);
 		
 //		// Crear un JLabel para mostrar el GIF
@@ -126,7 +127,7 @@ public class PantallaBatalla extends JPanel{
 //        add(gifLabel);
         
         JScrollPane panelCombate = new JScrollPane();
-        panelCombate.setBounds(233, 132, 346, 341);
+        panelCombate.setBounds(414, 120, 346, 302);
         add(panelCombate);
         
         JTextArea textoCombate = new JTextArea();
@@ -163,10 +164,6 @@ public class PantallaBatalla extends JPanel{
 		  	System.out.println();
 		  }
         
-        JLabel imagenEnemigo = new JLabel("");
-        imagenEnemigo.setBounds(58, 247, 165, 226);
-        add(imagenEnemigo);
-        
         JLabel ImagenJugador = new JLabel("");
         if(Jugador.getGenero()=="aether") {
         ImagenJugador.setIcon(new ImageIcon(PantallaBatalla.class.getResource("/imagenes/modificado aether.png")));
@@ -174,7 +171,7 @@ public class PantallaBatalla extends JPanel{
         ImagenJugador.setIcon(new ImageIcon(PantallaBatalla.class.getResource("/imagenes/Lumine2.png")));	
         }
         
-        ImagenJugador.setBounds(597, 240, 136, 236);
+        ImagenJugador.setBounds(268, 227, 136, 236);
         add(ImagenJugador);
         setVisible(true);
 
@@ -219,28 +216,21 @@ public class PantallaBatalla extends JPanel{
 	public Enemigo getEnemigoAlAzar() {
         ArrayList<Enemigo> enemigos = getTodos();
 
-        // Verificar si hay enemigos disponibles
         if (enemigos.isEmpty()) {
             return null;
         }
 
-        // Generar un índice aleatorio para seleccionar un enemigo
         Random random = new Random();
         int indiceAleatorio = random.nextInt(enemigos.size());
-
-        // Obtener el enemigo al azar
         return enemigos.get(indiceAleatorio);
     }
 
     public void mostrarEnemigo(Enemigo enemigo) {
         if (enemigo != null) {
-            // Obtener los detalles del enemigo
             String nombre = enemigo.getNombre();
             int vida = enemigo.getVida();
             String elemento = enemigo.getElemento();
             int fuerza = enemigo.getFuerza();
-
-            // Mostrar los detalles del enemigo en el JTextField
             String texto = 
             		"Nombre: " + nombre + "\n" +
                     "Vida: " + vida + "\n" +
@@ -248,33 +238,34 @@ public class PantallaBatalla extends JPanel{
                     "Fuerza: " + fuerza;
 
             datosEnemigo.setText(texto);
+            System.out.println(texto);
         } else {
         	datosEnemigo.setText("No hay enemigos disponibles.");
         }
     }
     
-//    public void mostrarNombreUsuario(String nombreUsuario) {
-//        if (!nombreUsuario.isEmpty()) {
-//            // Mostrar el nombre de usuario en el JTextField
-//            datosUsuario.setText(nombreUsuario);
-//        } else {
-//        	datosUsuario.setText("No se encontró el nombre de usuario.");
-//        }
-//    }
-//	
-//    public static String getUltimoJugador() throws SQLException {
-//        LinkedHashSet<String> columnasSelect = new LinkedHashSet<>();
-//        columnasSelect.add("usuario");
-//
-//        ArrayList<Object> resultado = DAO.consultar("usuario");
-//
-//        if (!resultado.isEmpty()) {
-//            int indexNombre = 0; // Índice de la columna "nombre"
-//            return (String) resultado.get(resultado.size() - indexNombre - 1);
-//        } else {
-//            return "No se encontró el último jugador.";
-//        }
-//    }
+    public void mostrarNombreUsuario(String nombreUsuario) {
+        if (!nombreUsuario.isEmpty()) {
+            // Mostrar el nombre de usuario en el JTextField
+            datosUsuario.setText(nombreUsuario);
+        } else {
+        	datosUsuario.setText("No se encontró el nombre de usuario.");
+        }
+    }
+	
+    public static String getUltimoJugador() throws SQLException {
+        LinkedHashSet<String> columnasSelect = new LinkedHashSet<>();
+        columnasSelect.add("usuario");
+
+        ArrayList<Object> resultado = DAO.consultar("usuario");
+
+        if (!resultado.isEmpty()) {
+            int indexNombre = 0; // Índice de la columna "nombre"
+            return (String) resultado.get(resultado.size() - indexNombre - 1);
+        } else {
+            return "No se encontró el último jugador.";
+        }
+    }
  }				
 				
 				
