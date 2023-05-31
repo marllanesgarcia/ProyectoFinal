@@ -95,7 +95,7 @@ public class PantallaBatalla extends JPanel{
 		panelUsuario.setForeground(new Color(0, 0, 0));
 		panelUsuario.setBorder(new LineBorder(new Color(128, 0, 0), 3, true));
 		panelUsuario.setBackground(new Color(0, 0, 0));
-		panelUsuario.setBounds(579, 107, 154, 49);
+		panelUsuario.setBounds(589, 107, 154, 49);
 		add(panelUsuario);
 		
 		JLabel textoUsuario = new JLabel("Jugador\r\n");
@@ -116,7 +116,7 @@ public class PantallaBatalla extends JPanel{
 		}
 		datosUsuario.setText(nombreUsuario);             
 		datosUsuario.setColumns(10);
-		datosUsuario.setBounds(579, 167, 154, 62);
+		datosUsuario.setBounds(589, 167, 154, 62);
 		add(datosUsuario);
 		
 		JLabel textoVersus = new JLabel("VS");
@@ -139,52 +139,63 @@ public class PantallaBatalla extends JPanel{
         add(gifLabel);
         
         JScrollPane panelCombate = new JScrollPane();
-        panelCombate.setBounds(247, 146, 314, 327);
+        panelCombate.setBounds(233, 132, 346, 341);
         add(panelCombate);
         
         JTextArea textoCombate = new JTextArea();
         panelCombate.setViewportView(textoCombate);
         textoCombate.setEditable(false);
-
-
         // Crear el jugador
-//            Arma armaJugador = new Arma("Espada", 10); // Nombre y fuerza del arma del jugador
-//            Jugador jugador = new Jugador("Jugador 1", 100, armaJugador); // Nombre, vida y arma del jugador
+//      Arma armaJugador = new Arma("Espada", 10); // Nombre y fuerza del arma del jugador
+//      Jugador jugador = new Jugador("Jugador 1", 100, armaJugador); // Nombre, vida y arma del jugador
 //
-//            // Crear el enemigo
-//            Enemigo enemigo = new Enemigo("Enemigo 1", 80, 15); // Nombre, vida y fuerza del enemigo
+//      // Crear el enemigo
+//      Enemigo enemigo = new Enemigo("Enemigo 1", 80, 15); // Nombre, vida y fuerza del enemigo
 
-        // Simular la batalla hasta que uno de ellos se quede sin vida
-        while (jugador.getVida() > 0 && enemigo.getVida() > 0) {
-            // Ataque del jugador al enemigo
-            int danioJugador = jugador.getArma().getFuerza(); // Fuerza del arma del jugador
-            enemigo.recibirAtaque(danioJugador);
-            textoCombate.setText( nombreUsuario+ " ataca a " + enemigo.getNombre() + " causando " + danioJugador + " de daño."+ "\n");
-
-            // Ataque del enemigo al jugador
-            int danioEnemigo = enemigo.getFuerza();
-            jugador.recibirAtaque(danioEnemigo);
-            textoCombate.append(enemigo.getNombre() + " ataca a " + nombreUsuario + " causando " + danioEnemigo + " de daño."+ "\n");
-
-            // Mostrar las vidas actuales
-            textoCombate.append("Vida de " + nombreUsuario + ": " + jugador.getVida()+ "\n");
-            textoCombate.append("Vida de " + enemigo.getNombre() + ": " + enemigo.getVida()+ "\n");
-            textoCombate.append("");
+		  // Simular la batalla hasta que uno de ellos se quede sin vida
+		  while (jugador.getVida() > 0 && enemigo.getVida() > 0) {
+		      // Ataque del jugador al enemigo
+		  int danioJugador = jugador.getArma().getFuerza(); // Fuerza del arma del jugador
+		  enemigo.recibirAtaque(danioJugador);
+		  textoCombate.setText( nombreUsuario+ " ataca a " + enemigo.getNombre() + " causando " + danioJugador + " de daño."+ "\n");
+		
+		  // Ataque del enemigo al jugador
+		  int danioEnemigo = enemigo.getFuerza();
+		  jugador.recibirAtaque(danioEnemigo);
+		  textoCombate.append(enemigo.getNombre() + " ataca a " + nombreUsuario + " causando " + danioEnemigo + " de daño."+ "\n");
+		
+		  // Mostrar las vidas actuales
+		  textoCombate.append("Vida de " + nombreUsuario + ": " + jugador.getVida()+ "\n");
+		  textoCombate.append("Vida de " + enemigo.getNombre() + ": " + enemigo.getVida()+ "\n");
+		  textoCombate.append("");
+		  }
+		
+		  // Determinar el resultado de la batalla
+		  if (jugador.getVida() <= 0 && enemigo.getVida() <= 0) {
+		  	textoCombate.append("Ambos jugadores se quedaron sin vida. ¡Es un empate!"+ "\n");
+		  } else if (jugador.getVida() <= 0) {
+		  	textoCombate.append(nombreUsuario + " se quedó sin vida. " + enemigo.getNombre() + " gana la batalla."+ "\n");
+		  } else {
+		  	textoCombate.append(enemigo.getNombre() + " se quedó sin vida. " + nombreUsuario + " gana la batalla."+ "\n");
+		  }
+        
+        JLabel imagenEnemigo = new JLabel("");
+        imagenEnemigo.setBounds(58, 247, 165, 226);
+        add(imagenEnemigo);
+        
+        JLabel ImagenJugador = new JLabel("");
+        if(jugador.getGenero()=="aether") {
+        ImagenJugador.setIcon(new ImageIcon(PantallaBatalla.class.getResource("/imagenes/modificado aether.png")));
+        } else if (jugador.getGenero()=="lumine") {
+        ImagenJugador.setIcon(new ImageIcon(PantallaBatalla.class.getResource("/imagenes/Lumine2.png")));	
         }
+        
+        ImagenJugador.setBounds(597, 240, 136, 236);
+        add(ImagenJugador);
+        setVisible(true);
 
-        // Determinar el resultado de la batalla
-        if (jugador.getVida() <= 0 && enemigo.getVida() <= 0) {
-        	textoCombate.append("Ambos jugadores se quedaron sin vida. ¡Es un empate!"+ "\n");
-        } else if (jugador.getVida() <= 0) {
-        	textoCombate.append(nombreUsuario + " se quedó sin vida. " + enemigo.getNombre() + " gana la batalla."+ "\n");
-        } else {
-        	textoCombate.append(enemigo.getNombre() + " se quedó sin vida. " + nombreUsuario + " gana la batalla."+ "\n");
-        }
-    }
-	
-	
-	
 	}
+	
 	
 	public static ArrayList<Enemigo> getTodos() {
 	    ArrayList<Enemigo> enemigos = new ArrayList<>();
