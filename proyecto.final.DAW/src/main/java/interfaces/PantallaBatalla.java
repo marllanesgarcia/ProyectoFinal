@@ -125,6 +125,7 @@ public class PantallaBatalla extends JPanel{
 		
 		// Crear un JLabel para mostrar el GIF
         JLabel gifLabel = new JLabel();
+        gifLabel.setBounds(58, 107, 114, -92);
 
         // Cargar el archivo GIF utilizando ImageIcon
         ImageIcon gifIcon = new ImageIcon("hutao-slap.gif");
