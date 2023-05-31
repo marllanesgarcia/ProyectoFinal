@@ -177,6 +177,11 @@ public class PantallaPregunta1 extends JPanel{
 		btnNewButton.setBackground(new Color(147, 112, 219));
 		btnNewButton.setBounds(10, 11, 120, 23);
 		add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(PantallaPregunta1.class.getResource("/imagenes/PantallaPreguntaDefinitiva.png")));
+		lblNewLabel.setBounds(0, 0, 800, 501);
+		add(lblNewLabel);
 
 		/*
 		 * 
