@@ -101,7 +101,7 @@ public class PantallaBatalla extends JPanel{
 		
 		datosUsuario = new JTextField();
 		datosUsuario.setEditable(false);
-		String nombreUsuario = null;   // <----   OJO AQUI
+		String nombreUsuario = null;   //<----- OJO AQUI
 		
 		try {
 			nombreUsuario = getUltimoJugador();
@@ -121,6 +121,26 @@ public class PantallaBatalla extends JPanel{
 		add(lblNewLabel);
 		this.ventana.setSize(820,510);		
 
+		
+		
+        // Crear un JLabel para mostrar el GIF
+        JLabel gifLabel = new JLabel();
+
+        // Cargar el archivo GIF utilizando ImageIcon
+        ImageIcon gifIcon = new ImageIcon("ruta_del_archivo.gif");
+
+        // Asignar el icono GIF al JLabel
+        gifLabel.setIcon(gifIcon);
+
+        // Agregar el JLabel al JFrame
+        add(gifLabel);
+		
+		
+		
+		
+		
+		
+		
 			
 }
 	
