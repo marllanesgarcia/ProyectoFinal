@@ -48,7 +48,7 @@ public class PantallaFinalMalo extends JPanel{
 		});
 		
 		this.ventana=v;
-		this.ventana.setSize(700,500);
+		this.ventana.setSize(789,534);
 		JPanel contenedorTexto = new JPanel();
 		contenedorTexto.setForeground(new Color(128, 0, 0));
 		contenedorTexto.setBounds(0, 0, 770, 492);
@@ -56,8 +56,8 @@ public class PantallaFinalMalo extends JPanel{
 		
 		final JLabel letrasLabel = new JLabel();
 		letrasLabel.setBackground(new Color(0, 0, 0));
-		letrasLabel.setBounds(38, 31, 684, 375);
-		letrasLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+		letrasLabel.setBounds(272, 11, 498, 375);
+		letrasLabel.setFont(new Font("Dubai Medium", Font.BOLD | Font.ITALIC, 16));
 		letrasLabel.setForeground(Color.WHITE);
 		letrasLabel.setHorizontalAlignment(SwingConstants.CENTER);
 	
@@ -67,6 +67,11 @@ public class PantallaFinalMalo extends JPanel{
 		contenedorTexto.setLayout(null);
 		contenedorTexto.add(letrasLabel);
 		add(contenedorTexto);
+		
+		JLabel meme = new JLabel("");
+		meme.setIcon(new ImageIcon(PantallaFinalMalo.class.getResource("/imagenes/memeFinal.png")));
+		meme.setBounds(21, 137, 429, 370);
+		contenedorTexto.add(meme);
 	
 		// Crear y iniciar un hilo para mostrar la historia gradualmente
 					Thread cuidadoThread = new Thread(new Runnable() {

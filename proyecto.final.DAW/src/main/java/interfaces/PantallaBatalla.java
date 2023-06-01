@@ -28,6 +28,8 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ContainerAdapter;
+import java.awt.event.ContainerEvent;
 
 public class PantallaBatalla extends JPanel{
 
@@ -92,7 +94,7 @@ public class PantallaBatalla extends JPanel{
 		panelUsuario.setForeground(new Color(0, 0, 0));
 		panelUsuario.setBorder(new LineBorder(new Color(128, 0, 0), 3, true));
 		panelUsuario.setBackground(new Color(0, 0, 0));
-		panelUsuario.setBounds(100, 264, 154, 49);
+		panelUsuario.setBounds(522, 107, 154, 49);
 		add(panelUsuario);
 		
 		JLabel textoUsuario = new JLabel("Jugador\r\n");
@@ -113,13 +115,13 @@ public class PantallaBatalla extends JPanel{
 		}
 		datosUsuario.setText(nombreUsuario);             
 		datosUsuario.setColumns(10);
-		datosUsuario.setBounds(100, 324, 154, 62);
+		datosUsuario.setBounds(522, 167, 154, 49);
 		add(datosUsuario);
 		
 		JLabel textoVersus = new JLabel("VS");
 		textoVersus.setForeground(new Color(255, 255, 255));
 		textoVersus.setFont(new Font("MV Boli", Font.BOLD, 32));
-		textoVersus.setBounds(155, 208, 63, 62);
+		textoVersus.setBounds(390, 107, 63, 62);
 		add(textoVersus);
 		
 //		// Crear un JLabel para mostrar el GIF
@@ -129,7 +131,7 @@ public class PantallaBatalla extends JPanel{
 //        add(gifLabel);
         
         JScrollPane panelCombate = new JScrollPane();
-        panelCombate.setBounds(414, 120, 346, 302);
+        panelCombate.setBounds(221, 253, 346, 108);
         add(panelCombate);
         
         JTextArea textoCombate = new JTextArea();
@@ -166,14 +168,19 @@ public class PantallaBatalla extends JPanel{
 		  	System.out.println();
 		  }
         
-        JLabel ImagenJugador = new JLabel("");
-        if(Jugador.getGenero()=="aether") {
-        ImagenJugador.setIcon(new ImageIcon(PantallaBatalla.class.getResource("src/main/java/imagenes/modificado aether.png")));
-        } else if (Jugador.getGenero()=="lumine") {
-        ImagenJugador.setIcon(new ImageIcon(PantallaBatalla.class.getResource("src/main/java/imagenes/Lumine2.png")));	
-        }
+        final JLabel ImagenJugador = new JLabel("");
+        ImagenJugador.addContainerListener(new ContainerAdapter() {
+        	@Override
+        	public void componentAdded(ContainerEvent e) {
+        		if(Jugador.getGenero()=="aether") {
+        	        ImagenJugador.setIcon(new ImageIcon(PantallaBatalla.class.getResource("src/main/java/imagenes/modificado aether.png")));
+        	        } else if (Jugador.getGenero()=="lumine") {
+        	        ImagenJugador.setIcon(new ImageIcon(PantallaBatalla.class.getResource("src/main/java/imagenes/Lumine2.png")));	
+        	        }
+        	}
+        });
         
-        ImagenJugador.setBounds(268, 227, 136, 236);
+        ImagenJugador.setBounds(564, 227, 136, 236);
         add(ImagenJugador);
         
         JButton botonNext = new JButton("Siguiente. . .");
@@ -190,7 +197,7 @@ public class PantallaBatalla extends JPanel{
         botonNext.setForeground(new Color(0, 0, 0));
         botonNext.setBackground(new Color(255, 0, 0));
         botonNext.setFont(new Font("Segoe UI Black", Font.BOLD | Font.ITALIC, 15));
-        botonNext.setBounds(92, 415, 179, 34);
+        botonNext.setBounds(322, 415, 179, 34);
         add(botonNext);
         setVisible(true);
 

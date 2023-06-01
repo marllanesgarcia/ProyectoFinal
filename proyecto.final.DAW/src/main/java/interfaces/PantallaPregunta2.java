@@ -34,7 +34,7 @@ public class PantallaPregunta2 extends JPanel{
 		setBackground(new Color(216, 191, 216));
 
 		this.ventana=v;
-		this.ventana.setSize(800,501);
+		this.ventana.setSize(820,538);
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -131,7 +131,7 @@ public class PantallaPregunta2 extends JPanel{
                     
                 } else {
                     JOptionPane.showMessageDialog(ventana, "¡Oh no.... Cagaste!", "Dead", JOptionPane.INFORMATION_MESSAGE);
-                    ventana.cambiarAPantalla(PantallaBatalla2.class);
+                    ventana.cambiarAPantalla(PantallaCuidado.class);
                 }
 				
 			}
@@ -163,6 +163,11 @@ public class PantallaPregunta2 extends JPanel{
 		text2.setFont(new Font("Microsoft YaHei", Font.PLAIN, 13));
 		text2.setText("El Viajero, con la ayuda de sus amigos y aliados, logró encontrar \r\nlas Estatuas de los Siete y liberar a los dioses de su cautiverio. \r\nCon el poder restaurado, los dioses unieron fuerzas una vez más \r\npara enfrentar a El Destructor y finalmente lo derrotaron, \r\ndevolviendo la paz a Teyvat. El Viajero cumplió su misión y\r\npudo encontrar respuestas sobre su pasado y reunirse con su \r\nhermana perdida, estableciendo un nuevo hogar en Teyvat.");
 		descipcion2.setViewportView(text2);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(PantallaPregunta2.class.getResource("/imagenes/fondoPregunta2.png")));
+		lblNewLabel.setBounds(0, 0, 784, 516);
+		add(lblNewLabel);
 //		
 //		JLabel lblNewLabel = new JLabel("");
 //		lblNewLabel.setIcon(new ImageIcon(PantallaPregunta2.class.getResource("/imagenes/fondoPregunta2.jpg")));

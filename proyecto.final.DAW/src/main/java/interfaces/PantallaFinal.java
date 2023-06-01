@@ -56,7 +56,7 @@ public class PantallaFinal extends JPanel{
 		
 		final JLabel letrasLabel = new JLabel();
 		letrasLabel.setBounds(38, 31, 684, 375);
-		letrasLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+		letrasLabel.setFont(new Font("Impact", Font.PLAIN, 16));
 		letrasLabel.setForeground(Color.WHITE);
 		letrasLabel.setHorizontalAlignment(SwingConstants.CENTER);
 	
