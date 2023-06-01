@@ -67,10 +67,15 @@ public class PantallaFinal extends JPanel{
 		contenedorTexto.add(letrasLabel);
 		add(contenedorTexto);
 		
-		JLabel fondo = new JLabel("");
-		fondo.setIcon(new ImageIcon(PantallaFinal.class.getResource("/imagenes/fondoFinaol2.png")));
-		fondo.setBounds(0, 0, 770, 492);
-		contenedorTexto.add(fondo);
+		JLabel meme = new JLabel("");
+		meme.setIcon(new ImageIcon(PantallaFinal.class.getResource("/imagenes/memeDefinitivo.png")));
+		meme.setBounds(10, 280, 231, 201);
+		contenedorTexto.add(meme);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(PantallaFinal.class.getResource("/imagenes/fondoFinaol2.png")));
+		lblNewLabel.setBounds(0, 0, 770, 492);
+		contenedorTexto.add(lblNewLabel);
 		
 //		// MUSICA
 //		
