@@ -59,7 +59,7 @@ public class PantallaPregunta5 extends JPanel{
 		panel.setBackground(new Color(255, 228, 225));
 		add(panel);
 		
-		JLabel lblempiezaElJuego = new JLabel("¡Siguiente Acertijo!");
+		JLabel lblempiezaElJuego = new JLabel("¡Último Acertijo!");
 		lblempiezaElJuego.setBackground(new Color(128, 0, 128));
 		lblempiezaElJuego.setForeground(new Color(128, 0, 128));
 		lblempiezaElJuego.setFont(new Font("DejaVu Sans Condensed", Font.BOLD, 19));
