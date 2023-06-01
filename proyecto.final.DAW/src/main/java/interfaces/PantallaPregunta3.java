@@ -125,7 +125,8 @@ public class PantallaPregunta3 extends JPanel{
 		add(respuesta2);
 		
 		JLabel descripcionAnimo = new JLabel("¡ES TU MOMENTO! Elige una de las dos opciones...\r\n¿Cual será la correcta?");
-		descripcionAnimo.setForeground(new Color(255, 255, 255));
+		descripcionAnimo.setBackground(Color.BLACK);
+		descripcionAnimo.setForeground(Color.BLACK);
 		descripcionAnimo.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
 		descripcionAnimo.setBounds(188, 255, 445, 44);
 		add(descripcionAnimo);
@@ -178,6 +179,11 @@ public class PantallaPregunta3 extends JPanel{
 		text2.setFont(new Font("Microsoft YaHei", Font.PLAIN, 13));
 		text2.setText("Después de una feroz batalla, Alphonse y los alquimistas lograron \r\nrepeler el ataque de los Elementales y proteger su conocimiento \r\ny poder alquímico. Los Elementales, conscientes de su derrota, \r\nse retiraron y acordaron mantener la paz con los Alquimistas. \r\nAmbas facciones reconocieron la importancia de la alquimia y \r\nlos poderes elementales, y trabajaron juntas para promover la \r\nprosperidad y el equilibrio en Teyvat.");
 		descipcion2.setViewportView(text2);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(PantallaPregunta3.class.getResource("/imagenes/pantallaPregunta33.png")));
+		lblNewLabel.setBounds(0, 0, 799, 518);
+		add(lblNewLabel);
 		
 	/*	Label fondoPregunta3 = new JLabel("");
 		try {

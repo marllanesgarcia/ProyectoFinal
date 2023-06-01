@@ -179,6 +179,11 @@ public class PantallaPregunta5 extends JPanel{
 		text2.setText("Los residentes de Arbolinia creían fervientemente en el poder del \r\nÁrbol de los Mil Deseos y lo visitaban regularmente para expresar sus \r\nesperanzas y aspiraciones. Aunque no todos los deseos se cumplían, se creía \r\nque el acto de compartirlos con el árbol inspiraba a las personas a trabajar \r\narduamente para lograr sus metas y encontrar la felicidad en el proceso.");
 		descipcion2.setViewportView(text2);
 		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(PantallaPregunta5.class.getResource("/imagenes/pantallaPregunta5.png")));
+		lblNewLabel.setBounds(0, 0, 778, 485);
+		add(lblNewLabel);
+		
 		
 	}
 }

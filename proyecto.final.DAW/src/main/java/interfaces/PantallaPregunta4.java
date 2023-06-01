@@ -179,6 +179,11 @@ public class PantallaPregunta4 extends JPanel{
 		text2.setText("A medida que los aventureros ingresaban al Santuario de los Sueños, \r\nse encontraban con una dimensión alterna llena de maravillas y \r\nriquezas sin fin. En este reino onírico, sus deseos se materializaban \r\ny podían vivir una vida de lujo y exuberancia. Los aventureros se \r\nvolvían adictos a la ilusión y abandonaban sus responsabilidades \r\nen Teyvat, quedando atrapados para siempre en el Santuario de \r\nlos Sueños, persiguiendo un sueño que nunca se convertiría en \r\nrealidad.");
 		descipcion2.setViewportView(text2);
 		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(PantallaPregunta4.class.getResource("/imagenes/pantallaPregunta44.png")));
+		lblNewLabel.setBounds(0, 0, 800, 521);
+		add(lblNewLabel);
+		
 		/*	JLabel fondoPantalla4 = new JLabel("");
 		try {
 			BufferedImage imagen = ImageIO.read(PantallaPregunta4.class.getResource("/imagenes/pantallaPregunta4.jpg"));
