@@ -255,12 +255,12 @@ public class PantallaBatalla extends JPanel{
 	
     public static String getUltimoJugador() throws SQLException {
         LinkedHashSet<String> columnasSelect = new LinkedHashSet<>();
-        columnasSelect.add("usuario");
+        columnasSelect.add("genero");
 
-        ArrayList<Object> resultado = DAO.consultar("usuario");
+        ArrayList<Object> resultado = DAO.consultarGenero("SELECT genero FROM jugador WHERE genero IS NOT NULL ORDER BY genero DESC LIMIT 1");
 
         if (!resultado.isEmpty()) {
-            int indexNombre = 0; // Índice de la columna "nombre"
+            int indexNombre = 0; 
             return (String) resultado.get(resultado.size() - indexNombre - 1);
         } else {
             return "No se encontró el último jugador.";

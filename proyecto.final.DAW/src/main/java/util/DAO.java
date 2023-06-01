@@ -77,7 +77,6 @@ public abstract class DAO {
 		it=columnas.values().iterator();
 		while (it.hasNext()) {
 			Object elemento=it.next();
-			System.out.println(elemento.getClass());
 			// poner una excepcion para que, cuando la clase sea distinta de String y de class, me ponga comillas menos los numeros
 			if(elemento.getClass()!=String.class&&elemento.getClass()!=Character.class&&elemento.getClass()!=Arma.class&&
 					elemento.getClass()!=Elemento.class&&elemento.getClass()!=Talento.class&&elemento.getClass()!=Region.class&&elemento.getClass()!=Float.class) { 
@@ -128,7 +127,7 @@ public abstract class DAO {
 			Statement smt=conectar();
 			ResultSet cursor=smt.executeQuery(query);
 			ArrayList<Object> fila=new ArrayList<Object>();
-			while(cursor.next()) {  //
+			while(cursor.next()) {  
 				String emailQ=cursor.getString(cursor.findColumn("email"));
 				String contraseñaQ=cursor.getString(cursor.findColumn("password"));
 				String nombreQ=cursor.getString(cursor.findColumn("nombre"));
@@ -141,6 +140,21 @@ public abstract class DAO {
 			desconectar(smt);			
 			return fila;
 	}
+	
+	public static ArrayList<Object> consultarGenero(String query) throws SQLException{
+		
+		Statement smt=conectar();
+		ResultSet cursor=smt.executeQuery(query);
+		ArrayList<Object> fila=new ArrayList<Object>();
+		while(cursor.next()) {
+			String nombreQ=cursor.getString(cursor.findColumn("genero"));
+
+			fila.add(nombreQ);
+			
+		}
+		desconectar(smt);			
+		return fila;
+}
 	
 	public static ArrayList<Object> consultar(String tabla, LinkedHashSet<String> columnasSelect, HashMap<String, Object> restricciones) throws SQLException{
 		Statement smt=conectar();
