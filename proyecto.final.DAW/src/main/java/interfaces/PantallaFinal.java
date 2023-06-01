@@ -55,7 +55,7 @@ public class PantallaFinal extends JPanel{
 		contenedorTexto.setBackground(new Color(175, 238, 238));
 		
 		final JLabel letrasLabel = new JLabel();
-		letrasLabel.setBounds(38, 31, 684, 375);
+		letrasLabel.setBounds(43, 11, 625, 129);
 		letrasLabel.setFont(new Font("Impact", Font.PLAIN, 16));
 		letrasLabel.setForeground(Color.WHITE);
 		letrasLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -66,6 +66,11 @@ public class PantallaFinal extends JPanel{
 		contenedorTexto.setLayout(null);
 		contenedorTexto.add(letrasLabel);
 		add(contenedorTexto);
+		
+		JLabel fondo = new JLabel("");
+		fondo.setIcon(new ImageIcon(PantallaFinal.class.getResource("/imagenes/fondoFinaol2.png")));
+		fondo.setBounds(0, 0, 770, 492);
+		contenedorTexto.add(fondo);
 		
 //		// MUSICA
 //		
@@ -134,7 +139,5 @@ public class PantallaFinal extends JPanel{
 			e.printStackTrace();
 		}
 	}
-	
-		
 	}
 
