@@ -26,10 +26,8 @@ import java.util.Random;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-public class PantallaBatalla extends JPanel{
+public class PantallaBatalla2 extends JPanel{
 
 	private Ventana ventana;
 	private JPanel panel;
@@ -42,7 +40,7 @@ public class PantallaBatalla extends JPanel{
     private JTextField datosEnemigo;
     private JTextField datosUsuario;
 	
-	public PantallaBatalla(Ventana v) {
+	public PantallaBatalla2(Ventana v) {
 		setForeground(new Color(0, 0, 0));
 		setBorder(new LineBorder(new Color(255, 0, 0), 6));
 		setBackground(new Color(0, 0, 0));
@@ -168,30 +166,13 @@ public class PantallaBatalla extends JPanel{
         
         JLabel ImagenJugador = new JLabel("");
         if(Jugador.getGenero()=="aether") {
-        ImagenJugador.setIcon(new ImageIcon(PantallaBatalla.class.getResource("src/main/java/imagenes/modificado aether.png")));
+        ImagenJugador.setIcon(new ImageIcon(PantallaBatalla2.class.getResource("src/main/java/imagenes/modificado aether.png")));
         } else if (Jugador.getGenero()=="lumine") {
-        ImagenJugador.setIcon(new ImageIcon(PantallaBatalla.class.getResource("src/main/java/imagenes/Lumine2.png")));	
+        ImagenJugador.setIcon(new ImageIcon(PantallaBatalla2.class.getResource("src/main/java/imagenes/Lumine2.png")));	
         }
         
         ImagenJugador.setBounds(268, 227, 136, 236);
         add(ImagenJugador);
-        
-        JButton botonNext = new JButton("Siguiente. . .");
-        botonNext.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent e) {
-        		if(Jugador.getVida()>0) {
-				ventana.cambiarAPantalla(PantallaPregunta2.class);
-        	}else {
-        		ventana.cambiarAPantalla(PantallaFinalMalo.class);
-        	}
-        	}
-        });
-        botonNext.setForeground(new Color(0, 0, 0));
-        botonNext.setBackground(new Color(255, 0, 0));
-        botonNext.setFont(new Font("Segoe UI Black", Font.BOLD | Font.ITALIC, 15));
-        botonNext.setBounds(92, 415, 179, 34);
-        add(botonNext);
         setVisible(true);
 
 	}

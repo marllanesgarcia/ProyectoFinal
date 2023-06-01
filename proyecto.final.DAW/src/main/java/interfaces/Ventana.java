@@ -42,10 +42,10 @@ public class Ventana extends JFrame{
 		if(clase.equals(PantallaPregunta3.class)) {
 			this.setContentPane(new PantallaPregunta3(this));
 		}
-		if(clase.equals(PantallaPregunta3.class)) {
+		if(clase.equals(PantallaPregunta4.class)) {
 			this.setContentPane(new PantallaPregunta4(this));
 		}
-		if(clase.equals(PantallaPregunta3.class)) {
+		if(clase.equals(PantallaPregunta5.class)) {
 			this.setContentPane(new PantallaPregunta5(this));
 		}
 		if(clase.equals(PantallaCuidado.class)) {
@@ -53,6 +53,9 @@ public class Ventana extends JFrame{
 		}
 		if(clase.equals(PantallaBatalla.class)) {
 			this.setContentPane(new PantallaBatalla(this));
+		}
+		if(clase.equals(PantallaBatalla2.class)) {
+			this.setContentPane(new PantallaBatalla2(this));
 		}
 		this.getContentPane().setVisible(true);
 	}

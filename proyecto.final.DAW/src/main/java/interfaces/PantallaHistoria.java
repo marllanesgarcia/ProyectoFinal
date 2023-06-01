@@ -45,10 +45,10 @@ public class PantallaHistoria extends JPanel{
 	public PantallaHistoria(Ventana v) {
 		
 		this.ventana=v;
-		this.ventana.setSize(790,500);
+		this.ventana.setSize(788,529);
 		JPanel contenedorTexto = new JPanel();
 		contenedorTexto.setForeground(new Color(0, 0, 128));
-		contenedorTexto.setBounds(0, 0, 770, 492);
+		contenedorTexto.setBounds(0, 0, 772, 492);
 		contenedorTexto.setBackground(new Color(135, 206, 235));
 		
 		final JLabel letrasLabel = new JLabel();
@@ -75,7 +75,7 @@ public class PantallaHistoria extends JPanel{
 		
 		final JButton botonNext = new JButton("Next");
 		botonNext.setBackground(new Color(0, 0, 128));
-		botonNext.setBounds(129, 417, 446, 25);
+		botonNext.setBounds(162, 417, 446, 25);
 		botonNext.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

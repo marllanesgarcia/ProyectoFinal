@@ -72,13 +72,6 @@ public class PantallaLogin extends JPanel{
 		btnNewButton.setBounds(466, 11, 113, 23);
 		add(btnNewButton);
 		
-//		 JButton botonReproducir = new JButton("Reproducir");
-//		botonReproducir.addActionListener(new ActionListener() {
-//		    public void actionPerformed(ActionEvent e) {
-//		        
-//		    }
-//		});
-		
 		descripcion = new JTextField();
 		descripcion.setText("    ¡Introduce un correo y contraseña para empezar la aventura! ☺ ");
 		descripcion.setFont(new Font("Monotype Corsiva", Font.PLAIN, 15));
@@ -105,7 +98,7 @@ public class PantallaLogin extends JPanel{
 		            JOptionPane.showMessageDialog(null, "Por favor, ingresa el correo y la contraseña", "Error", JOptionPane.ERROR_MESSAGE);
 		        } else {
 		            // Los campos se han ingresado correctamente, continuar con la siguiente pantalla
-		            ventana.cambiarAPantalla(PantallaPersonaje.class);
+		            ventana.cambiarAPantalla(PantallaHistoria.class);
 		        }
 		    }
 		});

@@ -131,7 +131,7 @@ public class PantallaPregunta2 extends JPanel{
                     
                 } else {
                     JOptionPane.showMessageDialog(ventana, "¡Oh no.... Cagaste!", "Dead", JOptionPane.INFORMATION_MESSAGE);
-                    ventana.cambiarAPantalla(PantallaCuidado.class);
+                    ventana.cambiarAPantalla(PantallaBatalla2.class);
                 }
 				
 			}

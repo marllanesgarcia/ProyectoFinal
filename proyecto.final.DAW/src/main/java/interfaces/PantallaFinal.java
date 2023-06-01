@@ -12,6 +12,7 @@ import javax.swing.border.LineBorder;
 
 import clases.ReproductorAudio;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -20,24 +21,38 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.awt.GridLayout;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import java.awt.event.ContainerAdapter;
+import java.awt.event.ContainerEvent;
 
 public class PantallaFinal extends JPanel{
 
 	private Ventana ventana;
 	private JTextArea areaTexto;
 	private int cuidadoLetras = 0;
-	private String[] letras = { "CAGASTE MAI FRIEN...", "¡CUIDADO, VIENEN LOS ENEMIGOS...!",
-			"¡¡¡PREPARAOS PARA LA BATALLA MIS VALIENTES...!!!"," ¡QUIEN MUERA ES TONTO Y SE LLEVA UN SUSPENSO!",
-			"A por todas", "Preparados..", "Listos..", "YAAAAAAAA."};
+	private String[] letras = { "¡FELICIDADES, LO HAS CONSEGUIDO!", "Has salvado a todos los habitantes, viajero", "Te enfrentaste a numerosas adversidades",
+			"y fuiste capaz de acabar con cada una de ellas"," pero OJO... no te confíes.", "¿Quién sabe cuando habrá un nuevo peligro..?"};
 	
 	public PantallaFinal(Ventana v) {
+		addContainerListener(new ContainerAdapter() {
+			@Override
+			public void componentAdded(ContainerEvent e) {
+				ReproductorAudio.reproduciroOtro();
+			}
+		});
 		
 		this.ventana=v;
 		this.ventana.setSize(700,500);
 		JPanel contenedorTexto = new JPanel();
+		contenedorTexto.setForeground(new Color(0, 0, 128));
 		contenedorTexto.setBounds(0, 0, 770, 492);
-		contenedorTexto.setBackground(Color.BLACK);
+		contenedorTexto.setBackground(new Color(175, 238, 238));
 		
 		final JLabel letrasLabel = new JLabel();
 		letrasLabel.setBounds(38, 31, 684, 375);
@@ -47,32 +62,19 @@ public class PantallaFinal extends JPanel{
 	
 		Border borde = BorderFactory.createLineBorder(Color.RED, 2);
 		setLayout(null);
-		contenedorTexto.setBorder(borde);
+		contenedorTexto.setBorder(new LineBorder(new Color(0, 0, 128), 4));
 		contenedorTexto.setLayout(null);
 		contenedorTexto.add(letrasLabel);
 		add(contenedorTexto);
 		
-		// MUSICA
-		
-		final JButton botonReproducir = new JButton("Reproducir");
-		botonReproducir.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {
-		        ReproductorAudio.reproduciroOtro();;
-		    }
-		});
-		
-		final JButton botonNext = new JButton("Next");
-		botonNext.setBackground(new Color(192, 192, 192));
-		botonNext.setBounds(129, 417, 446, 25);
-		botonNext.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				ventana.cambiarAPantalla(PantallaBatalla.class);
-			}
-		});
-		botonNext.setForeground(new Color(255, 0, 0));
-		botonNext.setFont(new Font("DejaVu Serif", Font.BOLD | Font.ITALIC, 17));
-		contenedorTexto.add(botonNext);
+//		// MUSICA
+//		
+//		final JButton botonReproducir = new JButton("Reproducir");
+//		botonReproducir.addActionListener(new ActionListener() {
+//		    public void actionPerformed(ActionEvent e) {
+//		        ReproductorAudio.reproduciroOtro();;
+//		    }
+//		});
 		
 		// Crear y iniciar un hilo para mostrar la historia gradualmente
 					Thread cuidadoThread = new Thread(new Runnable() {
@@ -82,7 +84,6 @@ public class PantallaFinal extends JPanel{
 							 SwingUtilities.invokeLater(new Runnable() {
 						            @Override
 						            public void run() {
-						                botonNext.setEnabled(true); // Habilitar el botón Continuar después de mostrar la historia
 						            }
 						        });
 						}
