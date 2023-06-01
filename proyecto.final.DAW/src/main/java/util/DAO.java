@@ -77,7 +77,6 @@ public abstract class DAO {
 		it=columnas.values().iterator();
 		while (it.hasNext()) {
 			Object elemento=it.next();
-			// poner una excepcion para que, cuando la clase sea distinta de String y de class, me ponga comillas menos los numeros
 			if(elemento.getClass()!=String.class&&elemento.getClass()!=Character.class&&elemento.getClass()!=Arma.class&&
 					elemento.getClass()!=Elemento.class&&elemento.getClass()!=Talento.class&&elemento.getClass()!=Region.class&&elemento.getClass()!=Float.class) { 
 				consulta+=elemento+",";

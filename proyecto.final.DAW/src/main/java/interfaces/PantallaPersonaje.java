@@ -243,7 +243,6 @@ public class PantallaPersonaje extends JPanel{
 				lumine.setActionCommand("lumine");
 		        String genero = lumine.getActionCommand();
 
-		        // Guardar la selección en la base de datos
 		        HashMap<String, Object> columnas = new HashMap<>();
 		        columnas.put("genero", genero);
 			}

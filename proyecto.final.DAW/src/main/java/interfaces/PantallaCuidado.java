@@ -74,7 +74,7 @@ public class PantallaCuidado extends JPanel{
 		botonNext.setFont(new Font("DejaVu Serif", Font.BOLD | Font.ITALIC, 17));
 		contenedorTexto.add(botonNext);
 		
-		// Crear y iniciar un hilo para mostrar la historia gradualmente
+		
 					Thread cuidadoThread = new Thread(new Runnable() {
 						@Override
 						public void run() {
@@ -82,7 +82,7 @@ public class PantallaCuidado extends JPanel{
 							 SwingUtilities.invokeLater(new Runnable() {
 						            @Override
 						            public void run() {
-						                botonNext.setEnabled(true); // Habilitar el botón Continuar después de mostrar la historia
+						                botonNext.setEnabled(true); 
 						            }
 						        });
 						}
@@ -99,11 +99,11 @@ public class PantallaCuidado extends JPanel{
 
 				for (String linea : lineas) {
 					mostrarLinea(linea, letrasLabel);
-					Thread.sleep(200); // Pausa de 2 segundos entre cada línea
+					Thread.sleep(200);
 				}
 
 				if (i < letras.length - 1) {
-					Thread.sleep(200); // Pausa de 2 segundos entre cada parte de la historia
+					Thread.sleep(200);
 				}
 			}
 		} catch (InterruptedException e) {
@@ -119,7 +119,7 @@ public class PantallaCuidado extends JPanel{
 
 			historiaLabel.setText(textoVisible.toString());
 			try {
-				Thread.sleep(50); // Pausa de 50 milisegundos entre cada carácter
+				Thread.sleep(50);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

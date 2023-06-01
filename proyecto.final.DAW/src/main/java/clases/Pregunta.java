@@ -13,7 +13,6 @@ public class Pregunta {
         this.respuestasPosibles = respuestasPosibles;
     }
     
-    // Getters y Setters
     public String getDescripcion() {
         return descripcion;
     }

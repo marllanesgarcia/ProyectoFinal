@@ -184,33 +184,6 @@ public class PantallaPregunta4 extends JPanel{
 		lblNewLabel.setBounds(0, 0, 800, 521);
 		add(lblNewLabel);
 		
-		/*	JLabel fondoPantalla4 = new JLabel("");
-		try {
-			BufferedImage imagen = ImageIO.read(PantallaPregunta4.class.getResource("/imagenes/pantallaPregunta4.jpg"));
-			Image enIcono = imagen.getScaledInstance(810, 520, Image.SCALE_SMOOTH);
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-		fondoPantalla4.setBounds(0, 0, 814, 534);
-		add(fondoPantalla4);
-		
-		
-		
-
-	
-		 * 
-		 * JLabel lblFondo = new JLabel("");
-		try {
-			BufferedImage imagen = ImageIO.read(new File("./imagenes/fondo1.png"));
-			Image enIcono = imagen.getScaledInstance(700, 500, Image.SCALE_SMOOTH);
-			lblFondo.setIcon(new ImageIcon(enIcono));
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		lblFondo.setBounds(0, 0, 700, 500);
-		add(lblFondo);
-		 */
-		
 		
 	}
 }

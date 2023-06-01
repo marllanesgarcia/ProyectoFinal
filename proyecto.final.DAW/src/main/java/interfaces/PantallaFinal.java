@@ -76,17 +76,8 @@ public class PantallaFinal extends JPanel{
 		lblNewLabel.setIcon(new ImageIcon(PantallaFinal.class.getResource("/imagenes/fondoFinaol2.png")));
 		lblNewLabel.setBounds(0, 0, 770, 492);
 		contenedorTexto.add(lblNewLabel);
-		
-//		// MUSICA
-//		
-//		final JButton botonReproducir = new JButton("Reproducir");
-//		botonReproducir.addActionListener(new ActionListener() {
-//		    public void actionPerformed(ActionEvent e) {
-//		        ReproductorAudio.reproduciroOtro();;
-//		    }
-//		});
-		
-		// Crear y iniciar un hilo para mostrar la historia gradualmente
+
+	
 					Thread cuidadoThread = new Thread(new Runnable() {
 						@Override
 						public void run() {
@@ -110,11 +101,11 @@ public class PantallaFinal extends JPanel{
 
 				for (String linea : lineas) {
 					mostrarLinea(linea, letrasLabel);
-					Thread.sleep(200); // Pausa de 2 segundos entre cada línea
+					Thread.sleep(200);
 				}
 
 				if (i < letras.length - 1) {
-					Thread.sleep(200); // Pausa de 2 segundos entre cada parte de la historia
+					Thread.sleep(200); 
 				}
 			}
 		} catch (InterruptedException e) {
@@ -130,7 +121,7 @@ public class PantallaFinal extends JPanel{
 
 			historiaLabel.setText(textoVisible.toString());
 			try {
-				Thread.sleep(50); // Pausa de 50 milisegundos entre cada carácter
+				Thread.sleep(50); 
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

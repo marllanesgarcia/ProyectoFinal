@@ -168,12 +168,7 @@ public class PantallaPregunta2 extends JPanel{
 		lblNewLabel.setIcon(new ImageIcon(PantallaPregunta2.class.getResource("/imagenes/fondoPregunta2.png")));
 		lblNewLabel.setBounds(0, 0, 784, 516);
 		add(lblNewLabel);
-//		
-//		JLabel lblNewLabel = new JLabel("");
-//		lblNewLabel.setIcon(new ImageIcon(PantallaPregunta2.class.getResource("/imagenes/fondoPregunta2.jpg")));
-//		lblNewLabel.setBounds(0, 0, 784, 521);
-//		add(lblNewLabel);
-//		
+	
 		
 	}
 }

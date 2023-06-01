@@ -8,14 +8,12 @@ public class Historia {
     private ArrayList<Pregunta> pregunta;
     private String titulo;
     
-    // Constructor
     public Historia(String descripcion, ArrayList<Pregunta> preguntas, String titulo) {
         this.descripcion = descripcion;
         this.pregunta = preguntas;
         this.titulo = titulo;
     }
     
-    // Getters y Setters
     public String getDescripcion() {
         return descripcion;
     }

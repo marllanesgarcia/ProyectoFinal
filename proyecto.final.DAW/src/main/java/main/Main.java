@@ -19,24 +19,6 @@ public class Main {
 		
 		Ventana v=new Ventana();
 			
-//	       SwingUtilities.invokeLater(new Runnable() {
-//	            @Override
-//	            public void run() {
-//	                Batalla batalla = new Batalla();
-//	                batalla.iniciarBatalla();
-//	                batalla.setVisible(true);
-//	            }
-//	        });
-	    
-		System.out.println();
-//		
-//		try {
-//	        String ultimoJugador = PantallaBatalla.getUltimoJugador();
-//	        System.out.println("¡Hola, : " + ultimoJugador+" !");
-//	    } catch (SQLException e) {
-//	        e.printStackTrace();
-//	    }
-		
 		System.out.println();
 		
 		try {

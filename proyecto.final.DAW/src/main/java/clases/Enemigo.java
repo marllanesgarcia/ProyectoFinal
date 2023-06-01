@@ -28,20 +28,16 @@ public class Enemigo extends ElementoConNombre{
 	    ArrayList<Enemigo> enemigos = new ArrayList<>();
 
 	    try {
-	        // Definir las columnas a seleccionar en la consulta
 	        LinkedHashSet<String> columnasSelect = new LinkedHashSet<>();
 	        columnasSelect.add("nombre");
 	        columnasSelect.add("vida");
 	        columnasSelect.add("elemento");
 	        columnasSelect.add("fuerza");
-
-	        // Definir las restricciones de la consulta (si es necesario)
+	        
 	        HashMap<String, Object> restricciones = new HashMap<>();
 
-	        // Realizar la consulta a la base de datos para obtener los resultados
 	        ArrayList<Object> result = DAO.consultar("Enemigo", columnasSelect, restricciones);
 
-	        // Recorrer los resultados y crear instancias de Arma
 	        for (int i = 0; i < result.size(); i += 4) {
 	            String nombre = (String) result.get(i);
 	            int vida = (Integer) result.get(i + 1);
@@ -53,7 +49,6 @@ public class Enemigo extends ElementoConNombre{
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
-	        // Manejar la excepción de SQL
 	    }
 
 	    return enemigos;

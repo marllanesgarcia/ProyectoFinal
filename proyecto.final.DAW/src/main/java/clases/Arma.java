@@ -1,12 +1,7 @@
 package clases;
 
 public class Arma extends ElementoConNombre {
-    /*
-     * una espada corta con fuerza 
-     * 100 y peso 20kg, una chancla con fuerza 10 y peso 1kg, 
-     * un bazooka con fuerza 800 y peso 7kg y escupitajo con fuerza 50 y peso 0kg
-     * 
-     */
+
 	private ElementoConNombre nombre;
 	private int fuerza;
     private int peso;

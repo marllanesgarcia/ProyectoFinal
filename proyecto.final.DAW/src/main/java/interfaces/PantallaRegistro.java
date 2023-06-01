@@ -120,7 +120,7 @@ public class PantallaRegistro extends JPanel{
                 String password = new String(datosPassword.getPassword());
 
                 if (usuario.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                    // Mostrar un mensaje de error o hacer alguna acción para indicar que se deben completar todos los campos
+                    
                     JOptionPane.showMessageDialog(null, "Por favor, completa todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
                 } else {
                     System.out.println(usuario + " : " + password);

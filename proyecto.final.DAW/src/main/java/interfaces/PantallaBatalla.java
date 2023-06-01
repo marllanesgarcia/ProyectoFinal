@@ -137,26 +137,25 @@ public class PantallaBatalla extends JPanel{
         JTextArea textoCombate = new JTextArea();
         panelCombate.setViewportView(textoCombate);
         textoCombate.setEditable(false);
-
-		  // Simular la batalla hasta que uno de ellos se quede sin vida
+        
 		  while (Jugador.getVida() > 0 && enemigo.getVida() > 0) {
-		      // Ataque del jugador al enemigo
-		  int danioJugador = Jugador.getArma().getFuerza(); // Fuerza del arma del jugador
+		      
+		  int danioJugador = Jugador.getArma().getFuerza();
 		  enemigo.recibirAtaque(danioJugador);
 		  textoCombate.setText(nombreUsuario+ " ataca a " + enemigo.getNombre() + " causando " + danioJugador + " de daño."+ "\n");
 		
-		  // Ataque del enemigo al jugador
+		  
 		  int danioEnemigo = enemigo.getFuerza();
 		  jugador.recibirAtaque(danioEnemigo);
 		  textoCombate.append(enemigo.getNombre() + " ataca a " + nombreUsuario + " causando " + danioEnemigo + " de daño."+ "\n");
 		
-		  // Mostrar las vidas actuales
+		  
 		  textoCombate.append("Vida de " + nombreUsuario + ": " + Jugador.getVida()+ "\n");
 		  textoCombate.append("Vida de " + enemigo.getNombre() + ": " + enemigo.getVida()+ "\n");
 		  textoCombate.append("");
 		  }
 		
-		  // Determinar el resultado de la batalla
+		
 		  if (Jugador.getVida() <= 0 && enemigo.getVida() <= 0) {
 		  	textoCombate.append("Ambos jugadores se quedaron sin vida. ¡Es un empate!"+ "\n");
 		  	System.out.println();

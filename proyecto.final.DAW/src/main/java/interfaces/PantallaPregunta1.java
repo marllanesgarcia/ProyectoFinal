@@ -183,22 +183,7 @@ public class PantallaPregunta1 extends JPanel{
 		lblNewLabel.setBounds(0, 0, 800, 501);
 		add(lblNewLabel);
 
-		/*
-		 * 
-		 * final JButton btnNewButton = new JButton("Reproducir");
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				ReproductorAudio.reproducir();
-			}
-		});
-		btnNewButton.setFont(new Font("Microsoft Uighur", Font.PLAIN, 18));
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(147, 112, 219));
-		btnNewButton.setBounds(466, 11, 113, 23);
-		add(btnNewButton);
-		 * 
-		 */
+
 		
 	}
 }

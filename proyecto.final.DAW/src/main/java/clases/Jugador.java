@@ -56,19 +56,15 @@ public class Jugador {
 	    ArrayList<Arma> armas = new ArrayList<>();
 
 	    try {
-	        // Definir las columnas a seleccionar en la consulta
 	        LinkedHashSet<String> columnasSelect = new LinkedHashSet<>();
 	        columnasSelect.add("nombre");
 	        columnasSelect.add("fuerza");
 	        columnasSelect.add("peso");
 
-	        // Definir las restricciones de la consulta (si es necesario)
 	        HashMap<String, Object> restricciones = new HashMap<>();
 
-	        // Realizar la consulta a la base de datos para obtener los resultados
 	        ArrayList<Object> result = DAO.consultar("Arma", columnasSelect, restricciones);
 
-	        // Recorrer los resultados y crear instancias de Arma
 	        for (int i = 0; i < result.size(); i += 3) {
 	            String nombre = (String) result.get(i);
 	            int fuerza = (Integer) result.get(i + 1);
@@ -79,7 +75,6 @@ public class Jugador {
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
-	        // Manejar la excepción de SQL
 	    }
 
 	    return armas;

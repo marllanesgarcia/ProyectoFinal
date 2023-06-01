@@ -90,14 +90,12 @@ public class PantallaLogin extends JPanel{
 		iniciar.addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
-		        String password = cuadroPassword.getText(); // Suponiendo que hay un JTextField llamado "correoTextField" para el campo de correo
-		        String emailAñadido = email.getText(); // Suponiendo que hay un JPasswordField llamado "contrasenaTextField" para el campo de contraseña
+		        String password = cuadroPassword.getText(); 
+		        String emailAñadido = email.getText(); 
 
 		        if (password.isEmpty() || emailAñadido.isEmpty()) {
-		            // Mostrar un mensaje de error o hacer alguna acción para indicar que se deben ingresar ambos campos
 		            JOptionPane.showMessageDialog(null, "Por favor, ingresa el correo y la contraseña", "Error", JOptionPane.ERROR_MESSAGE);
 		        } else {
-		            // Los campos se han ingresado correctamente, continuar con la siguiente pantalla
 		            ventana.cambiarAPantalla(PantallaHistoria.class);
 		        }
 		    }
